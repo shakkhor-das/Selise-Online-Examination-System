@@ -1,6 +1,6 @@
 
 <?php
-  /*
+  
   $hostname = "intern-sls.cdts6wfxxv6z.eu-central-1.rds.amazonaws.com";
   $id = "slsadmin";
   $pass = "EMSAFNgw04ljnyKN4";
@@ -11,8 +11,8 @@
   if($con){
     echo "connected";
   }
-  */
   
+  /*
   $hostname="localhost";
   $id="root";
   $pass="";
@@ -25,6 +25,7 @@
       echo "failed";
   }
  
+  */
 ?>
 
 

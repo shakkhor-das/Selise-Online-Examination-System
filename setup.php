@@ -30,6 +30,7 @@
           setterid int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
           setterfirstname VARCHAR(30) NOT NULL,
           setterlastname VARCHAR(30) NOT NULL,
+          setterUsername VARCHAR(30) NOT NULL,
           setteremail VARCHAR(50) NOT NULL,
           setterpassword VARCHAR(40) NOT NULL
 
@@ -55,6 +56,7 @@
           userid int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
           userfirstname VARCHAR(30) NOT NULL,
           userlastname VARCHAR(30) NOT NULL,
+          userUsername VARCHAR(30) NOT NULL,
           useremail VARCHAR(50) NOT NULL,
           userpassword VARCHAR(40) NOT NULL
 
