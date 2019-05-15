@@ -49,13 +49,15 @@
 	  <div class="container">
 		<h3>Contact Information</h3>
 		<div class="jumbotron">
-			<div class="row">
+			<!--<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">Email</div>
 				<div class="col-sm-8" style="background-color:lavender;">imran1510043@gmail.com</div>
-			</div>
+			</div>-->
 			<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">Mobile No.</div>
-				<div class="col-sm-8" style="background-color:lavender;">+800123456789</div>
+				<div class="col-sm-8" style="background-color:lavender;">
+          <input class="form-control"  placeholder="Enter Mobile No." name="email" style="width:50%">
+        </div>
 			</div>
 		</div>
 	  </div>
@@ -65,23 +67,31 @@
 		<div class="jumbotron">
 			<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">Full Name</div>
-				<div class="col-sm-4" style="background-color:lavender;">Md. Rashidul Islam Imran</div>
+				<div class="col-sm-8" style="background-color:lavender;">
+          <input class="form-control" placeholder="Enter fullname" name="fullname" style="width:50%">
+        </div>
 			</div>
-			<div class="row">
+			<!--<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">User Name</div>
 				<div class="col-sm-8" style="background-color:lavender;">imran7908</div>
-			</div>
+			</div>-->
 			<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">Date of Birth</div>
-				<div class="col-sm-8" style="background-color:lavender;">22/09/1996</div>
+				<div class="col-sm-8" style="background-color:lavender;">
+          <input class="form-control" placeholder="Enter Date of birth" name="birthdate" style="width:50%">
+        </div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">Current Location</div>
-				<div class="col-sm-8" style="background-color:lavender;">Bangladesh</div>
+				<div class="col-sm-8" style="background-color:lavender;">
+          <input class="form-control" placeholder="Enter location" name="location" style="width:50%">
+        </div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">Institution</div>
-				<div class="col-sm-8" style="background-color:lavender;">RUET</div>
+				<div class="col-sm-8" style="background-color:lavender;">
+          <input class="form-control" placeholder="Enter Institution" name="Institution" style="width:50%">
+        </div>
 			</div>
 		</div>
 	  </div>
@@ -113,8 +123,8 @@
 				<div class="col-sm-8" style="background-color:lavender;">
 					<form action="/action_page.php">
 						<div class="form-group">
-						<textarea class="form-control" rows="5" name="text"></textarea>
-						<button style="background-color:lightgreen">Edit</button>
+						<textarea class="form-control" rows="5" name="text"></textarea><br>
+						<button style="background-color:lightblue">Save</button>
 						</div>
 					</form>
 				</div>
