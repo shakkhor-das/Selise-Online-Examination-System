@@ -11,42 +11,45 @@
     <title>Selise Online Exam System </title>
   </head>
   <body>
-      <nav class="navbar bg-light navbar-light navbar-expand-md">
-        <div class="container">
-          <img src="img1/logo1.jpg" class="img-rounded" alt="" class="navbar-brand" style="width:60px;height:60px;">
-          <span class="navbar-text">Online Examination System</span>
-          <button class="navbar-toggler navbar-toogler-right" type="button" data-toggle="collapse" data-target="#navbarnav"><span class="navbar-toggler-icon"></span></button>
-          <div class="collapse navbar-collapse" id="navbarnav">
-          <ul class="navbar-nav mx-auto"style="">
-            <li class="nav-item">
-              <a href="guesthome.php" class="nav-link ">Home</a>
-            </li>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="d-flex flex-grow-1">
+              <a class="navbar-brand d-none d-lg-inline-block" href="#">
+                  <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+                  Online Examination System
 
-            <li class="nav-item">
-              <a href="#" class="nav-link">Test</a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">Tutorial</a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">Login</a>
-            </li>
-
-            <li class="nav-item">
-              <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-              <a href="register.php" class="nav-link">Register</a>
-            </li>
-
-          </ul>
-
+              </a>
+              <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
+                  <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+              </a>
+              <div class="w-100 text-right">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+              </div>
           </div>
-        </div>
+          <div class="collapse navbar-collapse flex-grow-1" id="myNavbar">
+              <ul class="navbar-nav ml-auto flex-nowrap">
+                  <li class="nav-item">
+                      <a href="#" class="nav-link m-2 menu-item nav-active">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#" class="nav-link m-2 menu-item">Test</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#" class="nav-link m-2 menu-item">Tutorial</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="register.php" class="nav-link m-2 menu-item">Register</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#" class="nav-link m-2 menu-item">Login</a>
+                  </li>
+              </ul>
+          </div>
       </nav>
 
     <div class="container">
-        <form action="successRegister.php" class="form-container justify-content-center" method="POST">
+        <form action="successRegister.php" class="form-container" method="POST">
             <div class="form-group">
                 <label for="firstname">First Name</label>
                 <input type="text" id="firstname" placeholder="Firstname" class="form-control form-control-md" name="firstname">
@@ -93,12 +96,8 @@
               </div>
             </div>
 
-            
-
             <div class="form-group">
-              
                 <input type="submit" class="btn btn-primary btn-block">
-
             </div>
 
         </form>
