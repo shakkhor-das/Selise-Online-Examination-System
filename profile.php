@@ -91,32 +91,16 @@
 		<div class="jumbotron">
 			<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">Gender</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-				<select>
-				<option>Male</option>
-				<option>Female</option>
-				</select>
-				</div>
+				<div class="col-sm-8" style="background-color:lavender;">Male</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">Website URL</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-				<select>
-				<option>Facebook</option>
-				<option>Linkedin</option>
-				<option>Twitter</option>
-				</select>
-				</div>
+				<div class="col-sm-8" style="background-color:lavender;">Facebook</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">About Me</div>
 				<div class="col-sm-8" style="background-color:lavender;">
-					<form action="/action_page.php">
-						<div class="form-group">
-						<textarea class="form-control" rows="5" name="text"></textarea>
-						<button style="background-color:lightgreen">Edit</button>
-						</div>
-					</form>
+				hjwvvvvvvvvvvv wvvvvvvvvvvvvvvvvvvvhvwjvhv
 				</div>
 			</div>
 		</div>
