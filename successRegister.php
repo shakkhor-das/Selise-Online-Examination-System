@@ -24,30 +24,34 @@
                 if(mysqli_num_rows($result)>0){
                         header('Location:error.php');    
                 }
+                
                 else if(mysqli_num_rows($result1)>0){
                         header('Location:error.php');
                 }
+                
                 else{
                         $virtualkey=md5(time().$username);
                         $password=md5($password);
                         if($type=="user"){
                                 $sql="INSERT INTO `opai_user`(`userfirstname`, `userlastname`, `useremail`, `userUsername`, `userpassword`, `verificationkey`) VALUES ('$firstname','$lastname','$email','$username','$password','$virtualkey')";
+                                $t=1;
                         }
                         else{
                                 $sql="INSERT INTO `opai_setter`(`setterfirstname`, `setterlastname`, `setteremail`, `setterUsername`, `setterpassword`, `verificationkey`) VALUES ('$firstname','$lastname','$email','$username','$password','$virtualkey')";
+                                $t=2;
                         }
 
                         if(mysqli_query($con,$sql)){
                                 $to=$email;
                                 $subject="Email Verification";
-                                //$message= "<a href='http://localhost/successregistration/verify.php?vk=$virtualkey'>Click here to verify</a>";
+                                //$message= "<a href='http://localhost/successregistration/verify.php?vk=$virtualkey&type=$t'>Click here to verify</a>";
                                 $message=" hi $firstname $lastname,"."\n 
 
                                 Greetings from Online examination. It's our pleasure that you have registered in this site. You are highly welcome!\n
 
                                                         Click the link below to complete your registration.\n
 
-                                                http://localhost/projectselise/verify.php?vk=$virtualkey
+                                                http://localhost/projectselise/verify.php?vk=$virtualkey&type=$t
 
                                 ";
                                 $headers = "fayedbinshowkatanik@gmail.com \r\n";

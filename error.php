@@ -45,13 +45,41 @@
                       <a href="#" class="nav-link m-2 menu-item">Login</a>
                   </li>
               </ul>
-          </div>
+          </div> 
       </nav>
 
 
 
-      <div style="margin:auto">
-        <h1 class="display-1">SOMETHING IS WRONG</h1>
+    <div class="container">
+                                
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="margin-left:42%;margin-top:200px" >
+                            Click Me
+                        </button>
+
+                    
+                        <div class="modal" id="myModal">
+                
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                        
+                            
+                            <div class="modal-header">
+                            
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <p class="font-weight-bold">User name & Email shouldbe unique</p>
+                            </div>
+                            
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                            
+                        </div>
+                        </div>
       </div>
   </body>
 </html>

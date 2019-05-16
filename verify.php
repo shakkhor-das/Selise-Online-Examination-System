@@ -49,3 +49,37 @@
       </nav>
     </body>
 </html>
+
+
+
+
+<?php
+    if(isset($_GET['vk']) and isset($_GET['type'])){
+        include('connection.php');
+        $verificationkey=$_GET['vk'];
+        $type=$_GET['type'];
+        if($type==1){
+            $sql="SELECT verificationkey ,verificationstatus FROM `opai_user` WHERE verificationkey='$verificationkey' AND verificationstatus IS NULL LIMIT 1";
+        }
+        else{
+            $sql="SELECT verificationkey ,verificationstatus FROM `opai_setter` WHERE verificationkey='$verificationkey' AND verificationstatus IS NULL LIMIT 1";
+        }
+
+        $result=mysqli_query($con,$sql);
+        if(mysqli_num_rows($result)==1){
+            $sql="UPDATE `opai_user` SET `verificationstatus`= 1 WHERE verificationkey='$verificationkey' LIMIT 1";
+            if(mysqli_query($con,$sql)){
+                echo "YEP Email verified";
+            }
+            else{
+                echo "Failed";
+            }
+        }
+        else{
+            echo "something went wrong";
+        }
+
+        
+    }
+
+?>
