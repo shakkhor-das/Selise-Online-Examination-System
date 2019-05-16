@@ -45,39 +45,44 @@
     <title>Selise Online Exam System </title>
   </head>
   <body>
-      <nav class="navbar bg-light navbar-light navbar-expand-md">
-        <div class="container">
-          <img src="img/logo1.jpg" class="img-rounded" alt="" class="navbar-brand" style="width:60px;height:60px;">
-          <span class="navbar-text">Online Examination System</span>
-          <button class="navbar-toggler navbar-toogler-right" type="button" data-toggle="collapse" data-target="#navbarnav"><span class="navbar-toggler-icon"></span></button>
-          <div class="collapse navbar-collapse" id="navbarnav">
-          <ul class="navbar-nav mx-auto"style="">
-            <li class="nav-item">
-              <a href="#" class="nav-link ">Home</a>
-            </li>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="d-flex flex-grow-1">
+              <a class="navbar-brand d-none d-lg-inline-block" href="#">
+                  <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+                  Online Examination System
 
-            <li class="nav-item">
-              <a href="#" class="nav-link">Test</a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">Tutorial</a>
-            </li>
-
-            <li class="nav-item">
-              <a href="#" class="nav-link">Signup</a>
-            </li>
-          </ul>
-          <form class="form-inline ml-auto" action="index.html" method="post">
-            <input type="text" name="" value="" placeholder="Email" class="form-control">
-            <input type="password" name="" value="" placeholder="password" class="form-control">
-            <button type="button" class="btn btn-success" name="button">Login</button>
-          </form>
+              </a>
+              <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
+                  <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+              </a>
+              <div class="w-100 text-right">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+              </div>
           </div>
-        </div>
+          <div class="collapse navbar-collapse flex-grow-1" id="myNavbar">
+              <ul class="navbar-nav ml-auto flex-nowrap">
+                  <li class="nav-item">
+                      <a href="#" class="nav-link m-2 menu-item nav-active">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#" class="nav-link m-2 menu-item">Test</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#" class="nav-link m-2 menu-item">Tutorial</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="register.php" class="nav-link m-2 menu-item">Register</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#" class="nav-link m-2 menu-item">Login</a>
+                  </li>
+              </ul>
+          </div>
       </nav>
 	  <div class="container" style="background-color:lavender;">
-		<h1 style="text-align:center;">My Profile</h1>
+		<h1 style="text-align:center; margin-top:01px">My Profile</h1>
 	  </div>
 
     <?php
