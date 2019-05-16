@@ -65,7 +65,7 @@
 
             <div class="form-group">
               <label for="account-type">Select Account Type</label>
-              <select name="Profile Type" id="account-type" class="form-control form-control-md" name="type" required="required">
+              <select id="account-type" name="selectype" class="form-control form-control-md" required="required">
                 <option value="">Choose account type</option>
                 <option value="user">User</option>
                 <option value="setter">Setter</option>
@@ -99,13 +99,13 @@
 
             <div class="form-group">
               <div class="form-check">
-                <input type="checkbox" id="accept-terms" class="form-check-input" name="check"> 
+                <input type="checkbox" id="accept-terms" class="form-check-input" name="check" required="required"> 
                 <label for="accept-terms" class="form-check-label">Accept Terms & Conditions</label>
               </div>
             </div>
 
             <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-block" >
+                <input type="submit" class="btn btn-primary btn-block" name="submit">
             </div>
 
         </form>
@@ -191,4 +191,3 @@
         }
 
 }
-</script>
