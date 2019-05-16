@@ -70,6 +70,7 @@
                             
                             <!-- Modal body -->
                             <div class="modal-body">
+                                <p class="font-weight-bold">Something went wrong</p>
                                 <p class="font-weight-bold">User name & Email shouldbe unique</p>
                             </div>
                             

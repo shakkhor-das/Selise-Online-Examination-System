@@ -69,14 +69,21 @@
         if(mysqli_num_rows($result)==1){
             $sql="UPDATE `opai_user` SET `verificationstatus`= 1 WHERE verificationkey='$verificationkey' LIMIT 1";
             if(mysqli_query($con,$sql)){
-                echo "YEP Email verified";
+                ?>  
+                <script>
+                    alert("Verification account successful");
+                </script>
+                <?php
+                    header('Location:login.php');
+
+                
             }
             else{
-                echo "Failed";
+                header('Location:error.php');
             }
         }
         else{
-            echo "something went wrong";
+            header('Location:error.php');
         }
 
         
