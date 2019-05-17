@@ -105,7 +105,7 @@
             </div>
 
             <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-block" name="submit">
+                <input type="submit" class="btn btn-primary btn-block" value="submit" name="submit">
             </div>
 
         </form>

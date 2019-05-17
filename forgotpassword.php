@@ -1,74 +1,42 @@
 <?php
-    session_start();
+    include('connection.php');
     if(isset($_POST['submit'])){
-        $link='login.php';
-        include('connection.php');
         $email=$_POST['email'];
         $email=mysqli_real_escape_string($con,$email);
         $type=$_POST['selectype'];
-        $password=$_POST['password'];
-        $password=mysqli_real_escape_string($con,$password);
-        $password=md5($password);
-        $error="";
-        if($type=="setter"){
-            $sql="SELECT  `setterUsername`,`setterpassword`,`verificationstatus` FROM `opai_setter` WHERE setteremail='$email' LIMIT 1";
+        if($type=="user"){
+            $sql="SELECT userpassword FROM `opai_user` WHERE useremail='$email' LIMIT 1";
             $res=mysqli_query($con,$sql);
-            if(mysqli_num_rows($res)==1){
-                $tmp=mysqli_fetch_assoc($res);
-                if($tmp["verificationstatus"]==NULL){
-                    echo '<script language="javascript">';
-                    echo 'alert("Please Verify your account first")';
-                    echo '</script>';
-                }
-
-                if($tmp["setterpassword"]!=$password){
-                    echo '<script language="javascript">';
-                    echo 'alert("Password incorrect")';
-                    echo '</script>';
+            if($res){
+                if(mysqli_num_rows($res)==1){
+                    $tmp=mysqli_fetch_assoc($res);
+                    $pass=$tmp["userpassword"];
                 }
                 else{
-                    $_SESSION['username']=$tmp["setterUsername"];
-                    header('Location:loginchecker.php');
+                    echo '<script language="javascript">';
+                    echo 'alert("Email not found")';
+                    echo '</script>';
                 }
-            }
-            else{
-                echo '<script language="javascript">';
-                echo 'alert("Invalid Email")';
-                echo '</script>';
             }
         }
         else{
-            $sql="SELECT  `userUsername`,`userpassword`,`verificationstatus` FROM `opai_user` WHERE useremail='$email' LIMIT 1";
+            $sql="SELECT setterpassword FROM `opai_setter` WHERE setteremail='$email' LIMIT 1";
             $res=mysqli_query($con,$sql);
-            if(mysqli_num_rows($res)==1){
-                $tmp=mysqli_fetch_assoc($res);
-                if($tmp["verificationstatus"]==NULL){
-                    echo '<script language="javascript">';
-                    echo 'alert("Please Verify your account first")';
-                    echo '</script>';
-                }
-                if($tmp["userpassword"]!=$password){
-                    echo '<script language="javascript">';
-                    echo 'alert("Password incorrect")';
-                    echo '</script>';
+            if($res){
+                if(mysqli_num_rows($res)==1){
+                    $tmp=mysqli_fetch_assoc($res);
+                    $pass=$tmp["setterpassword"];
                 }
                 else{
-                    $_SESSION['username']=$tmp["userUsername"];
-                    header('Location:loginchecker.php');
+                    echo '<script language="javascript">';
+                    echo 'alert("Email not found")';
+                    echo '</script>';
                 }
             }
-            else{
-                echo '<script language="javascript">';
-                echo 'alert("Invalid Email")';
-                echo '</script>';
-            }
         }
-        
     }
+
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -119,16 +87,15 @@
           </div>
       </nav>
 
-    <div class="container">
+    <div class="container" style="background-color:#686c72;height:350px;padding:30px">
         
-        <form  action="" class="form-container justify-content-center" style="height:400px" method="POST" name="loginform" onSubmit="return formvalidation()">
+        <form  action="" class="form-container justify-content-center" style="height:257px" method="POST" name="forgotform">
             <div class="form-group">
               <label for="username">Email</label>
-              <input type="text" id="username" placeholder="Email" class="form-control form-control-md" name="email">
+              <input type="text" id="username" placeholder="Please enter your email" class="form-control form-control-md" name="email">
               <div id="erroremail">
               </div>
             </div>
-
 
             <div class="form-group">
               <label for="account-type">Select Account Type</label>
@@ -140,42 +107,11 @@
             </div>
 
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Password" class="form-control form-control-md" name="password" required>
-                <div id="errorpassword"></div>
+                <input type="submit" class="btn btn-primary btn-block" name="submit" value="SEND">
             </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-primary btn-block" name="submit" value="LOGIN">
-            </div>
-            <a href="forgotpassword.php" style="float:right;margin-top:13px;">forgot password?</a>
 
         </form>
     </div>
 
   </body>
 </html>
-
-<script>
-    function formvalidation(){
-        var email = document.forms['loginform']['email'];
-        var password=document.forms['loginform']['password'];
-        var mailformat=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        var erroremail=document.getElementById('erroremail');
-        var errorpassword=document.getElementById('errorpassword');
-        //var erroremail=document.getElementById('erroremail');
-        if(email.value==""){
-            erroremail.textContent="Email is required";
-            erroremail.style.color="red";
-            email.focus();
-            return false; 
-        }
-        if(!email.value.match(mailformat)){
-            erroremail.textContent="Email is invalid";
-            erroremail.style.color="red";
-            email.focus();
-            return false; 
-        }
-    }
-</script>
-
-
