@@ -33,7 +33,7 @@ body {
 }
 
 .card {
-    width: 1000px;
+    width: 700px;
     margin: 75px auto 0;
     background-color: #fff;
     box-shadow: 0 3px 30px rgba(0, 0, 0, .14);
@@ -151,4 +151,19 @@ body {
         display: block;
         margin-bottom: 5px;
     }
+}
+
+#sidebar{
+    width:200px;
+    height:1000px;
+    background-color: #202123;
+    position: fixed;
+    
+}
+
+#sidebar > .list .item{
+    color:white;
+    padding:10px 8px; 
+    font-family:  sans-serif;
+    margin:30px;
 }
