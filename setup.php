@@ -1,4 +1,5 @@
 <?php
+  
   $hostname = "intern-sls.cdts6wfxxv6z.eu-central-1.rds.amazonaws.com";
   $id = "slsadmin";
   $pass = "EMSAFNgw04ljnyKN4";
@@ -15,12 +16,16 @@
     }
   
   
-  */
-
+  
+  /*
   // database created
 
   // setter table creation
-
+  $hostname="localhost";
+  $id="root";
+  $pass="";
+  $db="opai";
+  */
   $con=mysqli_connect($hostname,$id,$pass,$db);
 
   $sql="
@@ -66,6 +71,57 @@
 
         if(mysqli_query($con,$sql)){
           echo "user table created";
+        }
+        else{
+          echo "failed";
+        }
+
+        $sql= "
+
+            CREATE TABLE opai_setter_details(
+              setter_id INT PRIMARY KEY,
+              setter_mobile_no VARCHAR(11),
+              setter_full_name VARCHAR(30),
+              setter_date_of_birth VARCHAR(30),
+              setter_institution VARCHAR(30),
+              setter_gender VARCHAR (10),
+              setter_facebook_url VARCHAR (30),
+              setter_linkedin_url VARCHAR (30),
+              setter_github_url VARCHAR (30),
+              setter_bio TEXT(100),
+              setter_image TEXT(30)  
+              
+            );
+        ";
+
+        if(mysqli_query($con,$sql)){
+          echo "opai_setter_details created";
+        }
+        else{
+          echo "failed";
+        }
+
+
+        $sql= "
+
+            CREATE TABLE opai_user_details(
+              user_id INT PRIMARY KEY,
+              user_mobile_no VARCHAR(11),
+              user_full_name VARCHAR(30),
+              user_date_of_birth VARCHAR(30),
+              user_institution VARCHAR(30),
+              user_gender VARCHAR (10),
+              user_facebook_url VARCHAR (30),
+              user_linkedin_url VARCHAR (30),
+              user_github_url VARCHAR (30),
+              user_bio TEXT(100),
+              user_image TEXT(30)  
+              
+            );
+        ";
+
+        if(mysqli_query($con,$sql)){
+          echo "opai_user_details created";
         }
         else{
           echo "failed";

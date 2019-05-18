@@ -1,3 +1,18 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['username'])){
+        header('Location:login.php');
+    }
+    else{
+        include('connection.php');
+        $username=$_SESSION['username'];
+        $sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
+        $q=mysqli_query($con,$sql);
+        $res=mysqli_fetch_assoc($q);
+    }
+//echo $_SESSION["username"];
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -7,17 +22,19 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/profileedit.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <title>Selise Online Exam System </title>
   </head>
   <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light nav nav-pills">
           <div class="d-flex flex-grow-1">
-              <a class="navbar-brand d-none d-lg-inline-block" href="#">
-                  <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+              <a class="navbar-brand d-none d-lg-inline-block" href="guesthome.php">
+              <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
                   Online Examination System
 
               </a>
-              <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
+              <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="guesthome.php">
                   <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
               </a>
               <div class="w-100 text-right">
@@ -28,125 +45,148 @@
           </div>
           <div class="collapse navbar-collapse flex-grow-1" id="myNavbar">
               <ul class="navbar-nav ml-auto flex-nowrap">
-                  <li class="nav-item">
-                      <a href="#" class="nav-link m-2 menu-item nav-active">Home</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="#" class="nav-link m-2 menu-item">Test</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="#" class="nav-link m-2 menu-item">Tutorial</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="register.php" class="nav-link m-2 menu-item">Register</a>
-                  </li>
-                  <li class="nav-item">
-                      <a href="#" class="nav-link m-2 menu-item">Login</a>
-                  </li>
+                    <li class="nav-item">
+                        <img src="img/rdj.jpg" alt="small pro pic" style=" border-radius: 50%; height:50px;width:50px">
+                    </li>
+                    <li class="nav-item">
+                        <a href="login.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link m-2 menu-item">Test</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link m-2 menu-item">Tutorial</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a href="#" class="nav-link m-2 menu-item">Logout</a>  
+                    </li>
               </ul>
           </div>
-      </nav>
-	  <div class="container" style="background-color:lavender;">
-		<h1 style="text-align:center; margin-top:01px">My Profile</h1>
-	  </div>
-	  <img src="img/prpic.png" class="mx-auto d-block" style="width:150px;height:150px;">
-    <form method="post" enctype="multipart/form-data">
-      <input type="file" name="file" style="margin-left:36%">
-      <input type="submit" name="upload" value="upload" align="center">
+    </nav>
 
-	  <div class="container">
-		<h3>Contact Information</h3>
-		<div class="jumbotron">
-			<!--<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">Email</div>
-				<div class="col-sm-8" style="background-color:lavender;">imran1510043@gmail.com</div>
-			</div>-->
-			<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">Mobile No.</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-          <input class="form-control"  placeholder="Enter Mobile No." name="email" style="width:50%">
-        </div>
-			</div>
-		</div>
-	  </div>
+    
 
-	  <div class="container style="padding:20px">
-		<h3>General Information</h3>
-		<div class="jumbotron">
-			<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">Full Name</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-          <input class="form-control" placeholder="Enter fullname" name="fullname" style="width:50%">
-        </div>
-			</div>
-			<!--<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">User Name</div>
-				<div class="col-sm-8" style="background-color:lavender;">imran7908</div>
-			</div>-->
-			<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">Date of Birth</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-          <input class="form-control" placeholder="Enter Date of birth" name="birthdate" style="width:50%">
-        </div>
-			</div>
-			<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">Current Location</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-          <input class="form-control" placeholder="Enter location" name="location" style="width:50%">
-        </div>
-			</div>
-			<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">Institution</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-          <input class="form-control" placeholder="Enter Institution" name="Institution" style="width:50%">
-        </div>
-			</div>
-		</div>
-	  </div>
+	<div class="wrapper">
+			<nav id="sidebar">
+				<ul class="list-unstyled components">
+						<li class="active">
+							<a href="profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
+						</li>
 
-	  <div class="container">
-		<h3>Additional Information</h3>
-		<div class="jumbotron">
-			<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">Gender</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-				<select>
-				<option>Male</option>
-				<option>Female</option>
-				</select>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">Website URL</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-				<select>
-				<option>Facebook</option>
-				<option>Linkedin</option>
-				<option>Twitter</option>
-				</select>
-				</div>
-			</div>
-      <div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">Link</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-          <input class="form-control" placeholder="Your Link" name="link" style="width:100%">
-        </div>
-			</div>
-			<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">About Me</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-					<form action="/action_page.php">
-						<div class="form-group">
-						<textarea class="form-control" rows="5" name="text"></textarea><br>
-						<button style="background-color:lightblue">Save</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	  </div>
+						<li class="active">
+							<a href="#" data-toggle="collapse" aria-exapnded="false" >My Blogs</a>
+						</li>
+
+						<li class="active">
+							<a href="#" data-toggle="collapse" aria-exapnded="false" >Write a blog</a>
+						</li>
+
+						<li class="active">
+							<a href="#" data-toggle="collapse" aria-exapnded="false" >Settings</a>
+						</li>
+				</ul>
+			</nav>
+
+			<div class="content">
+					<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
+						<i class="fa fa-align-justify"></i> 
+                    </button>
+                    	
+	        </div>
+
+            <div class="card" style="">
+                <div class="card-header">
+										<img src="img/rdj.jpg" alt="Profile Image" class="profile-img">
+								</div>
+								<div id="imageupload">
+									<form action="" method="post" enctype="multipart/form-data">
+											<input type="file" name="image" value="image">
+											<input type="submit" name="submit" value="Upload">
+									</form>
+								</div>
+                <div class="card-body">
+									<form action="" method="post">
+                    <div class="container" style="margin-top:50px">
+                            <h3>Contact Information</h3>
+                                    <div class="jumbotron">
+                        
+                                            <div class="row">
+                                                <div class="col-sm-4" style="background-color:lavender;"><label for="mobile">Mobile No.</label></div>
+																								<div class="col-sm-8" style="background-color:lavender;">
+																									<input type="text" name="mobile">
+																								</div>
+                                            </div>
+                                    </div>
+                    </div>
 
 
+                    <div class="container style="padding:20px">
+                            <h3>General Information</h3>
+                                <div class="jumbotron">
+                                        <div class="row">
+                                                <div class="col-sm-4" style="background-color:lavender;"><label for="fullname">Full Name</label></div>
+																								<div class="col-sm-8" style="background-color:lavender;">
+																								<input type="text" name="full name">
+																								</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4" style="background-color:lavender;"><label for="email">Username</label></div>
+                                            <div class="col-sm-8" style="background-color:lavender;"><?php echo $_SESSION['username']?></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4" style="background-color:lavender;"><label for="email">Date of Birth</label></div>
+                                            <div class="col-sm-8" style="background-color:lavender;">22/09/1996</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4" style="background-color:lavender;"><label for="email">Current Location</label></div>
+                                            <div class="col-sm-8" style="background-color:lavender;">Bangladesh</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-4" style="background-color:lavender;"><label for="email">Institution</label></div>
+                                            <div class="col-sm-8" style="background-color:lavender;">RUET</div>
+                                        </div>
+                                </div>
+                    </div>
+
+                    <div class="container">
+                            <h3>Additional Information</h3>
+                                <div class="jumbotron">
+                                    <div class="row">
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="email">Gender</label></div>
+                                        <div class="col-sm-8" style="background-color:lavender;">Male</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="email">Website Url</label></div>
+                                        <div class="col-sm-8" style="background-color:lavender;">Facebook</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="email">Bio</label></div>
+                                        <div class="col-sm-8" style="background-color:lavender;">
+                                            hjwvvvvvvvvvvv wvvvvvvvvvvvvvvvvvvvhvwjvhv
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+									</form>
+                </div>
+
+            </div>
+            
+            
+    </div>
+    
+       
 
   </body>
 </html>
+
+
+<script>
+    function togglesidemenu(){
+        document.getElementById("sidebar").classList.toggle("active");
+    }
+</script>

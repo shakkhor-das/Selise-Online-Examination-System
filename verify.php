@@ -4,12 +4,19 @@
         $verificationkey=$_GET['vk'];
         $type=$_GET['type'];
         if($type==1){
-            $sql="SELECT verificationkey ,verificationstatus FROM `opai_user` WHERE verificationkey='$verificationkey' AND verificationstatus IS NULL LIMIT 1";
+            $sql="SELECT userid,verificationkey ,verificationstatus FROM `opai_user` WHERE verificationkey='$verificationkey' AND verificationstatus IS NULL LIMIT 1";
 
             $result=mysqli_query($con,$sql);
             if(mysqli_num_rows($result)==1){
                 $sql="UPDATE `opai_user` SET `verificationstatus`= 1 WHERE verificationkey='$verificationkey' LIMIT 1";
                 if(mysqli_query($con,$sql)){
+                    $res=mysqli_fetch_assoc($result);
+                    $id=$res["userid"];
+                    $sql1="INSERT INTO `opai_user_details` (`user_id`) VALUES ('$id')";
+                    $execute=mysqli_query($con,$sql1);
+                    if($execute){
+                        echo "yep";
+                    }
                     header('Location:login.php');
                 }
                 else{
@@ -21,12 +28,16 @@
             }
         }
         else{
-            $sql="SELECT verificationkey ,verificationstatus FROM `opai_setter` WHERE verificationkey='$verificationkey' AND verificationstatus IS NULL LIMIT 1";
+            $sql="SELECT setterid,verificationkey ,verificationstatus FROM `opai_setter` WHERE verificationkey='$verificationkey' AND verificationstatus IS NULL LIMIT 1";
 
             $result=mysqli_query($con,$sql);
             if(mysqli_num_rows($result)==1){
                 $sql="UPDATE `opai_setter` SET `verificationstatus`= 1 WHERE verificationkey='$verificationkey' LIMIT 1";
                 if(mysqli_query($con,$sql)){
+                    $res=mysqli_fetch_assoc($result);
+                    $id=$res["setterid"];
+                    $sql1="INSERT INTO `opai_setter_details` (`setter_id`) VALUES ('$id')";
+                    $execute=mysqli_query($con,$sql1);
                     header('Location:login.php');
                 }
                 else{
