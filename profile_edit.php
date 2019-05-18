@@ -2,36 +2,8 @@
   $_SESSION['username']="fayedanik";
 ?>
 
-<?php
-  if(isset($_FILES['file'])){
-    $name_file = $_FILES['file']['name'];
-    $tmp_name = $_FILES['file']['tmp_name'];
-    $local_image = "img/";
-    move_uploaded_file($tmp_name,$local_image.$name_file);
-    $u=$_SESSION['username'];
-    $con = mysqli_connect("localhost","root","","selise_online_exam");
-    $sql= "UPDATE userprofile SET image = '".$_FILES['file']['name']."' WHERE username = '$u'";
-    $q = mysqli_query($con,$sql);
-  }
- ?>
 
- <?php
-  $g=$_SESSION['username'];
-  $c = mysqli_connect("localhost","root","","selise_online_exam");
-  if(isset($_POST['submit'])){
-    $mobile = mysqli_real_escape_string($c,$_POST['mobile']);
-    $fullname = mysqli_real_escape_string($c,$_POST['fullname']);
-    $birthdate = mysqli_real_escape_string($c,$_POST['birthdate']);
-    $location = mysqli_real_escape_string($c,$_POST['location']);
-    $institution = mysqli_real_escape_string($c,$_POST['institution']);
-    $gender = mysqli_real_escape_string($c,$_POST['gender']);
-    $website = mysqli_real_escape_string($c,$_POST['website']);
-    $link = mysqli_real_escape_string($c,$_POST['link']);
-    $aboutme = mysqli_real_escape_string($c,$_POST['aboutme']);
-    $d="INSERT INTO userprofile (mobile no.,fullname,birthdate,location,institution,gender,website,link,aboutme) VALUES('$mobile','$fullname','$birthdate','$location','$institition','$gender','$website','$link','$aboutme') WHERE username='$g'";
-    mysqli_query($c,$d);
-  }
- ?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -98,99 +70,90 @@
       }
     ?>
 
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" action="profile_edit_php.php">
       <input type="file" name="file" style="margin-left:36%">
       <input type="submit" name="submit" value="upload">
     </form>
-	  <div class="container" style="">
-		<h3>Contact Information</h3>
-		<div class="jumbotron" style="">
-			<!--<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">Email</div>
-				<div class="col-sm-8" style="background-color:lavender;">imran1510043@gmail.com</div>
-			</div>-->
+
+    <form method="post" action="profile_edit_php.php">
+	  <div class="container">
+		<h3>Edit Information</h3>
+		<div class="jumbotron">
 			<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">Mobile No.</div>
 				<div class="col-sm-8" style="background-color:lavender;">
-          <input class="form-control"  placeholder="Enter Mobile No." name="mobile" style="width:50%">
+          <input class="form-control" type="text" placeholder="Enter Mobile No." name="mobile" method="post" style="width:50%">
         </div>
 			</div>
-		</div>
-	  </div>
-
-	  <div class="container style="padding:20px">
-		<h3>General Information</h3>
-		<div class="jumbotron">
-			<div class="row">
+      <div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">Full Name</div>
 				<div class="col-sm-8" style="background-color:lavender;">
-          <input class="form-control" placeholder="Enter fullname" name="fullname" style="width:50%">
+          <input class="form-control" type="text" placeholder="Enter fullname" name="fullname" style="width:50%">
         </div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">Date of Birth</div>
 				<div class="col-sm-8" style="background-color:lavender;">
-          <input class="form-control" placeholder="Enter Date of birth" name="birthdate" style="width:50%">
+          <input class="form-control" type="text" placeholder="Enter Date of birth" name="birthdate" style="width:50%">
         </div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">Current Location</div>
 				<div class="col-sm-8" style="background-color:lavender;">
-          <input class="form-control" placeholder="Enter location" name="location" style="width:50%">
+          <input class="form-control" type="text" placeholder="Enter location" name="location" style="width:50%">
         </div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4" style="background-color:lavender;">Institution</div>
 				<div class="col-sm-8" style="background-color:lavender;">
-          <input class="form-control" placeholder="Enter Institution" name="institution" style="width:50%">
+          <input class="form-control" type="text" placeholder="Enter Institution" name="institution" style="width:50%">
         </div>
-			</div>
-		</div>
-	  </div>
-
-	  <div class="container">
-		<h3>Additional Information</h3>
-		<div class="jumbotron">
-			<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">Gender</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-				<select name="gender">
-				<option>Male</option>
-				<option>Female</option>
-				</select>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">Website URL</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-				<select name="website">
-				<option>Facebook</option>
-				<option>Linkedin</option>
-				<option>Twitter</option>
-				</select>
-				</div>
 			</div>
       <div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">Link</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-          <input class="form-control" placeholder="Your Link" name="link" style="width:100%">
+        <div class="col-sm-4" style="background-color:lavender;">Gender</div>
+        <div class="col-sm-8" style="background-color:lavender;">
+        <select name="gender">
+        <option>Male</option>
+        <option>Female</option>
+        </select>
         </div>
-			</div>
-			<div class="row">
-				<div class="col-sm-4" style="background-color:lavender;">About Me</div>
-				<div class="col-sm-8" style="background-color:lavender;">
-					<form method="post" action="/action_page.php">
-						<div class="form-group">
-						<textarea class="form-control" rows="5" name="aboutme"></textarea><br>
-						</div>
-            <div class="input-group">
-              <button type="submit" name="submit" class="btn btn-outline-info">Save</button>
-            </div>
-					</form>
-				</div>
-			</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4" style="background-color:lavender;">Website URL</div>
+        <div class="col-sm-8" style="background-color:lavender;">
+        <select name="website">
+        <option>Facebook</option>
+        <option>Linkedin</option>
+        <option>Twitter</option>
+        </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4" style="background-color:lavender;">Link</div>
+        <div class="col-sm-8" style="background-color:lavender;">
+          <input class="form-control" type="text" placeholder="Your Link" name="link" style="width:100%">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4" style="background-color:lavender;">About Me</div>
+        <div class="col-sm-8" style="background-color:lavender;">
+          <input class="form-control" type="text" placeholder="Write about yourself" name="aboutme" style="width:100%">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4" style="background-color:lavender;"></div>
+        <div class="col-sm-8" style="background-color:lavender;">
+          <div class="input-group">
+              <button type="submit" name="sub" class="btn" style="background-color:green">Save</button>
+          </div>
+        </div>
+
+      </div>
 		</div>
-  </div>
+	  </div>
+  </form>
+
+
 
   </body>
 </html>
