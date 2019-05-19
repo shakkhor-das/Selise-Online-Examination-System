@@ -27,7 +27,27 @@
                     $ans=mysqli_fetch_assoc($res);
                     $username=$ans["setterUsername"];
                     $forgotkey=rand();
-                    $sql="UPDATE "
+                    $id=$ans["setterid"];
+                    $sql="UPDATE `opai_setter` SET `forgotkey`='$forgotkey' WHERE setterid='$id'";
+                    $q=mysqli_query($con,$sql);
+                    $to=$ans["setteremail"];
+                    $subject="Password recovery";
+                    $message=" hi $firstname $lastname,"."\n 
+
+                                Greetings from Online examination System.\n
+
+                                                        We received password recovery for your account
+                                                            
+                                                        Please enter the code  $forgotkey
+
+                                                
+                    ";
+
+                    $headers = "fayedbinshowkatanik@gmail.com \r\n";
+                    $headers .= "MIME-Version: 1.0\r\n";
+                    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+                    mail($to,$subject,$message);
+                    header('location:login.php');
                 }
                 else{
                     echo '<script language="javascript">';
