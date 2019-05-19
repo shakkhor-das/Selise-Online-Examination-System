@@ -13,7 +13,7 @@
 		$sql="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
 		$q=mysqli_query($con,$sql);
 		$res=mysqli_fetch_assoc($q);
-
+		
 
 ?>
 <!DOCTYPE html>

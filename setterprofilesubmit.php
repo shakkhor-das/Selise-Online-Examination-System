@@ -14,13 +14,15 @@
 			$sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
 		    $q=mysqli_query($con,$sql);
 			$res=mysqli_fetch_assoc($q);
-			$name=$_FILES['file']['name'];
+            $name=$_FILES['file']['name'];
+            echo "$name";
 			$tmp_name=$_FILES['file']['tmp_name'];
 			$des='img/';
             move_uploaded_file($tmp_name,$des.$name);
             $id=$res["setterid"];
             $sql="UPDATE opai_setter_details SET setter_image = '".$_FILES['file']['name']."' WHERE setter_id = '$id'";
             if(mysqli_query($con,$sql)){
+                //echo "successfulll";
                 header('Location:profile_edit.php');
             }
 			else{

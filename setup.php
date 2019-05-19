@@ -37,7 +37,11 @@
           setterlastname VARCHAR(30) NOT NULL,
           setterUsername VARCHAR(30) NOT NULL,
           setteremail VARCHAR(50) NOT NULL,
-          setterpassword VARCHAR(40) NOT NULL
+          setterpassword VARCHAR(40) NOT NULL,
+          verificationkey VARCHAR(50) NOT NULL,
+          verificationstatus TINYINT(1) NULL,
+          forgotkey VARCHAR(30) NOT NULL,
+          uniquedate TIMESTAMP(6) NOT NULL
 
         );
   
@@ -63,7 +67,10 @@
           userlastname VARCHAR(30) NOT NULL,
           userUsername VARCHAR(30) NOT NULL,
           useremail VARCHAR(50) NOT NULL,
-          userpassword VARCHAR(40) NOT NULL
+          userpassword VARCHAR(40) NOT NULL,
+          verificationstatus TINYINT(1) NULL,
+          forgotkey VARCHAR(30) NOT NULL,
+          uniquedate TIMESTAMP(6) NOT NULL
 
         );
       
@@ -110,6 +117,7 @@
               user_mobile_no VARCHAR(11),
               user_full_name VARCHAR(30),
               user_date_of_birth VARCHAR(30),
+              user_current_location VARCHAR(30),
               user_institution VARCHAR(30),
               user_gender VARCHAR (10),
               user_facebook_url VARCHAR (30),
@@ -117,7 +125,6 @@
               user_github_url VARCHAR (30),
               user_bio TEXT(100),
               user_image TEXT(30)  
-              
             );
         ";
 
