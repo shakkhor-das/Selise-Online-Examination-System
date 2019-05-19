@@ -52,7 +52,7 @@
                     <li class="nav-item">
                         <?php
 								$directory="img/";
-								echo '<img class="profile-img" width:"50px" height="50px" alter="Image" src = "'.$directory.$res1["setter_image"].'">';						
+								echo '<img class="profile-img" width:"50px" height="50px" alter="Image" src = "'.$directory.$res1["setter_image"].'">';
 						?>
                     </li>
                     <li class="nav-item">
@@ -67,15 +67,15 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link m-2 menu-item">Tutorial</a>
                     </li>
-                    
+
                     <li class="nav-item">
-                        <a href="logout.php" class="nav-link m-2 menu-item">Logout</a>  
+                        <a href="logout.php" class="nav-link m-2 menu-item">Logout</a>
                     </li>
               </ul>
           </div>
     </nav>
 
-    
+
 
 	<div class="wrapper">
 			<nav id="sidebar">
@@ -93,16 +93,16 @@
 						</li>
 
 						<li class="active">
-							<a href="#" data-toggle="collapse" aria-exapnded="false" >Settings</a>
+							<a href="settings.php" aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
 			</nav>
 
 			<div class="content">
 					<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
-						<i class="fa fa-align-justify"></i> 
+						<i class="fa fa-align-justify"></i>
                     </button>
-                    	
+
 	        </div>
 
             <div class="card" style="">
@@ -110,11 +110,11 @@
                     <img src="img/rdj.jpg" alt="Profile Image" class="profile-img">
                         <?php
 								$directory="img/";
-								echo '<img class="profile-img" src = "'.$directory.$res1["setter_image"].'">';						
+								echo '<img class="profile-img" src = "'.$directory.$res1["setter_image"].'">';
 						?>
                 </div>
                 <div class="card-body">
-                
+
                     <div class="container" style="margin-top:50px">
                             <h3>Contact Information</h3>
                                     <div class="jumbotron">
@@ -128,7 +128,7 @@
                                                     <?php
                                                         echo $res1["setter_mobile_no"];
                                                     ?>
-                                                
+
                                                 </div>
                                             </div>
                                     </div>
@@ -226,11 +226,11 @@
                 </div>
 
             </div>
-            
-            
+
+
     </div>
-    
-       
+
+
 
   </body>
 </html>

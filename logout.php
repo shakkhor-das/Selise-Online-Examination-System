@@ -1,6 +1,6 @@
-<?php   
+<?php
 session_start();
 session_destroy();
-header('location:/projectselise/login.php'); 
+header('location:/selise_online_exam/login.php'); 
 exit();
 ?>

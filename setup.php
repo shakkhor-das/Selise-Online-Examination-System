@@ -1,10 +1,10 @@
 <?php
-  
-  $hostname = "intern-sls.cdts6wfxxv6z.eu-central-1.rds.amazonaws.com";
+
+  /*$hostname = "intern-sls.cdts6wfxxv6z.eu-central-1.rds.amazonaws.com";
   $id = "slsadmin";
   $pass = "EMSAFNgw04ljnyKN4";
-  $db="opai";
-  
+  $db="opai";*/
+
   // Database creation
   /*
     $sql="create database opai";
@@ -13,11 +13,11 @@
     }
     else{
       echo "failed";
-    }
-  
-  
-  
-  /*
+    }*/
+
+
+
+
   // database created
 
   // setter table creation
@@ -25,11 +25,11 @@
   $id="root";
   $pass="";
   $db="opai";
-  */
+
   $con=mysqli_connect($hostname,$id,$pass,$db);
 
   $sql="
-  
+
         CREATE TABLE opai_setter(
 
           setterid int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -44,7 +44,7 @@
           uniquedate TIMESTAMP(6) NOT NULL
 
         );
-  
+
       ";
 
       if(mysqli_query($con,$sql)){
@@ -59,7 +59,7 @@
 
       // user table creation
       $sql="
-      
+
         CREATE TABLE opai_user(
 
           userid int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -73,7 +73,7 @@
           uniquedate TIMESTAMP(6) NOT NULL
 
         );
-      
+
       ";
 
         if(mysqli_query($con,$sql)){
@@ -97,8 +97,8 @@
               setter_linkedin_url VARCHAR (30),
               setter_github_url VARCHAR (30),
               setter_bio TEXT(100),
-              setter_image TEXT(30)  
-              
+              setter_image TEXT(30)
+
             );
         ";
 
@@ -124,7 +124,7 @@
               user_linkedin_url VARCHAR (30),
               user_github_url VARCHAR (30),
               user_bio TEXT(100),
-              user_image TEXT(30)  
+              user_image TEXT(30)
             );
         ";
 
@@ -134,5 +134,5 @@
         else{
           echo "failed";
         }
-  
+
 ?>

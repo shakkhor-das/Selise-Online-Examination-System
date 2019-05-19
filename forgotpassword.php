@@ -27,7 +27,7 @@
                     $ans=mysqli_fetch_assoc($res);
                     $username=$ans["setterUsername"];
                     $forgotkey=rand();
-                    $sql="UPDATE "
+                    //$sql="UPDATE "
                 }
                 else{
                     echo '<script language="javascript">';
@@ -90,7 +90,7 @@
       </nav>
 
     <div class="container" style="background-color:#686c72;height:350px;padding:30px">
-        
+
         <form  action="" class="form-container justify-content-center" style="height:257px" method="POST" name="forgotform">
             <div class="form-group">
               <label for="username">Email</label>

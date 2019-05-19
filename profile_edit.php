@@ -3,8 +3,8 @@
     session_start();
     if(!isset($_SESSION['username'])){
         header('Location:login.php');
-		}		
-		
+		}
+
 		$username=$_SESSION["username"];
 		$sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
     $q=mysqli_query($con,$sql);
@@ -13,7 +13,7 @@
 		$sql="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
 		$q=mysqli_query($con,$sql);
 		$res=mysqli_fetch_assoc($q);
-		
+
 
 ?>
 <!DOCTYPE html>
@@ -51,7 +51,7 @@
                     <li class="nav-item">
 												<?php
 													$directory="img/";
-													echo '<img class="profile-img" width:"50px" height="50px" alter="Image" src = "'.$directory.$res["setter_image"].'">';						
+													echo '<img class="profile-img" width:"50px" height="50px" alter="Image" src = "'.$directory.$res["setter_image"].'">';
 												?>
                     </li>
                     <li class="nav-item">
@@ -66,15 +66,15 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link m-2 menu-item">Tutorial</a>
                     </li>
-                    
+
                     <li class="nav-item">
-                        <a href="logout.php" class="nav-link m-2 menu-item">Logout</a>  
+                        <a href="logout.php" class="nav-link m-2 menu-item">Logout</a>
                     </li>
               </ul>
           </div>
     </nav>
 
-    
+
 
 	<div class="wrapper">
 			<nav id="sidebar">
@@ -92,16 +92,16 @@
 						</li>
 
 						<li class="active">
-							<a href="#" data-toggle="collapse" aria-exapnded="false" >Settings</a>
+							<a href="settings.php"  aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
 			</nav>
 
 			<div class="content">
 					<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
-						<i class="fa fa-align-justify"></i> 
+						<i class="fa fa-align-justify"></i>
                     </button>
-                    	
+
 	        </div>
 
             <div class="card" style="">
@@ -109,7 +109,7 @@
 										<img src="img/rdj.jpg" alt="Profile Image" class="profile-img">
 										<?php
 													$directory="img/";
-													echo '<img class="profile-img" src = "'.$directory.$res["setter_image"].'">';						
+													echo '<img class="profile-img" src = "'.$directory.$res["setter_image"].'">';
 										?>
 								</div>
 								<div id="imageupload">
@@ -123,7 +123,7 @@
                     <div class="container" style="margin-top:50px">
                             <h3>Contact Information</h3>
                                     <div class="jumbotron">
-                        
+
                                             <div class="row">
                                                 <div class="col-sm-4" style="background-color:lavender;"><label for="mobile">Mobile No.</label></div>
 																								<div class="col-sm-8" style="background-color:lavender;">
@@ -143,7 +143,7 @@
 																								<input type="text" name="fullname">
 																								</div>
                                         </div>
-                                        
+
                                         <div class="row">
                                             <div class="col-sm-4" style="background-color:lavender;"><label for="dateofbirth">Date of Birth</label></div>
 																						<div class="col-sm-8" style="background-color:lavender;">
@@ -153,7 +153,7 @@
                                         <div class="row">
                                             <div class="col-sm-4" style="background-color:lavender;"><label for="currentlocaton">Current Location</label></div>
 																						<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="text" name="currentlocation">	
+																								<input type="text" name="currentlocation">
 																						</div>
                                         </div>
                                         <div class="row">
@@ -203,17 +203,17 @@
                                     </div>
                                 </div>
 										</div>
-										
+
 										<input type="submit" class="btn btn-success" name="update" value="Save Changes">
 									</form>
                 </div>
 
             </div>
-            
-            
+
+
     </div>
-    
-       
+
+
 
   </body>
 </html>
@@ -229,7 +229,7 @@
 
 <?php
 		//include('connection.php');
-		
+
 
 
 ?>
