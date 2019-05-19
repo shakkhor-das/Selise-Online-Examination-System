@@ -20,12 +20,14 @@
             }
         }
         else{
-            $sql="SELECT setterpassword FROM `opai_setter` WHERE setteremail='$email' LIMIT 1";
+            $sql="SELECT * FROM `opai_setter` WHERE setteremail='$email' LIMIT 1";
             $res=mysqli_query($con,$sql);
             if($res){
                 if(mysqli_num_rows($res)==1){
-                    $tmp=mysqli_fetch_assoc($res);
-                    $pass=$tmp["setterpassword"];
+                    $ans=mysqli_fetch_assoc($res);
+                    $username=$ans["setterUsername"];
+                    $forgotkey=rand();
+                    $sql="UPDATE "
                 }
                 else{
                     echo '<script language="javascript">';

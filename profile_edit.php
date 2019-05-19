@@ -1,16 +1,19 @@
 <?php
+		include('connection.php');
     session_start();
     if(!isset($_SESSION['username'])){
         header('Location:login.php');
-    }
-    else{
-        include('connection.php');
-        $username=$_SESSION['username'];
-        $sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
-        $q=mysqli_query($con,$sql);
-        $res=mysqli_fetch_assoc($q);
-    }
-//echo $_SESSION["username"];
+		}		
+		
+		$username=$_SESSION["username"];
+		$sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
+    $q=mysqli_query($con,$sql);
+		$res=mysqli_fetch_assoc($q);
+		$id=$res["setterid"];
+		$sql="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
+		$q=mysqli_query($con,$sql);
+		$res=mysqli_fetch_assoc($q);
+		
 
 ?>
 <!DOCTYPE html>
@@ -46,7 +49,10 @@
           <div class="collapse navbar-collapse flex-grow-1" id="myNavbar">
               <ul class="navbar-nav ml-auto flex-nowrap">
                     <li class="nav-item">
-                        <img src="img/rdj.jpg" alt="small pro pic" style=" border-radius: 50%; height:50px;width:50px">
+												<?php
+													$directory="img/";
+													echo '<img class="profile-img" width:"50px" height="50px" alter="Image" src = "'.$directory.$res["setter_image"].'">';						
+												?>
                     </li>
                     <li class="nav-item">
                         <a href="login.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
@@ -62,7 +68,7 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a href="#" class="nav-link m-2 menu-item">Logout</a>  
+                        <a href="logout.php" class="nav-link m-2 menu-item">Logout</a>  
                     </li>
               </ul>
           </div>
@@ -74,7 +80,7 @@
 			<nav id="sidebar">
 				<ul class="list-unstyled components">
 						<li class="active">
-							<a href="profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
+							<a href="setterprofile.php"  aria-exapnded="false" >My Profile</a>
 						</li>
 
 						<li class="active">
@@ -101,15 +107,19 @@
             <div class="card" style="">
                 <div class="card-header">
 										<img src="img/rdj.jpg" alt="Profile Image" class="profile-img">
+										<?php
+													$directory="img/";
+													echo '<img class="profile-img" src = "'.$directory.$res["setter_image"].'">';						
+										?>
 								</div>
 								<div id="imageupload">
-									<form action="" method="post" enctype="multipart/form-data">
+									<form action="setterprofilesubmit.php" method="post" enctype="multipart/form-data">
 											<input type="file" name="file" value="image">
 											<input type="submit" name="submit" value="Upload">
 									</form>
 								</div>
                 <div class="card-body">
-									<form action="setterprofile.php" method="post">
+									<form action="setterprofilesubmit.php" method="post">
                     <div class="container" style="margin-top:50px">
                             <h3>Contact Information</h3>
                                     <div class="jumbotron">
@@ -162,8 +172,8 @@
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="gender">Gender</label></div>
 																				<div class="col-sm-8" style="background-color:lavender;">
 																					<select name="gender" id="">
-																							<option value="1">Male</option>
-																							<option value="2">Female</option>
+																							<option value="Male">Male</option>
+																							<option value="Female">Female</option>
 																					</select>
 																				</div>
                                     </div>
@@ -194,7 +204,7 @@
                                 </div>
 										</div>
 										
-										<input type="submit" class="btn btn-success" name="update" value="Update">
+										<input type="submit" class="btn btn-success" name="update" value="Save Changes">
 									</form>
                 </div>
 
@@ -218,17 +228,8 @@
 
 
 <?php
-		include('connection.php');
-		if(isset($_FILES['file'])){
-				$name=$_FILES['file']['name'];
-				$tmp_name=$_FILES['file']['tmp_name'];
-				$des='img/';
-				move_uploaded_file($tmp_name,$des.$name);
-				//$sql="UPDATE opai_setter_details SET setter_image = '".$_FILES['file']['name']."' WHERE setter_id = '$res["setter_id"]'";
-				if(mysqli_query($con,$sql)){
-						echo "yes";
-				}
-		}
+		//include('connection.php');
+		
 
 
 ?>
