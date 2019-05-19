@@ -83,6 +83,7 @@
               setter_mobile_no VARCHAR(11),
               setter_full_name VARCHAR(30),
               setter_date_of_birth VARCHAR(30),
+              setter_current_location VARCHAR(30),
               setter_institution VARCHAR(30),
               setter_gender VARCHAR (10),
               setter_facebook_url VARCHAR (30),

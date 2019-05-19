@@ -9,6 +9,10 @@
         $sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
         $q=mysqli_query($con,$sql);
         $res=mysqli_fetch_assoc($q);
+        $id=$res["setterid"];
+        $sql1="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
+        $q1=mysqli_query($con,$sql1);
+        $res1=mysqli_fetch_assoc($q1);
     }
 //echo $_SESSION["username"];
 
@@ -46,7 +50,10 @@
           <div class="collapse navbar-collapse flex-grow-1" id="myNavbar">
               <ul class="navbar-nav ml-auto flex-nowrap">
                     <li class="nav-item">
-                        <img src="img/rdj.jpg" alt="small pro pic" style=" border-radius: 50%; height:50px;width:50px">
+                        <?php
+								$directory="img/";
+								echo '<img class="profile-img" width:"50px" height="50px" alter="Image" src = "'.$directory.$res1["setter_image"].'">';						
+						?>
                     </li>
                     <li class="nav-item">
                         <a href="login.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
@@ -62,7 +69,7 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a href="#" class="nav-link m-2 menu-item">Logout</a>  
+                        <a href="logout.php" class="nav-link m-2 menu-item">Logout</a>  
                     </li>
               </ul>
           </div>
@@ -101,6 +108,10 @@
             <div class="card" style="">
                 <div class="card-header">
                     <img src="img/rdj.jpg" alt="Profile Image" class="profile-img">
+                        <?php
+								$directory="img/";
+								echo '<img class="profile-img" src = "'.$directory.$res1["setter_image"].'">';						
+						?>
                 </div>
                 <div class="card-body">
                 
@@ -112,8 +123,13 @@
                                                 <div class="col-sm-8" style="background-color:lavender;"><?php echo $res["setteremail"]?></div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-sm-4" style="background-color:lavender;"><label for="email">Mobile No.</label></div>
-                                                <div class="col-sm-8" style="background-color:lavender;">+800123456789</div>
+                                                <div class="col-sm-4" style="background-color:lavender;"><label for="mobile">Mobile No.</label></div>
+                                                <div class="col-sm-8" style="background-color:lavender;">
+                                                    <?php
+                                                        echo $res1["setter_mobile_no"];
+                                                    ?>
+                                                
+                                                </div>
                                             </div>
                                     </div>
                     </div>
@@ -123,24 +139,40 @@
                             <h3>General Information</h3>
                                 <div class="jumbotron">
                                         <div class="row">
-                                                <div class="col-sm-4" style="background-color:lavender;"><label for="email">Full Name</label></div>
-                                                <div class="col-sm-8" style="background-color:lavender;">Md. Rashidul Islam Imran</div>
+                                                <div class="col-sm-4" style="background-color:lavender;"><label for="fullname">Full Name</label></div>
+                                                <div class="col-sm-8" style="background-color:lavender;">
+                                                    <?php
+                                                        echo $res1["setter_full_name"];
+                                                    ?>
+                                                </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-4" style="background-color:lavender;"><label for="email">Username</label></div>
+                                            <div class="col-sm-4" style="background-color:lavender;"><label for="username">Username</label></div>
                                             <div class="col-sm-8" style="background-color:lavender;"><?php echo $_SESSION['username']?></div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-4" style="background-color:lavender;"><label for="email">Date of Birth</label></div>
-                                            <div class="col-sm-8" style="background-color:lavender;">22/09/1996</div>
+                                            <div class="col-sm-4" style="background-color:lavender;"><label for="dateofbirth">Date of Birth</label></div>
+                                            <div class="col-sm-8" style="background-color:lavender;">
+                                                <?php
+                                                    echo $res1["setter_date_of_birth"];
+                                                ?>
+                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-4" style="background-color:lavender;"><label for="email">Current Location</label></div>
-                                            <div class="col-sm-8" style="background-color:lavender;">Bangladesh</div>
+                                            <div class="col-sm-4" style="background-color:lavender;"><label for="currentlocation">Current Location</label></div>
+                                            <div class="col-sm-8" style="background-color:lavender;">
+                                                <?php
+                                                    echo $res1["setter_current_location"];
+                                                ?>
+                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-4" style="background-color:lavender;"><label for="email">Institution</label></div>
-                                            <div class="col-sm-8" style="background-color:lavender;">RUET</div>
+                                            <div class="col-sm-4" style="background-color:lavender;"><label for="institution">Institution</label></div>
+                                            <div class="col-sm-8" style="background-color:lavender;">
+                                                <?php
+                                                    echo $res1["setter_institution"];
+                                                ?>
+                                            </div>
                                         </div>
                                 </div>
                     </div>
@@ -149,17 +181,43 @@
                             <h3>Additional Information</h3>
                                 <div class="jumbotron">
                                     <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="email">Gender</label></div>
-                                        <div class="col-sm-8" style="background-color:lavender;">Male</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="email">Website Url</label></div>
-                                        <div class="col-sm-8" style="background-color:lavender;">Facebook</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="email">Bio</label></div>
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="gender">Gender</label></div>
                                         <div class="col-sm-8" style="background-color:lavender;">
-                                            hjwvvvvvvvvvvv wvvvvvvvvvvvvvvvvvvvhvwjvhv
+                                                <?php
+                                                    echo $res1["setter_gender"];
+                                                ?>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">Facebook Url</label></div>
+                                        <div class="col-sm-8" style="background-color:lavender;">
+                                                <?php
+                                                    echo $res1["setter_facebook_url"];
+                                                ?>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="linkedin">LinkedIn Url</label></div>
+                                        <div class="col-sm-8" style="background-color:lavender;">
+                                                <?php
+                                                    echo $res1["setter_linkedin_url"];
+                                                ?>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">GitHub Url</label></div>
+                                        <div class="col-sm-8" style="background-color:lavender;">
+                                                <?php
+                                                    echo $res1["setter_github_url"];
+                                                ?>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="bio">Bio</label></div>
+                                        <div class="col-sm-8" style="background-color:lavender;">
+                                                <?php
+                                                    echo $res1["setter_bio"];
+                                                ?>
                                         </div>
                                     </div>
                                 </div>
