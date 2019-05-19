@@ -11,7 +11,7 @@
     move_uploaded_file($tmp_name,$local_image.$name_file);
     $sql= "UPDATE userprofile SET image = '".$_FILES['file']['name']."' WHERE username = '$u'";
     $q = mysqli_query($c,$sql);
-    header("Location: profile.php");
+    header("Location: profile_edit.php");
   }
 
   if(isset($_POST['sub'])){
@@ -27,7 +27,7 @@
 
     $d =  "UPDATE `userprofile` SET `mobile no.`= '$mobile',`fullname`='$fullname' ,`birthdate`='$birthdate',`location`='$location',`institution`='$institution',`gender`='$gender',`website`='$website',`link`='$link',`about me`='$aboutme' WHERE username='$u'";
     $h = mysqli_query($c,$d);
-    header("Location: profile.php");
+     header("Location: profile.php");
 
   }
  ?>
