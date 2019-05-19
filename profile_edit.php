@@ -104,12 +104,12 @@
 								</div>
 								<div id="imageupload">
 									<form action="" method="post" enctype="multipart/form-data">
-											<input type="file" name="image" value="image">
+											<input type="file" name="file" value="image">
 											<input type="submit" name="submit" value="Upload">
 									</form>
 								</div>
                 <div class="card-body">
-									<form action="" method="post">
+									<form action="setterprofile.php" method="post">
                     <div class="container" style="margin-top:50px">
                             <h3>Contact Information</h3>
                                     <div class="jumbotron">
@@ -130,24 +130,27 @@
                                         <div class="row">
                                                 <div class="col-sm-4" style="background-color:lavender;"><label for="fullname">Full Name</label></div>
 																								<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="text" name="full name">
+																								<input type="text" name="fullname">
 																								</div>
                                         </div>
+                                        
                                         <div class="row">
-                                            <div class="col-sm-4" style="background-color:lavender;"><label for="email">Username</label></div>
-                                            <div class="col-sm-8" style="background-color:lavender;"><?php echo $_SESSION['username']?></div>
+                                            <div class="col-sm-4" style="background-color:lavender;"><label for="dateofbirth">Date of Birth</label></div>
+																						<div class="col-sm-8" style="background-color:lavender;">
+																								<input type="text" name="dateofbirth">
+																						</div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-4" style="background-color:lavender;"><label for="email">Date of Birth</label></div>
-                                            <div class="col-sm-8" style="background-color:lavender;">22/09/1996</div>
+                                            <div class="col-sm-4" style="background-color:lavender;"><label for="currentlocaton">Current Location</label></div>
+																						<div class="col-sm-8" style="background-color:lavender;">
+																								<input type="text" name="currentlocation">	
+																						</div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-4" style="background-color:lavender;"><label for="email">Current Location</label></div>
-                                            <div class="col-sm-8" style="background-color:lavender;">Bangladesh</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4" style="background-color:lavender;"><label for="email">Institution</label></div>
-                                            <div class="col-sm-8" style="background-color:lavender;">RUET</div>
+                                            <div class="col-sm-4" style="background-color:lavender;"><label for="institution">Institution</label></div>
+																						<div class="col-sm-8" style="background-color:lavender;">
+																								<input type="text" name="institution">
+																						</div>
                                         </div>
                                 </div>
                     </div>
@@ -156,21 +159,42 @@
                             <h3>Additional Information</h3>
                                 <div class="jumbotron">
                                     <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="email">Gender</label></div>
-                                        <div class="col-sm-8" style="background-color:lavender;">Male</div>
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="gender">Gender</label></div>
+																				<div class="col-sm-8" style="background-color:lavender;">
+																					<select name="gender" id="">
+																							<option value="1">Male</option>
+																							<option value="2">Female</option>
+																					</select>
+																				</div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="email">Website Url</label></div>
-                                        <div class="col-sm-8" style="background-color:lavender;">Facebook</div>
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">Facebook Url</label></div>
+																				<div class="col-sm-8" style="background-color:lavender;">
+																						<input type="text" name="facebookurl">
+																				</div>
+																		</div>
+																		<div class="row">
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">LinkedIn Url</label></div>
+																				<div class="col-sm-8" style="background-color:lavender;">
+																						<input type="text" name="linkedin">
+																				</div>
+																		</div>
+																		<div class="row">
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">GitHub Url</label></div>
+																				<div class="col-sm-8" style="background-color:lavender;">
+																						<input type="text" name="GitHub">
+																				</div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="email">Bio</label></div>
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="Bio">Bio</label></div>
                                         <div class="col-sm-8" style="background-color:lavender;">
-                                            hjwvvvvvvvvvvv wvvvvvvvvvvvvvvvvvvvhvwjvhv
+                                            <textarea name="bio" id="" cols="30" rows="4"></textarea>
                                         </div>
                                     </div>
                                 </div>
-                    </div>
+										</div>
+										
+										<input type="submit" class="btn btn-success" name="update" value="Update">
 									</form>
                 </div>
 
@@ -190,3 +214,21 @@
         document.getElementById("sidebar").classList.toggle("active");
     }
 </script>
+
+
+
+<?php
+		include('connection.php');
+		if(isset($_FILES['file'])){
+				$name=$_FILES['file']['name'];
+				$tmp_name=$_FILES['file']['tmp_name'];
+				$des='img/';
+				move_uploaded_file($tmp_name,$des.$name);
+				//$sql="UPDATE opai_setter_details SET setter_image = '".$_FILES['file']['name']."' WHERE setter_id = '$res["setter_id"]'";
+				if(mysqli_query($con,$sql)){
+						echo "yes";
+				}
+		}
+
+
+?>
