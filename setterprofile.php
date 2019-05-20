@@ -38,7 +38,7 @@
                   Online Examination System
 
               </a>
-              <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="guesthome.php">
+              <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
                   <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
               </a>
               <div class="w-100 text-right">
@@ -56,7 +56,7 @@
 						?>
                     </li>
                     <li class="nav-item">
-                        <a href="login.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
+                        <a href="setterprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
                         <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>

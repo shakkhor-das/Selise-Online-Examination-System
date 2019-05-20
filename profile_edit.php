@@ -1,13 +1,13 @@
 <?php
 		include('connection.php');
-    session_start();
-    if(!isset($_SESSION['username'])){
+        session_start();
+        if(!isset($_SESSION['username'])){
         header('Location:login.php');
 		}
 
 		$username=$_SESSION["username"];
 		$sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
-    $q=mysqli_query($con,$sql);
+        $q=mysqli_query($con,$sql);
 		$res=mysqli_fetch_assoc($q);
 		$id=$res["setterid"];
 		$sql="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
