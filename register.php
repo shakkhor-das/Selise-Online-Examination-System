@@ -88,7 +88,8 @@
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Password" class="form-control form-control-md" name="password">
+                <input type="password" id="password" placeholder="Password" class="form-control form-control-md" name="password" autocomplete="none">
+                <progress max="100" value="0" style="width:340px" id="strength"></progress>
                 <div id="errorpassword1"></div> 
             </div>
 
@@ -115,6 +116,51 @@
   </body>
 </html>
 
+
+<script type="text/javascript">
+        var pass=document.getElementById("password");
+        pass.addEventListener('keyup',function(){
+            checkpassword(pass.value)
+        })
+
+        function checkpassword(password){
+          var strengthbar=document.getElementById("strength")
+          var strength=0
+          if(password.match(/[a-zA-Z0-9][a-zA-Z0-9]+/)){
+            strength += 1
+          }
+          if(password.match(/[~<>?]+/)){
+            strength += 1
+          }
+          if(password.match(/[!@$%^&*()]+/)){
+            strength += 1
+          }
+          if(password.length>5){
+            strength += 1;
+          }
+          switch(strength){
+            case 0:
+                strengthbar.value=20;
+                break
+            case 1:
+                strengthbar.value=40;
+                break
+            case 2:
+                strengthbar.value=60;
+                break
+
+            case 3:
+                strengthbar.value=80;
+                break
+
+            case 4:
+                strengthbar.value=100;
+                break
+            
+          }
+        }
+
+</script>
 <script>
         //getting values
       var firstname=document.forms['regform']['firstname'];
