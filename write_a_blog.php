@@ -13,28 +13,24 @@
         $sql1="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
         $q1=mysqli_query($con,$sql1);
         $res1=mysqli_fetch_assoc($q1);
-        if(isset($_POST['submit'])){
-          $currentpassword = mysqli_real_escape_string($con,$_POST['currentpassword']);
-          $currentpassword = md5($currentpassword);
-          $serverpassword = $res["setterpassword"];
-          $newpassword = mysqli_real_escape_string($con,$_POST['newpassword']);
-          $confirmnewpassword = mysqli_real_escape_string($con,$_POST['confirmnewpassword']);
-          //$sq="SELECT setterpassword FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
-          if($serverpassword == $currentpassword and $newpassword == $confirmnewpassword){
-              $newpassword = md5($newpassword);
-              $sql = "UPDATE `opai_setter` SET setterpassword = '$newpassword' WHERE setterid = '$id'";
-              $q = mysqli_query($con,$sql);
-              header('Location:profile_edit.php');
+        if(isset($_POST['post'])){
+          $title = mysqli_real_escape_string($con,$_POST['title']);
+          $post = mysqli_real_escape_string($con,$_POST['postt']);
+          date_default_timezone_set("Asia/Dhaka");
+          $currenttime = time();
+          $datetime = strftime("%B-%d-%Y %H:%M:%S",$currenttime);
+          if(empty($title)){
+            echo "Title can't be empty";
+          }
+          else if(empty($post)){
+            echo "Post can't be empty";
           }
           else{
-              echo '<script type="javascript">';
-              echo 'alert("Something went wrong")';
-              echo  '</script>';
+            $sql = "INSERT into blog (datetime,title,post) VALUES ('$datetime','$title','$post')";
+            $execute = mysqli_query($con,$sql);
           }
         }
     }
-//echo $_SESSION["username"];
-
 
 ?>
 <!DOCTYPE html>
@@ -109,59 +105,49 @@
 						</li>
 
 						<li class="active">
-							<a href="write_a_blog.php" aria-exapnded="false" >Write a blog</a>
+							<a href="write_a_blog.php" data-toggle="collapse" aria-exapnded="false" >Write a blog</a>
 						</li>
 
 						<li class="active">
-							<a href="settings.php" data-toggle="collapse" aria-exapnded="false" >Settings</a>
+							<a href="settings.php" aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
-			</nav>
+			</nav><!--ending of sidebar-->
 
 			<div class="content">
 					<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
 						<i class="fa fa-align-justify"></i>
           </button>
       </div>
+
       <div class="card">
-          <div class="card-body">
-            <form action="settings.php" method="post">
-              <div class="container" style="margin-top:50px">
-                  <h3>Change Settings</h3>
+        <!--  <div class="card-body">-->
+            <form action="write_a_blog.php" method="post">
+              <div class="col" style="margin-top:50px">
+                  <h3>Write a Blog</h3>
                   <div class="jumbotron">
 
-                    <div class="row">
-                      <div class="col-sm-4" style="background-color:lavender;"><label for="current_password">Current Password</label></div>
-                      <div class="col-sm-8" style="background-color:lavender;">
-                          <input type="password" name="currentpassword">
-                      </div>
+                    <div class="form-group">
+                      <label for="title"><span class="Fieldinfo">Title:</label></span>
+                      <input type="text" class="form-control" name="title">
                     </div>
 
-                    <div class="row">
-                      <div class="col-sm-4" style="background-color:lavender;"><label for="new_password">New Password</label></div>
-                      <div class="col-sm-8" style="background-color:lavender;">
-                          <input type="password" name="newpassword">
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-4" style="background-color:lavender;"><label for="confirm_new_password">Confirm New Password</label></div>
-                      <div class="col-sm-8" style="background-color:lavender;">
-                          <input type="password" name="confirmnewpassword">
-                      </div>
+                    <div class="form-group">
+                      <label for="postarea"><span class="Fieldinfo">Post:</label></span>
+                      <textarea class="form-control" name="postt"></textarea>
                     </div>
 
                     <div class="row">
                       <div class="col-sm-4" style="background-color:lavender;"></div>
-                      <div class="col-sm-8" style="background-color:lavender;"><input type="submit" style="margin-top:30px" class="btn btn-success" name="submit" value="Submit">
+                      <div class="col-sm-8" style="background-color:lavender;"><input type="submit" style="margin-top:30px" class="btn btn-success" name="post" value="Add Post">
                       </div>
                     </div>
 
-                  </div>
+                </div>
               </div>
             </form>
-          </div>
-      </div>
+        </div>
+    <!--  </div>-->
   </div>
 
 

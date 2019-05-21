@@ -88,7 +88,7 @@
 						</li>
 
 						<li class="active">
-							<a href="#" data-toggle="collapse" aria-exapnded="false" >Write a blog</a>
+							<a href="write_a_blog.php" aria-exapnded="false" >Write a blog</a>
 						</li>
 
 						<li class="active">
