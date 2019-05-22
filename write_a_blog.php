@@ -1,4 +1,5 @@
-<!--    session_start();
+<?php
+    session_start();
     if(!isset($_SESSION['username'])){
         header('Location:login.php');
     }
@@ -122,7 +123,7 @@
 
       <div class="card">
         <!--  <div class="card-body">-->
-          <!-- <form action="write_a_blog.php" method="post">
+           <form action="write_a_blog.php" method="post">
               <div class="col" style="margin-top:50px">
                   <h3>Write a Blog</h3>
                   <div class="jumbotron">
@@ -148,9 +149,9 @@
             </form>
             <div id = "heading" contenteditable="true"></div>
             <div id = "content" contenteditable="true"></div>
-        </div>-->
+        </div>
     <!--  </div>-->
-<!--  </div>
+ </div>
 
 
 
@@ -163,50 +164,5 @@
         document.getElementById("sidebar").classList.toggle("active");
     }
 </script>
--->
-
-
-
-
-<html>
-	<head>
-	  <title>Text Editor</title>
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-
-
-html {
-font-family: "Helevetica", sans-serif;
-}
-
-body {
-color: #333;
-font-weight: 100;
-max-width: 50em;
-margin: 0 auto;
-}
-
-div:focus {
-outline: none;
-}
-
-#heading {
-font-size: 48px;
-padding-top: 30px;
-}
-
-#content {
-padding-top: 10px;
-font-size: 24px;
-}
-
-
-    </style>
-	</head>
-
-		 <div id="heading" contenteditable="true"></div>
-		 <div id="content" contenteditable="true"></div>
-
-	<script src="app.js"></script>
 
   </html>
