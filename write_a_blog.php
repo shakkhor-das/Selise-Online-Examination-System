@@ -1,5 +1,4 @@
-<?php
-    session_start();
+<!--    session_start();
     if(!isset($_SESSION['username'])){
         header('Location:login.php');
     }
@@ -26,8 +25,9 @@
             echo "Post can't be empty";
           }
           else{
-            $sql = "INSERT into blog (datetime,title,post) VALUES ('$datetime','$title','$post')";
+            $sql = "INSERT into opai_setter_blog (datetime,title,post) VALUES ('$datetime','$title','$post')";
             $execute = mysqli_query($con,$sql);
+            header('Location:setterprofile.php');
           }
         }
     }
@@ -112,7 +112,7 @@
 							<a href="settings.php" aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
-			</nav><!--ending of sidebar-->
+			</nav>
 
 			<div class="content">
 					<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
@@ -122,7 +122,7 @@
 
       <div class="card">
         <!--  <div class="card-body">-->
-            <form action="write_a_blog.php" method="post">
+          <!-- <form action="write_a_blog.php" method="post">
               <div class="col" style="margin-top:50px">
                   <h3>Write a Blog</h3>
                   <div class="jumbotron">
@@ -146,9 +146,11 @@
                 </div>
               </div>
             </form>
-        </div>
+            <div id = "heading" contenteditable="true"></div>
+            <div id = "content" contenteditable="true"></div>
+        </div>-->
     <!--  </div>-->
-  </div>
+<!--  </div>
 
 
 
@@ -161,3 +163,50 @@
         document.getElementById("sidebar").classList.toggle("active");
     }
 </script>
+-->
+
+
+
+
+<html>
+	<head>
+	  <title>Text Editor</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+
+
+html {
+font-family: "Helevetica", sans-serif;
+}
+
+body {
+color: #333;
+font-weight: 100;
+max-width: 50em;
+margin: 0 auto;
+}
+
+div:focus {
+outline: none;
+}
+
+#heading {
+font-size: 48px;
+padding-top: 30px;
+}
+
+#content {
+padding-top: 10px;
+font-size: 24px;
+}
+
+
+    </style>
+	</head>
+
+		 <div id="heading" contenteditable="true"></div>
+		 <div id="content" contenteditable="true"></div>
+
+	<script src="app.js"></script>
+
+  </html>
