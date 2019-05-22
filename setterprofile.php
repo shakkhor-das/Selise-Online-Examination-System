@@ -85,7 +85,7 @@
 						</li>
 
 						<li class="active">
-							<a href="#" data-toggle="collapse" aria-exapnded="false" >My Blogs</a>
+							<a href="setter_myblogs.php" aria-exapnded="false" >My Blogs</a>
 						</li>
 
 						<li class="active">
