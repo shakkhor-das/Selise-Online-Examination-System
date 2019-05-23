@@ -13,25 +13,10 @@
         $sql1="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
         $q1=mysqli_query($con,$sql1);
         $res1=mysqli_fetch_assoc($q1);
-        if(isset($_POST['post'])){
-          $title = mysqli_real_escape_string($con,$_POST['title']);
-          $post = mysqli_real_escape_string($con,$_POST['postt']);
-          date_default_timezone_set("Asia/Dhaka");
-          $datetime = date("F j, Y, g:i:s a");
-          //$datetime = strftime("%B-%d-%Y %H:%M:%S",$currenttime);
-          if(empty($title)){
-            echo "Title can't be empty";
-          }
-          else if(empty($post)){
-            echo "Post can't be empty";
-          }
-          else{
-            $sql = "INSERT into opai_setter_blog (datetime,title,post) VALUES ('$datetime','$title','$post')";
-            $execute = mysqli_query($con,$sql);
-            header('Location:setter_myblogs.php');
-          }
-        }
+
     }
+//echo $_SESSION["username"];
+
 
 ?>
 <!DOCTYPE html>
@@ -39,23 +24,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,intial-scale=1.0">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
-
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
-    <link rel="stylesheet" href="css/profilestyle.css">-->
-    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="css/profilestyle.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <title>Selise Online Exam System </title>
+
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light nav nav-pills">
@@ -83,10 +59,10 @@
 						?>
                     </li>
                     <li class="nav-item">
-                        <a href="login.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
+                        <a href="setterprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="#" class="nav-link m-2 menu-item nav-active">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link m-2 menu-item">Test</a>
@@ -104,7 +80,7 @@
 
 
 
-	<!--<div class="wrapper">
+	<div class="wrapper">
 			<nav id="sidebar">
 				<ul class="list-unstyled components">
 						<li class="active">
@@ -116,46 +92,47 @@
 						</li>
 
 						<li class="active">
-							<a href="write_a_blog.php" data-toggle="collapse" aria-exapnded="false" >Write a blog</a>
+							<a href="write_a_blog.php" aria-exapnded="false" >Write a blog</a>
 						</li>
 
 						<li class="active">
-							<a href="settings.php" aria-exapnded="false" >Settings</a>
+							<a href="settings.php" data-toggle="collapse" aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
 			</nav>
 
-			<div class="content">
-					<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
-						<i class="fa fa-align-justify"></i>
+      <div class="content">
+          <button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
+            <i class="fa fa-align-justify"></i>
           </button>
-      </div>-->
+      </div>
 
-
-      <div class="container">
+      <div class="col-sm-8">
         <div class="jumbotron">
-          <form action="write_a_blog.php" method ="post">
 
-            <div class="form-group">
-              <label for="title"><span class="Fieldinfo">Title:</label></span>
-              <input type="text" class="form-control" name="title">
-            </div>
+          <?php
+            $postidfromurl = $_GET["id"];
+            $viewquery = "SELECT * FROM opai_setter_blog WHERE id = '$postidfromurl' ORDER BY id desc";
+            $execute = mysqli_query($con,$viewquery);
+            while($datarows = mysqli_fetch_assoc($execute)){
+              $id = $datarows["id"];
+              $datetime = $datarows["datetime"];
+              $title = $datarows["title"];
+              $post = $datarows["post"];
+           ?>
 
-            <div class="form-group">
-              <label for="">Content:</label>
-              <textarea name="postt" id="summernote" cols="30" rows="30"class="form-control"></textarea>
-            </div></br>
+          <div class="blogpost">
+           <div class="caption"><h1><?php echo htmlentities($title); ?></h1></div>
+             <p>Published on <?php echo htmlentities($datetime); ?></p>
+             <p class="post"><?php echo htmlentities($post); ?>
+             </p>
 
-            
-              <input type="submit" name="post" class="btn btn-success" value="Add Post">
-
-
-          </form>
+          </div>
+         <?php } ?>
         </div>
       </div>
 
-    <!--  </div>
- </div>-->
+  </div>
 
 
 
@@ -167,14 +144,4 @@
     function togglesidemenu(){
         document.getElementById("sidebar").classList.toggle("active");
     }
-</script>
-
-<script>
-      $('#summernote').summernote();
-      $('#summernote').summernote({
-      height: 400,                 // set editor height
-      minHeight: 400,             // set minimum height of editor
-      maxHeight: 400,             // set maximum height of editor
-      focus: true                  // set focus to editable area after initializing summernote
-    });
 </script>

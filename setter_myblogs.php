@@ -122,13 +122,16 @@
 
           <div class="blogpost">
            <div class="caption"><h1><?php echo htmlentities($title); ?></h1></div>
-             <p>Published on <?php echo htmlentities($datetime); ?></p>
+             <p>Published on <?php echo htmlentities($datetime); ?>
+               <a href="setter_editpost.php?id=<?php echo $id; ?>"><span class="btn btn-info">Edit</span></a>
+             </p>
              <p class="post"><?php
              if(strlen($post)>300){$post = substr($post,0,400).'...';}
              echo htmlentities($post); ?>
+             <a href="setter_fullpost.php?id=<?php echo $id; ?>"><span class="btn btn-info">Read More &rsaquo;&rsaquo;</span></a>
              </p>
-             <a href="fullpost.php?id=<?php echo $id; ?>"><span class="btn btn-info">Read More &rsaquo;&rsaquo;</span></a>
 
+             <div style="height : 8px; background : lavender"></div>
           </div>
           <div style="height : 3px; background : #557788"></div>
          <?php } ?>
