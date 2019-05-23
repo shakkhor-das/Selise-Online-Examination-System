@@ -111,17 +111,17 @@
 
             </div>
             <div class="container">
-                <form action="" name="fundamental" method="post">
+                <form action="checkup.php" name="fundamental" method="post">
                     <div id="sf1">
                             <h1>Select level of education</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox" class="checklist" id="checkbox1" value="2">SSC equivalent</label>
+                                <label for=""><input type="checkbox" name="sf1" class="checklist" id="checkbox1" value="1">SSC equivalent</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox" class="checklist" id="checkbox2" value="3">HSC equivalent</label>
+                                <label for=""><input type="checkbox" name="sf1" class="checklist" id="checkbox2" value="2">HSC equivalent</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox" class="checklist" id="checkbox3" value="4">University/College</label>
+                                <label for=""><input type="checkbox" name="sf1" class="checklist" id="checkbox3" value="3">University/College</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                                 <button type="button" class="btn btn-primary" id="btn-1" onclick="check()">Proceed</button>
@@ -130,16 +130,16 @@
                     <div id="sf2" style="display:none">
                         <h1>Select your field</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox4" value="1">Science</label>
+                                <label for=""><input type="checkbox" name="sf2" class="checklist1" id="checkbox4" value="Science">Science</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox5" value="2">Business Studies</label>
+                                <label for=""><input type="checkbox" name="sf2" class="checklist1" id="checkbox5" value="2">Business Studies</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox6" value="3">Humanities</label>
+                                <label for=""><input type="checkbox" name="sf2" class="checklist1" id="checkbox6" value="3">Humanities</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox7" value="4">General Subjects</label>
+                                <label for=""><input type="checkbox" name="sf2" class="checklist1" id="checkbox7" value="4">General Subjects</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                                 <button type="button" class="btn btn-primary" id="btn-2" onclick="check1()">Proceed</button>
@@ -148,16 +148,16 @@
                     <div id="sf3" style="display:none">
                         <h1>Select your subject</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox8" value="1">Physics</label>
+                                <label for=""><input type="checkbox" name="sf3" class="checklist1" id="checkbox8" value="1">Physics</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox9" value="2">Chemistry</label>
+                                <label for=""><input type="checkbox" name="sf3" class="checklist1" id="checkbox9" value="2">Chemistry</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox10" value="3">Biology</label>
+                                <label for=""><input type="checkbox" name="sf3" class="checklist1" id="checkbox10" value="3">Biology</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox11" value="4">Higher Math</label>
+                                <label for=""><input type="checkbox" name="sf3" class="checklist1" id="checkbox11" value="4">Higher Math</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                             <button type="button" class="btn btn-primary" id="btn-3" onclick="check2()">Proceed</button>
@@ -166,10 +166,10 @@
                     <div id="sf4" style="display:none">
                         <h1>Select your subject</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox12" value="1">Accounting</label>
+                                <label for=""><input type="checkbox" name="sf4" class="checklist1" id="checkbox12" value="1">Accounting</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox13" value="2">Management</label>
+                                <label for=""><input type="checkbox" name="sf4" class="checklist1" id="checkbox13" value="2">Management</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                             <button type="button" class="btn btn-primary" id="btn-4" onclick="check3()">Proceed</button>
@@ -178,10 +178,10 @@
                     <div id="sf5" style="display:none">
                         <h1>Select your subject</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox14" value="1">Economics</label>
+                                <label for=""><input type="checkbox" name="sf5" class="checklist1" id="checkbox14" value="1">Economics</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox15" value="2">Islamic Studies</label>
+                                <label for=""><input type="checkbox" name="sf5" class="checklist1" id="checkbox15" value="2">Islamic Studies</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                             <button type="button" class="btn btn-primary" id="btn-5" onclick="check4()">Proceed</button>
@@ -190,13 +190,13 @@
                     <div id="sf6" style="display:none">
                         <h1>Select your subject</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox16" value="1">Bangla</label>
+                                <label for=""><input type="checkbox" name="sf6" class="checklist1" id="checkbox16" value="1">Bangla</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox17" value="2">English</label>
+                                <label for=""><input type="checkbox" name="sf6" class="checklist1" id="checkbox17" value="2">English</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox18" value="2">ICT</label>
+                                <label for=""><input type="checkbox" name="sf6" class="checklist1" id="checkbox18" value="2">ICT</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                             <button type="button" class="btn btn-primary" id="btn-6" onclick="check5()">Proceed</button>
@@ -205,13 +205,13 @@
                     <div id="sf7" style="display:none">
                         <h1>Select your subject</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox19" value="1">M.C.Q</label>
+                                <label for=""><input type="checkbox" name="sf7" class="checklist1" id="checkbox19" value="1">M.C.Q</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox20" value="2">True/False</label>
+                                <label for=""><input type="checkbox" name="sf7" class="checklist1" id="checkbox20" value="2">True/False</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="checkbox1" class="checklist1" id="checkbox21" value="2">Essay</label>
+                                <label for=""><input type="checkbox" name="sf7" class="checklist1" id="checkbox21" value="2">Essay</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                             <button type="button" class="btn btn-primary" id="btn-7" onclick="check6()">Proceed</button>
@@ -265,7 +265,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-danger btn-default pull-left"      data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                                <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-remove"></span>Submit</button>
+                                <input type="submit" class="btn btn-primary" name="submit"><span class="glyphicon glyphicon-remove"></span>
                                 </div>
                             </div>
                         
