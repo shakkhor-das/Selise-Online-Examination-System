@@ -13,25 +13,7 @@
         $sql1="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
         $q1=mysqli_query($con,$sql1);
         $res1=mysqli_fetch_assoc($q1);
-        if(isset($_POST['submit'])){
-          $currentpassword = mysqli_real_escape_string($con,$_POST['currentpassword']);
-          $currentpassword = md5($currentpassword);
-          $serverpassword = $res["setterpassword"];
-          $newpassword = mysqli_real_escape_string($con,$_POST['newpassword']);
-          $confirmnewpassword = mysqli_real_escape_string($con,$_POST['confirmnewpassword']);
-          //$sq="SELECT setterpassword FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
-          if($serverpassword == $currentpassword and $newpassword == $confirmnewpassword){
-              $newpassword = md5($newpassword);
-              $sql = "UPDATE `opai_setter` SET setterpassword = '$newpassword' WHERE setterid = '$id'";
-              $q = mysqli_query($con,$sql);
-              header('Location:profile_edit.php');
-          }
-          else{
-              echo '<script type="javascript">';
-              echo 'alert("Something went wrong")';
-              echo  '</script>';
-          }
-        }
+
     }
 //echo $_SESSION["username"];
 
@@ -49,6 +31,7 @@
     <link rel="stylesheet" href="css/profilestyle.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <title>Selise Online Exam System </title>
+
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light nav nav-pills">
@@ -118,50 +101,43 @@
 				</ul>
 			</nav>
 
-			<div class="content">
-					<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
-						<i class="fa fa-align-justify"></i>
+      <div class="content">
+          <button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
+            <i class="fa fa-align-justify"></i>
           </button>
       </div>
-      <div class="card">
-          <div class="card-body">
-            <form action="settings.php" method="post">
-              <div class="container" style="margin-top:50px">
-                  <h3>Change Settings</h3>
-                  <div class="jumbotron">
 
-                    <div class="row">
-                      <div class="col-sm-4" style="background-color:lavender;"><label for="current_password">Current Password</label></div>
-                      <div class="col-sm-8" style="background-color:lavender;">
-                          <input type="password" name="currentpassword">
-                      </div>
-                    </div>
+      <div class="col-sm-8">
+        <div class="jumbotron">
 
-                    <div class="row">
-                      <div class="col-sm-4" style="background-color:lavender;"><label for="new_password">New Password</label></div>
-                      <div class="col-sm-8" style="background-color:lavender;">
-                          <input type="password" name="newpassword">
-                      </div>
-                    </div>
+          <?php
+            $viewquery = "SELECT * FROM opai_setter_blog ORDER BY id desc";
+            $execute = mysqli_query($con,$viewquery);
+            while($datarows = mysqli_fetch_assoc($execute)){
+              $id = $datarows["id"];
+              $datetime = $datarows["datetime"];
+              $title = $datarows["title"];
+              $post = $datarows["post"];
+           ?>
 
-                    <div class="row">
-                      <div class="col-sm-4" style="background-color:lavender;"><label for="confirm_new_password">Confirm New Password</label></div>
-                      <div class="col-sm-8" style="background-color:lavender;">
-                          <input type="password" name="confirmnewpassword">
-                      </div>
-                    </div>
+          <div class="blogpost">
+           <div class="caption"><h1><?php echo htmlentities($title); ?></h1></div>
+             <p>Published on <?php echo htmlentities($datetime); ?>
+               <a href="setter_editpost.php?id=<?php echo $id; ?>"><span class="btn btn-info">Edit</span></a>
+             </p>
+             <p class="post"><?php
+             if(strlen($post)>300){$post = substr($post,0,400).'...';}
+             echo htmlentities($post); ?>
+             <a href="setter_fullpost.php?id=<?php echo $id; ?>"><span class="btn btn-info">Read More &rsaquo;&rsaquo;</span></a>
+             </p>
 
-                    <div class="row">
-                      <div class="col-sm-4" style="background-color:lavender;"></div>
-                      <div class="col-sm-8" style="background-color:lavender;"><input type="submit" style="margin-top:30px" class="btn btn-success" name="submit" value="Submit">
-                      </div>
-                    </div>
-
-                  </div>
-              </div>
-            </form>
+             <div style="height : 8px; background : lavender"></div>
           </div>
+          <div style="height : 3px; background : #557788"></div>
+         <?php } ?>
+        </div>
       </div>
+
   </div>
 
 
