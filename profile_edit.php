@@ -147,7 +147,7 @@
                                         <div class="row">
                                             <div class="col-sm-4" style="background-color:lavender;"><label for="dateofbirth">Date of Birth</label></div>
 																						<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="text" name="dateofbirth">
+																								<input type="date" name="dateofbirth">
 																						</div>
                                         </div>
                                         <div class="row">
@@ -180,19 +180,19 @@
                                     <div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">Facebook Url</label></div>
 																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="text" name="facebookurl">
+																						<input type="url" name="facebookurl">
 																				</div>
 																		</div>
 																		<div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">LinkedIn Url</label></div>
 																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="text" name="linkedin">
+																						<input type="url" name="linkedin">
 																				</div>
 																		</div>
 																		<div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">GitHub Url</label></div>
 																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="text" name="GitHub">
+																						<input type="url" name="GitHub">
 																				</div>
                                     </div>
                                     <div class="row">
