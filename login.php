@@ -63,7 +63,7 @@
                 echo '</script>';
             }
         }
-        
+
     }
 ?>
 
@@ -102,7 +102,7 @@
           <div class="collapse navbar-collapse flex-grow-1" id="myNavbar">
               <ul class="navbar-nav ml-auto flex-nowrap">
                   <li class="nav-item">
-                        <a href="guesthome.html" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>
                   </li>
                   <li class="nav-item">
                         <a href="#" class="nav-link m-2 menu-item">Test</a>
@@ -114,7 +114,7 @@
                         <a href="register.php" class="nav-link m-2 menu-item">Register</a>
                   </li>
                   <li class="nav-item">
-                        
+
                         <a href="login.php" class="nav-link m-2 menu-item" >Login</a>
                   </li>
               </ul>
@@ -122,7 +122,7 @@
       </nav>
 
     <div class="container">
-        
+
         <form  action="" class="form-container justify-content-center" style="height:400px" method="POST" name="loginform" onSubmit="return formvalidation()">
             <div class="form-group">
               <label for="username">Email</label>
@@ -147,16 +147,16 @@
                 <div id="errorpassword"></div>
             </div>
             <div class="form-group">
-                
+
                 <input type="submit" class="btn btn-lg btn-primary btn-block btn-sign in" name="submit" value="LOGIN">
-                
+
             </div>
             <a href="forgotpassword.php" style="float:right;margin-top:13px;">forgot password?</a>
 
         </form>
     </div>
-    
-    
+
+
 
   </body>
 </html>
@@ -173,15 +173,13 @@
             erroremail.textContent="Email is required";
             erroremail.style.color="red";
             email.focus();
-            return false; 
+            return false;
         }
         if(!email.value.match(mailformat)){
             erroremail.textContent="Email is invalid";
             erroremail.style.color="red";
             email.focus();
-            return false; 
+            return false;
         }
     }
 </script>
-
-

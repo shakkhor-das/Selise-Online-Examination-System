@@ -13,12 +13,9 @@
         $sql1="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
         $q1=mysqli_query($con,$sql1);
         $res1=mysqli_fetch_assoc($q1);
-        if(isset($_POST['post'])){
+        if(isset($_POST['update'])){
           $title = mysqli_real_escape_string($con,$_POST['title']);
           $post = mysqli_real_escape_string($con,$_POST['postt']);
-          date_default_timezone_set("Asia/Dhaka");
-          $datetime = date("F j, Y, g:i:s a");
-          //$datetime = strftime("%B-%d-%Y %H:%M:%S",$currenttime);
           if(empty($title)){
             echo "Title can't be empty";
           }
@@ -26,7 +23,8 @@
             echo "Post can't be empty";
           }
           else{
-            $sql = "INSERT into opai_setter_blog (datetime,title,post) VALUES ('$datetime','$title','$post')";
+            $postid = $_GET["id"];
+            $sql = "UPDATE opai_setter_blog SET title='$title',post='$post' WHERE id = '$postid' ORDER BY id desc";
             $execute = mysqli_query($con,$sql);
             header('Location:setter_myblogs.php');
           }
@@ -134,23 +132,34 @@
 
       <div class="container">
         <div class="jumbotron">
-          <form action="write_a_blog.php" method ="post">
+
+          <?php
+            $postidfromurl = $_GET["id"];
+            $viewquery = "SELECT * FROM opai_setter_blog WHERE id = '$postidfromurl' ORDER BY id desc";
+            $execute = mysqli_query($con,$viewquery);
+            while($datarows = mysqli_fetch_assoc($execute)){
+              $titleupdate = $datarows["title"];
+              $postupdate = $datarows["post"];
+           ?>
+
+          <form action="setter_editpost.php?id=<?php echo $postidfromurl; ?>" method ="post">
 
             <div class="form-group">
               <label for="title"><span class="Fieldinfo">Title:</label></span>
-              <input type="text" class="form-control" name="title">
+              <input value="<?php echo $titleupdate; ?>" type="text" class="form-control" name="title">
             </div>
 
             <div class="form-group">
               <label for="">Content:</label>
-              <textarea name="postt" id="summernote" cols="30" rows="50"class="form-control"></textarea>
+              <textarea name="postt" id="summernote" cols="30" rows="50"class="form-control"><?php echo $postupdate; ?></textarea>
             </div></br>
 
 
-              <input type="submit" name="post" class="btn btn-success" value="Add Post">
+              <input type="submit" name="update" class="btn btn-success" value="Update">
 
 
           </form>
+        <?php } ?>
         </div>
       </div>
 
