@@ -74,7 +74,7 @@
                             <div class="dropdown-menu" aria-labelledby="dropdown_target">
                                 <a class="dropdown-item" href="settertestfundamentals.php">Create Test</a>
                                 <a class="dropdown-item" href="#">My Previous Test</a>
-                                <a class="dropdown-item" href="#">My upcoming Test</a>
+                                <a class="dropdown-item" href="setterupcoming.php">My upcoming Test</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -118,7 +118,14 @@
 
             
             <div class="container" style="width:800px;margin-left:40px">
-            <h1>Question Added: 5</h1>
+            <h1>Question Added: <?php 
+                $tbl_name=$_SESSION["testname"]; 
+                $sql="SELECT * FROM $tbl_name";
+                $res=mysqli_query($con,$sql);
+                $num=mysqli_num_rows($res);
+                echo $num;
+                ?>
+            </h1>
             <br>
             <hr>
             <form action="" method="" name="question" id="question">
@@ -196,7 +203,7 @@
             var myjson=JSON.stringify(optionwithans);
             console.log(myjson);
             $.post('insert.php',{questiontitle:title,questionpoint:point,option:myjson,tablename:table_name},function(response){
-                alert("Data Added");
+                alert(response);
                 $("#question")[0].reset();
             }); 
         });
