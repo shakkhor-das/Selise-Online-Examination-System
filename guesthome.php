@@ -10,7 +10,7 @@
     <title>Selise Online Exam System </title>
   </head>
   <body>
-      
+
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="d-flex flex-grow-1">
               <a class="navbar-brand d-none d-lg-inline-block" href="#">
@@ -55,13 +55,3 @@
       </div>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
