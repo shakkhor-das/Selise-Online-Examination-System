@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4c376fcf32f2293feda49c521cbed47e088a8b9e
 
 
 <?php
@@ -16,11 +19,15 @@
         $sql1="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
         $q1=mysqli_query($con,$sql1);
         $res1=mysqli_fetch_assoc($q1);
+<<<<<<< HEAD
+           
+=======
         if(isset($_POST['submit'])){
             echo $_POST["sf1"];
             echo $_POST["sf2"];
             echo $_POST["sf3"];
         }
+>>>>>>> 4c376fcf32f2293feda49c521cbed47e088a8b9e
     }
 
 ?>
@@ -30,13 +37,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>bootstrap4</title>
+    <title>Online exam system</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="css/question.css">
   </head>
@@ -120,13 +128,44 @@
 
 	        </div>
 
+<<<<<<< HEAD
+            
+            <div class="container" style="width:800px;margin-left:40px">
+            <h1>Question Added: 5</h1>
+            <br>
+            <hr>
+            <form action="" method="" name="question" id="question">
+                <b><label for="">Problem Description:</label></b>
+                <textarea name="title" id="summernote" cols="30" rows="10"class="form-control" class="title"></textarea>
+                <br><br><br><br>
+                <b><label for="">Answer?</label></b>
+                <br>
+                <div class="optiondiv" id="optiondiv">
+                    
+                </div>
+                
+                <div style="margin-top:30px;margin-bottom:50px">
+                    <button type="button" class="btn btn-lg" id="add" style="cursor:pointer"><i class="fas fa-plus-circle"></i>Add More  Optios</button>
+                </div>
+                <div id="demo"></div>
+                <label for=""><b>Points Available</b></label>
+                <i class="far fa-question-circle"></i>
+                <input type="number" name="point" id="point" class="" placeholder="1" required>
+                <br><br>
+                <input type="submit" name="enter" class="btn btn-warning" value="Preview" style="cursor:pointer;margin-left:619px">
+                <input type="submit" name="enter" id="enter" class="btn btn-success" value="Save" style="cursor:pointer">
+                
+
+=======
 
             <div class="container" style="width:500px">
             <form action="" method ="post">
                 <label for="">Content:</label>
                 <textarea name="field" id="summernote" cols="30" rows="30"class="form-control"></textarea>
                 <input type="submit" name="submit" class="btn btn-submit" value="submit">
+>>>>>>> 4c376fcf32f2293feda49c521cbed47e088a8b9e
             </form>
+            <hr>
             </div>
 
 
@@ -137,6 +176,67 @@
 </html>
 
 <script>
+<<<<<<< HEAD
+    
+    var i=0;
+    $(document).ready(function(){
+        
+        $("#add").click(function(){
+            i++;
+            $("#optiondiv").before('<div id="row'+i+'" class="row" style="width:500px;margin-left:0px;background:#f7f7f7;margin-top:20px"><div id="checkandspan" style="margin-up:20px"><input type="checkbox" name="checklist" value="'+i+'"  ><label>Check if this option is correct</label><button type="button" class="btn btn-danger btn_remove" id="'+i+'"name="remove" style="margin-left:240px"><i class="fas fa-trash"></i></button><textarea name="field[]" cols="20" rows="5" id="option'+i+'" class="form-control message"></textarea></div><br><br></div>');
+        });
+
+        $(document).on('click','.btn_remove',function(){
+            var button_id=$(this).attr("id");
+            $('#row'+button_id).remove();
+        });
+        
+        $("#enter").click(function(){
+            var title=$("#summernote").val();
+            if(title==""){
+                alert("Question is empty");
+            }
+            if(i==0){
+                alert("Please add atleast one option");
+            }
+            var str="";
+            $(':checkbox').each(function(){
+                str += this.checked ? "1" : "0";
+            });
+            var option=[];
+            $("textarea.message").each(function(index){
+                //console.log(index+":"+$(this).val());
+                option.push($(this).val());
+            });
+            var optionwithans=[];
+            for(var i=0;i<option.length;i++){
+                optionwithans.push(option[i]+str[i]);
+            }
+            var point=$("#point").val();
+            var myjson=JSON.stringify(optionwithans);
+            console.log(myjson);
+            $.post('insert.php',{questiontitle:title,questionpoint:point,option:myjson},function(response){
+                alert(response);
+            }); 
+        });
+        
+        
+    });
+
+    $('#summernote').summernote();
+    $('#summernote').summernote({
+    
+            height: 300,                 // set editor height
+            minHeight: 300,             // set minimum height of editor
+            maxHeight: 300,             // set maximum height of editor
+            focus: true                  // set focus to editable area after initializing summernote
+    });
+
+    
+    
+    
+    
+=======
   $('#summernote').summernote();
   $('#summernote').summernote({
 
@@ -145,6 +245,7 @@
         maxHeight: 300,             // set maximum height of editor
         focus: true                  // set focus to editable area after initializing summernote
 });
+>>>>>>> 4c376fcf32f2293feda49c521cbed47e088a8b9e
 </script>
 
 
@@ -153,3 +254,13 @@
         document.getElementById("sidebar").classList.toggle("active");
     }
 </script>
+<<<<<<< HEAD
+
+
+<?php
+    
+?>
+
+
+=======
+>>>>>>> 4c376fcf32f2293feda49c521cbed47e088a8b9e
