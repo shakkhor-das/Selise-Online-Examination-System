@@ -27,11 +27,6 @@
   $con=mysqli_connect($hostname,$id,$pass,$db);*/
 
 
-<<<<<<< HEAD
 
-  //$con=mysqli_connect($hostname,$id,$pass,$db);
-=======
-  $con=mysqli_connect($hostname,$id,$pass,$db);
->>>>>>> 9c8a15e255f79c5db27e63e20981e63322d072d4
  
 ?>

@@ -173,7 +173,7 @@
 
         
 
-        <div class="modal fade modal-lg" id="preview" role="dialog" style="">
+        <div class="modal fade modal-lg" id="preview" role="dialog" style="width:80%">
             <div class="modal-dialog">
             
             <!-- Modal content-->
@@ -181,36 +181,19 @@
                 <div class="modal-header">
                 <h4 class="modal-title" style="margin-left:20%"><?php echo $res3["test_title"]."(Problem Lists)";?></h4>  
                 </div>
-                <div class="modal-body">
-                <table class="table table-borderless">
-                    <thead>
-                        <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Problem Description</th>
-                        <th scope="col">Marks</th>
-                        <th scope="col">Comment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                            $sql4="SELECT * FROM `$testname`";
-                            $res4=mysqli_query($con,$sql4);
-                                $i=1;
-                                while($ans4=mysqli_fetch_assoc($res4)){
-                                    ?>
-                                    <tr>
-                                    <th scope="row"><?php echo $i;$i++;?></th>
-                                    <td><?php echo $ans4["question_title"]?></td>
-                                    <td><?php echo $ans4["qustionpoint"]?></td>
-                                    <td><?php echo "See Details"?></td>
-                                    </tr>
-                                    <?php
-                                }
-
-                        ?>
-                    </tbody>
-                </table>
-
+                <div class="modal-body question_details">
+                    <script>
+                        var testname = "<?php  echo $testname; ?>";
+                        $.ajax({
+                            url:"getdata.php",
+                            method:"POST",
+                            async:"false",
+                            data:{testname:testname},
+                            success:function(data){
+                                $(".question_details").html(data);
+                            }
+                         });
+                    </script>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
