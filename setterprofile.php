@@ -68,7 +68,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdown_target">
                             <a class="dropdown-item" href="settertestfundamentals.php">Create Test</a>
                             <a class="dropdown-item" href="#">My Previous Test</a>
-                            <a class="dropdown-item" href="#">My upcoming Test</a>
+                            <a class="dropdown-item" href="setterupcoming.php">My upcoming Test</a>
                         </div>
                     </li>
                     <li class="nav-item">
