@@ -15,7 +15,6 @@
         $sql1="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
         $q1=mysqli_query($con,$sql1);
         $res1=mysqli_fetch_assoc($q1);
-        
     }
 //echo $_SESSION["username"];
 
@@ -114,107 +113,107 @@
 
             </div>
             <div class="container">
-                <form action="questionpreprocess.php" name="fundamental" method="post">
+                <form action="checkup.php" name="fundamental" method="post">
                     <div id="sf1">
                             <h1>Select level of education</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox1" value="Ssc">SSC equivalent</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist" id="checkbox1" value="SSC">SSC equivalent</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox2" value="Hsc">HSC equivalent</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist" id="checkbox2" value="2">HSC equivalent</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox3" value="University/College">University/College</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist" id="checkbox3" value="3">University/College</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                                 <button type="button" class="btn btn-primary" id="btn-1" onclick="check()">Proceed</button>
                             </div>  
                     </div>
-                    <div id="sf2" style="display:none">
+                    <div id="sf2" >
                         <h1>Select your field</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist2" id="checkbox4" value="Science">Science</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox4" value="Science">Science</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist2" id="checkbox5" value="Business Studies">Business Studies</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox5" value="2">Business Studies</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist2" id="checkbox6" value="Humanities">Humanities</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox6" value="3">Humanities</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist2" id="checkbox7" value="General Subjects">General Subjects</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox7" value="4">General Subjects</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                                 <button type="button" class="btn btn-primary" id="btn-2" onclick="check1()">Proceed</button>
                             </div>
                     </div>
-                    <div id="sf3" style="display:none">
+                    <div id="sf3">
                         <h1>Select your subject</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist3" id="checkbox8" value="Physicss">Physics</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox8" value="Physicss">Physics</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist3" id="checkbox9" value="Chemistry">Chemistry</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox9" value="2">Chemistry</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist3" id="checkbox10" value="Biology">Biology</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox10" value="3">Biology</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist3" id="checkbox11" value="Higher Math">Higher Math</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox11" value="4">Higher Math</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                             <button type="button" class="btn btn-primary" id="btn-3" onclick="check2()">Proceed</button>
                             </div>
                     </div>
-                    <div id="sf4" style="display:none">
+                    <div id="sf4">
                         <h1>Select your subject</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist4" id="checkbox12" value="Accounting">Accounting</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox12" value="1">Accounting</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist4" id="checkbox13" value="Management">Management</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox13" value="2">Management</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                             <button type="button" class="btn btn-primary" id="btn-4" onclick="check3()">Proceed</button>
                             </div>
                     </div>
-                    <div id="sf5" style="display:none">
+                    <div id="sf5">
                         <h1>Select your subject</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist5" id="checkbox14" value="Economics">Economics</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox14" value="1">Economics</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist5" id="checkbox15" value="Islamic Studies">Islamic Studies</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox15" value="2">Islamic Studies</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                             <button type="button" class="btn btn-primary" id="btn-5" onclick="check4()">Proceed</button>
                             </div>
                     </div>
-                    <div id="sf6" style="display:none">
+                    <div id="sf6">
                         <h1>Select your subject</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist6" id="checkbox16" value="Bangla">Bangla</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox16" value="1">Bangla</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist6" id="checkbox17" value="English">English</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox17" value="2">English</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist6" id="checkbox18" value="ICT">ICT</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox18" value="2">ICT</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                             <button type="button" class="btn btn-primary" id="btn-6" onclick="check5()">Proceed</button>
                             </div>
                     </div>
-                    <div id="sf7" style="display:none">
-                        <h1>Select Test type</h1>
+                    <div id="sf7">
+                        <h1>Select your subject</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist7" id="checkbox19" value="M.C.Q">M.C.Q</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox19" value="M.C.Q">M.C.Q</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist7" id="checkbox20" value="True/False">True/False</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox20" value="2">True/False</label>
                             </div>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist7" id="checkbox21" value="Essay">Essay</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist1" id="checkbox21" value="2">Essay</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
                             <button type="button" class="btn btn-primary" id="btn-7" onclick="check6()">Proceed</button>
@@ -234,7 +233,7 @@
                                 <div class="modal-body" style="padding:40px 50px;">
                                 <div class="form-group" id="test_title">
                                     <label for="testname">Title</label>
-                                    <input type="text" placeholder="Test Title" class="form-control form-control-md" id ="testname" name="testtitle" required >
+                                    <input type="text" id="testname" placeholder="Test Title" class="form-control form-control-md" id ="testname" name="testname" required >
                                     
                                 </div>
 
@@ -261,7 +260,7 @@
 
                                 <div class="form-group" id="test_password" style="display:none">
                                     <label for="testpassword">Password</label>
-                                    <input type="password" id="password" placeholder=""  class="form-control form-control-md"  name="testpassword" >
+                                    <input type="password" id="password" placeholder="" class="form-control form-control-md"  name="testpassword" >
                     
                                 </div>
                                 
@@ -287,10 +286,10 @@
 
 
 <script>
-    
     function togglesidemenu(){
         document.getElementById("sidebar").classList.toggle("active");
     }
+    
     function check(){
         var op1=document.getElementById("checkbox1");
         var op2=document.getElementById("checkbox2");
@@ -471,33 +470,23 @@
             $("#test_password").hide();
         }
     }
-    
+
+
+
 </script>
-
-
-
 <script type="text/javascript">
+    $('.checklist').on('change', function() {
+        $('.checklist').not(this).prop('checked', false);  
+    });
+
     $('.checklist1').on('change', function() {
         $('.checklist1').not(this).prop('checked', false);  
     });
-
     $('.checklist2').on('change', function() {
         $('.checklist2').not(this).prop('checked', false);  
     });
     $('.checklist3').on('change', function() {
         $('.checklist3').not(this).prop('checked', false);  
-    });
-    $('.checklist4').on('change', function() {
-        $('.checklist4').not(this).prop('checked', false);  
-    });
-    $('.checklist5').on('change', function() {
-        $('.checklist5').not(this).prop('checked', false);  
-    });
-    $('.checklist6').on('change', function() {
-        $('.checklist6').not(this).prop('checked', false);  
-    });
-    $('.checklist7').on('change', function() {
-        $('.checklist7').not(this).prop('checked', false);  
     });
 </script>
 

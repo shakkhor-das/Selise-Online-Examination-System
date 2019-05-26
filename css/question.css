@@ -92,4 +92,12 @@
         #sidebarCollapse span{
             display: none;
         }
-}
+    }
+
+    .optiondiv{
+        width:500px;
+        background: #f7f7f7;   
+    }
+    #checkandspan{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    }
