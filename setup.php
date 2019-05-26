@@ -158,7 +158,7 @@
         ";
 
         if(mysqli_query($con,$sql)){
-          echo "opai_user_details created";
+          echo "opai_setter_global created";
         }
         else{
           echo "failed";

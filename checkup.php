@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4c376fcf32f2293feda49c521cbed47e088a8b9e
 
 
 <?php
@@ -15,9 +19,17 @@
         $sql1="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
         $q1=mysqli_query($con,$sql1);
         $res1=mysqli_fetch_assoc($q1);
+<<<<<<< HEAD
            
+=======
+        if(isset($_POST['submit'])){
+            echo $_POST["sf1"];
+            echo $_POST["sf2"];
+            echo $_POST["sf3"];
+        }
+>>>>>>> 4c376fcf32f2293feda49c521cbed47e088a8b9e
     }
-    
+
 ?>
 
 
@@ -116,6 +128,7 @@
 
 	        </div>
 
+<<<<<<< HEAD
             
             <div class="container" style="width:800px;margin-left:40px">
             <h1>Question Added: 5</h1>
@@ -143,18 +156,27 @@
                 <input type="submit" name="enter" id="enter" class="btn btn-success" value="Save" style="cursor:pointer">
                 
 
+=======
+
+            <div class="container" style="width:500px">
+            <form action="" method ="post">
+                <label for="">Content:</label>
+                <textarea name="field" id="summernote" cols="30" rows="30"class="form-control"></textarea>
+                <input type="submit" name="submit" class="btn btn-submit" value="submit">
+>>>>>>> 4c376fcf32f2293feda49c521cbed47e088a8b9e
             </form>
             <hr>
             </div>
-            
+
 
 
         </div>
-        
+
   </body>
 </html>
 
 <script>
+<<<<<<< HEAD
     
     var i=0;
     $(document).ready(function(){
@@ -214,6 +236,16 @@
     
     
     
+=======
+  $('#summernote').summernote();
+  $('#summernote').summernote({
+
+        height: 300,                 // set editor height
+        minHeight: 300,             // set minimum height of editor
+        maxHeight: 300,             // set maximum height of editor
+        focus: true                  // set focus to editable area after initializing summernote
+});
+>>>>>>> 4c376fcf32f2293feda49c521cbed47e088a8b9e
 </script>
 
 
@@ -222,6 +254,7 @@
         document.getElementById("sidebar").classList.toggle("active");
     }
 </script>
+<<<<<<< HEAD
 
 
 <?php
@@ -229,3 +262,5 @@
 ?>
 
 
+=======
+>>>>>>> 4c376fcf32f2293feda49c521cbed47e088a8b9e

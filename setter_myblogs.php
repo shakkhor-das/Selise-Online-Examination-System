@@ -121,14 +121,14 @@
            ?>
 
           <div class="blogpost">
-           <div class="caption"><h1><?php echo htmlentities($title); ?></h1></div>
-             <p>Published on <?php echo htmlentities($datetime); ?>
-               <a href="setter_editpost.php?id=<?php echo $id; ?>"><span class="btn btn-info">Edit</span></a>
+           <div class="caption"><h1 style="color:blue"><?php echo htmlentities($title); ?></h1></div>
+             <p style="color:red">Published on <?php echo htmlentities($datetime); ?>
+               <a href="setter_editpost.php?id=<?php echo $id; ?>"><span style="float:right"><i class="fa fa-edit" style="font-size:20px;color:black"></i></span></a>
              </p>
              <p class="post"><?php
              if(strlen($post)>300){$post = substr($post,0,400).'...';}
-             echo htmlentities($post); ?>
-             <a href="setter_fullpost.php?id=<?php echo $id; ?>"><span class="btn btn-info">Read More &rsaquo;&rsaquo;</span></a>
+             echo $post; ?>
+             <a href="setter_fullpost.php?id=<?php echo $id; ?>" style="color:blue"><span style="float:right">Read More</span></a>
              </p>
 
              <div style="height : 8px; background : lavender"></div>

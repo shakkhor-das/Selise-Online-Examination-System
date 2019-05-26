@@ -14,8 +14,13 @@
   
   </head>
   <body>
+<<<<<<< HEAD:guesthome.php
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+=======
       
       <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+>>>>>>> 57bb1edd5f362834f3d5c3664162347807756726:guesthome.html
           <div class="d-flex flex-grow-1">
               <a class="navbar-brand d-none d-lg-inline-block" href="#">
                   <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
@@ -388,13 +393,3 @@
   
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
