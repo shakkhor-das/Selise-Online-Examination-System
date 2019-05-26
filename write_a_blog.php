@@ -146,7 +146,7 @@
               <textarea name="postt" id="summernote" cols="30" rows="30"class="form-control"></textarea>
             </div></br>
 
-            
+
               <input type="submit" name="post" class="btn btn-success" value="Add Post">
 
 
