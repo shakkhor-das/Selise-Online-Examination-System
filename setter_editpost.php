@@ -39,12 +39,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,intial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/profilestyle.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
+    <link rel="stylesheet" href="css/profilestyle.css">-->
+    <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">-->
     <title>Selise Online Exam System </title>
   </head>
   <body>
@@ -94,7 +104,7 @@
 
 
 
-	<div class="wrapper">
+	<!--<div class="wrapper">
 			<nav id="sidebar">
 				<ul class="list-unstyled components">
 						<li class="active">
@@ -119,47 +129,33 @@
 					<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
 						<i class="fa fa-align-justify"></i>
           </button>
+      </div>-->
+
+
+      <div class="container">
+        <div class="jumbotron">
+          <form action="write_a_blog.php" method ="post">
+
+            <div class="form-group">
+              <label for="title"><span class="Fieldinfo">Title:</label></span>
+              <input type="text" class="form-control" name="title">
+            </div>
+
+            <div class="form-group">
+              <label for="">Content:</label>
+              <textarea name="postt" id="summernote" cols="30" rows="50"class="form-control"></textarea>
+            </div></br>
+
+
+              <input type="submit" name="post" class="btn btn-success" value="Add Post">
+
+
+          </form>
+        </div>
       </div>
 
-      <?php
-        $postidfromurl = $_GET["id"];
-        $viewquery = "SELECT * FROM opai_setter_blog WHERE id = '$postidfromurl'";
-        $execute = mysqli_query($con,$viewquery);
-        while($datarows = mysqli_fetch_assoc($execute)){
-          $id = $datarows["id"];
-          $title = $datarows["title"];
-          $post = $datarows["post"];
-       ?>
-
-      <div class="card">
-        <!--  <div class="card-body">-->
-           <form action="write_a_blog.php" method="post">
-              <div class="col" style="margin-top:50px">
-                  <h3>Write a Blog</h3>
-                  <div class="jumbotron">
-
-                    <div class="form-group">
-                      <label for="title"><span class="Fieldinfo">Title:</label></span>
-                      <input type="text" class="form-control" name="title">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="postarea"><span class="Fieldinfo">Post:</span></label>
-                      <textarea class="form-control" name="postt" id="description"></textarea>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-sm-4" style="background-color:lavender;"></div>
-                      <div class="col-sm-8" style="background-color:lavender;"><input type="submit" style="margin-top:30px" class="btn btn-success" name="post" value="Add Post">
-                      </div>
-                    </div>
-
-                </div>
-              </div>
-            </form>
-        </div>
-    <!--  </div>-->
- </div>
+    <!--  </div>
+ </div>-->
 
 
 
@@ -173,4 +169,12 @@
     }
 </script>
 
-  </html>
+<script>
+      $('#summernote').summernote();
+      $('#summernote').summernote({
+      height: 400,                 // set editor height
+      minHeight: 400,             // set minimum height of editor
+      maxHeight: 400,             // set maximum height of editor
+      focus: true                  // set focus to editable area after initializing summernote
+    });
+</script>

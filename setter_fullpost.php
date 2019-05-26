@@ -124,6 +124,7 @@
           <div class="blogpost">
            <div class="caption"><h1><?php echo htmlentities($title); ?></h1></div>
              <p>Published on <?php echo htmlentities($datetime); ?></p>
+             <div style="height : 3px; background : #557788"></div>
              <p class="post"><?php echo htmlentities($post); ?>
              </p>
 
