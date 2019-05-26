@@ -1,7 +1,7 @@
 
 <?php
 
-  
+
 
   $hostname = "intern-sls.cdts6wfxxv6z.eu-central-1.rds.amazonaws.com";
   $id = "slsadmin";
@@ -12,7 +12,7 @@
 
 
   /*
-  
+
   if($con){
     echo "connected";
   }*/
@@ -27,9 +27,6 @@
   $con=mysqli_connect($hostname,$id,$pass,$db);*/
 
 
-=======
   $con=mysqli_connect($hostname,$id,$pass,$db);
  
-   */
->>>>>>> 1d2499919bc00cf9fae3e83e369855387c595812
 ?>
