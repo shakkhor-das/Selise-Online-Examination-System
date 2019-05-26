@@ -21,7 +21,7 @@
                     echo '</script>';
                 }
 
-                if($tmp["setterpassword"]!=$password){
+                else if($tmp["setterpassword"]!=$password){
                     echo '<script language="javascript">';
                     echo 'alert("Password incorrect")';
                     echo '</script>';
@@ -47,7 +47,7 @@
                     echo 'alert("Please Verify your account first")';
                     echo '</script>';
                 }
-                if($tmp["userpassword"]!=$password){
+                else if($tmp["userpassword"]!=$password){
                     echo '<script language="javascript">';
                     echo 'alert("Password incorrect")';
                     echo '</script>';

@@ -40,8 +40,9 @@
                     qustionpoint INT NOT NULL
                     );
                 ";
-                $q1=mysqli_query($con,$sql1);    
-                header('Location:checkup.php?name=$test_name');
+                $q1=mysqli_query($con,$sql1);
+                $_SESSION["testname"]=$test_name;  
+                header('Location:checkup.php');
         }
 
 ?>
