@@ -14,7 +14,6 @@
   
   </head>
   <body>
-<<<<<<< HEAD:guesthome.php
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="d-flex flex-grow-1">
