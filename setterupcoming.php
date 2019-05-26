@@ -123,7 +123,7 @@
                             <tr>
                             <th scope="col">#</th>
                             <th scope="col">Test Name</th>
-                            <th scope="col">Subect</th>
+                            <th scope="col">Subject</th>
                             <th scope="col">Begin Time</th>
                             <th scope="col">Exam Type</th>
                             </tr>

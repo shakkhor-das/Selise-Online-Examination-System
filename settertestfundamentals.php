@@ -151,7 +151,7 @@
                     <div id="sf3" style="display:none">
                         <h1>Select your subject</h1>
                             <div class="checkbox">
-                                <label for=""><input type="checkbox" name="check_list[]" class="checklist3" id="checkbox8" value="Physicss">Physics</label>
+                                <label for=""><input type="checkbox" name="check_list[]" class="checklist3" id="checkbox8" value="Physics">Physics</label>
                             </div>
                             <div class="checkbox">
                                 <label for=""><input type="checkbox" name="check_list[]" class="checklist3" id="checkbox9" value="Chemistry">Chemistry</label>

@@ -15,6 +15,12 @@
         $sql1="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
         $q1=mysqli_query($con,$sql1);
         $res1=mysqli_fetch_assoc($q1); 
+        $sql2="SELECT * FROM `opai_setter_global` WHERE setter_id='$id'";
+        $res2=mysqli_query($con,$sql2);
+        $testname=$_SESSION["testname"];
+        $sql3="SELECT * FROM opai_setter_global where setter_id='$id' AND test_name='$testname'";
+        $q3=mysqli_query($con,$sql3);
+        $res3=mysqli_fetch_assoc($q3);
     }
 
 ?>
@@ -118,14 +124,20 @@
 
             
             <div class="container" style="width:800px;margin-left:40px">
-            <h1>Question Added: <?php 
-                $tbl_name=$_SESSION["testname"]; 
-                $sql="SELECT * FROM $tbl_name";
-                $res=mysqli_query($con,$sql);
-                $num=mysqli_num_rows($res);
-                echo $num;
-                ?>
-            </h1>
+            <div id="got" style="font-weight:bold;font-size:30px">
+                <script>
+                    var testname = "<?php  echo $testname; ?>";
+                    $.ajax({
+                        url:"fetch.php",
+                        method:"POST",
+                        async:"false",
+                        data:{testname:testname},
+                        success:function(data){
+                            document.getElementById("got").innerHTML="Question Added: "+data;
+                        }
+                    });
+                </script>
+            </div>
             <br>
             <hr>
             <form action="" method="" name="question" id="question">
@@ -146,7 +158,7 @@
                 <i class="far fa-question-circle"></i>
                 <input type="number" name="point" id="point" class="" placeholder="1" required>
                 <br><br>
-                <input type="submit" name="enter" class="btn btn-warning" value="Preview" style="cursor:pointer;margin-left:619px">
+                <input type="submit" name="enter" class="btn btn-warning" id="preview_button" data-toggle="modal" data-target="#preview" value="Preview" style="cursor:pointer;margin-left:619px">
                 <input type="submit" name="enter" id="enter" class="btn btn-success" value="Save" style="cursor:pointer">
                 
 
@@ -157,6 +169,42 @@
 
 
         </div>
+
+
+        
+
+        <div class="modal fade modal-lg" id="preview" role="dialog" style="width:80%">
+            <div class="modal-dialog">
+            
+            <!-- Modal content-->
+            <div class="modal-content" style="">
+                <div class="modal-header">
+                <h4 class="modal-title" style="margin-left:20%"><?php echo $res3["test_title"]."(Problem Lists)";?></h4>  
+                </div>
+                <div class="modal-body question_details">
+                    <script>
+                        var testname = "<?php  echo $testname; ?>";
+                        $.ajax({
+                            url:"getdata.php",
+                            method:"POST",
+                            async:"false",
+                            data:{testname:testname},
+                            success:function(data){
+                                $(".question_details").html(data);
+                            }
+                         });
+                    </script>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+        </div>
+
 
   </body>
 </html>
@@ -218,6 +266,7 @@
     function togglesidemenu(){
         document.getElementById("sidebar").classList.toggle("active");
     }
+    
 </script>
 
 
@@ -226,3 +275,12 @@
 ?>
 
 
+<script>
+    
+</script>
+
+<style>
+    .modal-lg {
+        max-width: 80% !important;
+    }
+</style>

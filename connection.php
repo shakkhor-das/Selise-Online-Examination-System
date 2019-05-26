@@ -27,6 +27,6 @@
   $con=mysqli_connect($hostname,$id,$pass,$db);*/
 
 
-  $con=mysqli_connect($hostname,$id,$pass,$db);
+
  
 ?>
