@@ -1,0 +1,63 @@
+.form-container{
+    margin:auto;
+    background: #fff;
+    width: 500px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 10px #9ba1aa;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+#mission{
+    border:5px;
+    border-style: invisible;
+    height:500px ;
+    width: 1600px;
+    padding-top: 20px;
+    background-color: #dae1ed;
+    
+}
+#div1{
+    height: 350px;
+    width:400px;;
+    border: :2px;
+    border-style:solid;
+    float:left;
+    margin-left:100px;
+    margin-top:20px;
+
+}
+#div2{
+    height: 350px;
+    width: 400px;
+    border:2px;
+    border-style: solid;
+    float: left;
+    margin-left:50px;
+    margin-top:20px;
+
+   
+    
+
+}
+#div3{
+    height: 350px;
+    width: 400px;
+    border:2px;
+    border-style: solid;
+    float: left;
+    margin-left:50px;
+    margin-top:20px;
+
+    
+    
+}
+.div{
+    padding-top: 10px;
+}
+
+#facebook{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+
+}
