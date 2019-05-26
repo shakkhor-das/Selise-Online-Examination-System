@@ -26,7 +26,7 @@
             echo "Post can't be empty";
           }
           else{
-            $sql = "INSERT into opai_setter_blog (datetime,title,post) VALUES ('$datetime','$title','$post')";
+            $sql = "INSERT into opai_setter_blog (username,datetime,title,post) VALUES ('$username','$datetime','$title','$post')";
             $execute = mysqli_query($con,$sql);
             header('Location:setter_myblogs.php');
           }

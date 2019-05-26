@@ -30,7 +30,7 @@
   $con=mysqli_connect($hostname,$id,$pass,$db);
   */
   $con=mysqli_connect($hostname,$id,$pass,$db);
-  
+
 
   $sql="
 
@@ -159,6 +159,27 @@
 
         if(mysqli_query($con,$sql)){
           echo "opai_setter_global created";
+        }
+        else{
+          echo "failed";
+        }
+
+
+        $sql="
+
+          CREATE TABLE opai_setter_blog(
+
+            id int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+            username VARCHAR(30) NOT NULL,
+            datetime VARCHAR(30) NOT NULL,
+            title VARCHAR(250) NOT NULL,
+            post MEDIUMTEXT NOT NULL
+          );
+
+        ";
+
+        if(mysqli_query($con,$sql)){
+          echo "opai_setter_blog created";
         }
         else{
           echo "failed";
