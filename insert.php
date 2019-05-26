@@ -18,5 +18,5 @@
     $tablename=$_POST["tablename"];
     $sql="INSERT INTO `$tablename` (`question_title`,`questionoption`,`qustionpoint`) VALUES('$title','$option','$point')";
     $res=mysqli_query($con,$sql);
-    
+    echo "Question Added";
 ?>

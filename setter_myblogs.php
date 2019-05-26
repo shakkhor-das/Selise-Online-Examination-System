@@ -111,7 +111,7 @@
         <div class="jumbotron">
 
           <?php
-            $viewquery = "SELECT * FROM opai_setter_blog ORDER BY id desc";
+            $viewquery = "SELECT * FROM opai_setter_blog WHERE username = '$username' ORDER BY id desc";
             $execute = mysqli_query($con,$viewquery);
             while($datarows = mysqli_fetch_assoc($execute)){
               $id = $datarows["id"];
