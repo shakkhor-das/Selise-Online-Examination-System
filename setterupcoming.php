@@ -125,7 +125,8 @@
                             <th scope="col">Test Name</th>
                             <th scope="col">Subject</th>
                             <th scope="col">Begin Time</th>
-                            <th scope="col">Exam Type</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -139,6 +140,7 @@
                                     <td><?php echo $ans["subject"]?></td>
                                     <td><?php echo $ans["test_begin_time"]?></td>
                                     <td><?php echo $ans["test_type"]?></td>
+                                    <td><a href="settertestdetails.php?testid=<?php echo $ans["test_id"]?>" style="color:green">See details</a></td>
                                     </tr>
                                     <?php
                                 }
@@ -163,5 +165,7 @@
     function togglesidemenu(){
         document.getElementById("sidebar").classList.toggle("active");
     }
+
+    
 </script>
 
