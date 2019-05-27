@@ -114,7 +114,7 @@
 
             </div>
             <div class="container">
-                <form action="questionpreprocess.php" name="fundamental" method="post">
+                <form action="questionpreprocess.php" name="fundamental" method="post" >
                     <div id="sf1">
                             <h1>Select level of education</h1>
                             <div class="checkbox">
@@ -240,7 +240,7 @@
 
                                 <div class="form-group" id="test_time">
                                     <label for="testtime">Begin Time</label>
-                                    <input type="datetime-local" id="testtime" placeholder="" class="form-control form-control-md" id ="testtime" name="testtime" >
+                                    <input type="datetime-local"  placeholder="" class="form-control form-control-md" id ="testtime" name="testtime">
 
                                 </div>
 
@@ -268,7 +268,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-danger btn-default pull-left"      data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                                <input type="submit" class="btn btn-primary" name="submit"><span class="glyphicon glyphicon-remove"></span>
+                                <input type="submit" class="btn btn-primary" name="submit" onclick="return timecheck()"><span class="glyphicon glyphicon-remove" ></span>
                                 </div>
                             </div>
 
@@ -471,6 +471,52 @@
         else{
             $("#test_password").hide();
         }
+    }
+
+    
+
+    function timecheck(){
+        var givendate=document.getElementById("testtime").value;
+            givendate=new Date(givendate);
+            var today=new Date();
+            var y1=givendate.getFullYear();
+            var y2=today.getFullYear();
+            var mon1=givendate.getMonth();
+            var mon2=today.getMonth();
+            var d1=givendate.getDate();
+            var d2=today.getDate();
+            var h1=givendate.getHours();
+            var h2=today.getHours();
+            var m1=givendate.getMinutes();
+            var m2=today.getMinutes();
+            if(y1==y2){
+                if(mon1==mon2){
+                    if(d1==d2){
+                        if(h1==h2){
+                            if(m1<=m2){
+                                alert("Invalid Begining Time");
+                                return false;
+                            }
+                        }
+                        else if(h1<h2){
+                            alert("Invalid Begining Time");
+                            return false;
+                        }
+                    }
+                    else if(d1<d2){
+                        alert("Invalid Begining Time");
+                        return false;
+                    }
+                }
+                else if(mon1<mon2){
+                    alert("Invalid Begining Time");
+                    return false;
+                }
+            }
+            else if(y1<y2){
+                alert("Invalid Begining Time");
+                return false;
+            }
     }
 
 </script>
