@@ -21,7 +21,7 @@
                 $time=mysqli_real_escape_string($con,$_POST["testtime"]);
                 $duration=mysqli_real_escape_string($con,$_POST["testduration"]);
                 $visibility=mysqli_real_escape_string($con,$_POST["visibility"]);
-                $testpassword=md5(mysqli_real_escape_string($con,$_POST["testpassword"]));
+                $testpassword=mysqli_real_escape_string($con,$_POST["testpassword"]);
                 if($visibility=="public"){
                     $testpassword="";
                 }
