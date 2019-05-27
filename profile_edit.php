@@ -1,20 +1,27 @@
 <?php
 		include('connection.php');
-        session_start();
-        if(!isset($_SESSION['username'])){
-        header('Location:login.php');
+    session_start();
+    if(!isset($_SESSION['username'])){
+    header('Location:login.php');
 		}
 
 		$username=$_SESSION["username"];
 		$sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
-        $q=mysqli_query($con,$sql);
+    $q=mysqli_query($con,$sql);
 		$res=mysqli_fetch_assoc($q);
 		$id=$res["setterid"];
 		$sql="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
 		$q=mysqli_query($con,$sql);
 		$res=mysqli_fetch_assoc($q);
-
-
+		$mobileno = $res["setter_mobile_no"];
+		$fullname = $res["setter_full_name"];
+		$birthdate = $res["setter_date_of_birth"];
+		$location = $res["setter_current_location"];
+		$institution = $res["setter_institution"];
+		$facebook = $res["setter_facebook_url"];
+		$linkedin = $res["setter_linkedin_url"];
+		$github = $res["setter_github_url"];
+		$bio = $res["setter_bio"];
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -119,6 +126,9 @@
 									</form>
 								</div>
                 <div class="card-body">
+
+
+
 									<form action="setterprofilesubmit.php" method="post">
                     <div class="container" style="margin-top:50px">
                             <h3>Contact Information</h3>
@@ -127,7 +137,7 @@
                                             <div class="row">
                                                 <div class="col-sm-4" style="background-color:lavender;"><label for="mobile">Mobile No.</label></div>
 																								<div class="col-sm-8" style="background-color:lavender;">
-																									<input type="text" name="mobile">
+																									<input type="text" name="mobile" value="<?php echo $mobileno; ?>">
 																								</div>
                                             </div>
                                     </div>
@@ -140,26 +150,26 @@
                                         <div class="row">
                                                 <div class="col-sm-4" style="background-color:lavender;"><label for="fullname">Full Name</label></div>
 																								<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="text" name="fullname">
+																								<input type="text" name="fullname" value="<?php echo $fullname; ?>">
 																								</div>
                                         </div>
 
                                         <div class="row">
                                             <div class="col-sm-4" style="background-color:lavender;"><label for="dateofbirth">Date of Birth</label></div>
 																						<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="date" name="dateofbirth">
+																								<input type="date" name="dateofbirth" value="<?php echo $birthdate; ?>">
 																						</div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-4" style="background-color:lavender;"><label for="currentlocaton">Current Location</label></div>
 																						<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="text" name="currentlocation">
+																								<input type="text" name="currentlocation" value="<?php echo $location; ?>">
 																						</div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-4" style="background-color:lavender;"><label for="institution">Institution</label></div>
 																						<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="text" name="institution">
+																								<input type="text" name="institution" value="<?php echo $institution; ?>">
 																						</div>
                                         </div>
                                 </div>
@@ -180,25 +190,25 @@
                                     <div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">Facebook Url</label></div>
 																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="url" name="facebookurl">
+																						<input type="url" name="facebookurl" value="<?php echo $facebook; ?>">
 																				</div>
 																		</div>
 																		<div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">LinkedIn Url</label></div>
 																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="url" name="linkedin">
+																						<input type="url" name="linkedin" value="<?php echo $linkedin; ?>">
 																				</div>
 																		</div>
 																		<div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">GitHub Url</label></div>
 																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="url" name="GitHub">
+																						<input type="url" name="GitHub" value="<?php echo $github; ?>">
 																				</div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="Bio">Bio</label></div>
                                         <div class="col-sm-8" style="background-color:lavender;">
-                                            <textarea name="bio" id="" cols="30" rows="4"></textarea>
+                                            <textarea name="bio" id="" cols="30" rows="4"> <?php echo $bio; ?></textarea>
                                         </div>
                                     </div>
                                 </div>
