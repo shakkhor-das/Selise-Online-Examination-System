@@ -5,31 +5,31 @@
         header('Location:login.php');
     }
     else{
-        
+
         $username=$_SESSION['username'];
         $sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
         $q=mysqli_query($con,$sql);
-		$res=mysqli_fetch_assoc($q);
-		if(isset($_FILES['file'])){
-			$sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
-		    $q=mysqli_query($con,$sql);
-			$res=mysqli_fetch_assoc($q);
-            $name=$_FILES['file']['name'];
-            echo "$name";
-			$tmp_name=$_FILES['file']['tmp_name'];
-			$des='img/';
-            move_uploaded_file($tmp_name,$des.$name);
-            $id=$res["setterid"];
-            $sql="UPDATE opai_setter_details SET setter_image = '".$_FILES['file']['name']."' WHERE setter_id = '$id'";
-            if(mysqli_query($con,$sql)){
+		    $res=mysqli_fetch_assoc($q);
+		    if(isset($_FILES['file'])){
+			       $sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
+		         $q=mysqli_query($con,$sql);
+			       $res=mysqli_fetch_assoc($q);
+             $name=$_FILES['file']['name'];
+             echo "$name";
+			       $tmp_name=$_FILES['file']['tmp_name'];
+			       $des='img/';
+             move_uploaded_file($tmp_name,$des.$name);
+             $id=$res["setterid"];
+             $sql="UPDATE opai_setter_details SET setter_image = '".$_FILES['file']['name']."' WHERE setter_id = '$id'";
+             if(mysqli_query($con,$sql)){
                 //echo "successfulll";
                 header('Location:profile_edit.php');
-            }
-			else{
+             }
+			       else{
                 echo "failed";
-            }		
+             }
         }
-        
+
         if(isset($_POST['update'])){
             $mobile=mysqli_real_escape_string($con,$_POST['mobile']);
             $fullname=mysqli_real_escape_string($con,$_POST['fullname']);
@@ -48,6 +48,8 @@
             $sql="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
             $q=mysqli_query($con,$sql);
             $res=mysqli_fetch_assoc($q);
+
+            /*
             if($mobile==""){
                 $mobile=$res["setter_mobile_no"];
             }
@@ -77,7 +79,10 @@
             }
             if($bio==""){
                 $bio=$res["setter_bio"];
-            }
+            }*/
+
+
+
 
             $sql="UPDATE `opai_setter_details` SET `setter_mobile_no`='$mobile',`setter_full_name`='$fullname',`setter_date_of_birth`='$dateofbirth',`setter_current_location`='$currentlocation',`setter_institution`='$institution',`setter_gender`='$gender',`setter_facebook_url`='$facebook',`setter_linkedin_url`='$linkedin',`setter_github_url`='$git',`setter_bio`='$bio' WHERE setter_id='$id'";
             $q=mysqli_query($con,$sql);

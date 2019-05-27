@@ -62,10 +62,17 @@
                         <a href="setterprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="setterhome.php" class="nav-link m-2 menu-item nav-active">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link m-2 menu-item">Test</a>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link m-2 menu-item nav-active dropdown-toogle" data-toggle="dropdown" data-target="dropdown_target">Test
+                        <i class="fas fa-caret-down"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                            <a class="dropdown-item" href="settertestfundamentals.php">Create Test</a>
+                            <a class="dropdown-item" href="#">My Previous Test</a>
+                            <a class="dropdown-item" href="setterupcoming.php">My upcoming Test</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link m-2 menu-item">Tutorial</a>
@@ -96,7 +103,7 @@
 						</li>
 
 						<li class="active">
-							<a href="settings.php" data-toggle="collapse" aria-exapnded="false" >Settings</a>
+							<a href="settings.php" aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
 			</nav>

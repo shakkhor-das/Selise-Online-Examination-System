@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,intial-scale=1.0">
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -48,7 +48,7 @@
               </ul>
           </div>
       </nav>
-    
+
 
     <div class="container">
         <form action="successRegister.php" class="form-container" method="POST" name="regform" onsubmit="return formvalidation();">
@@ -90,18 +90,18 @@
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Password" class="form-control form-control-md" name="password" autocomplete="none">
                 <progress max="100" value="0" style="width:340px" id="strength"></progress>
-                <div id="errorpassword1"></div> 
+                <div id="errorpassword1"></div>
             </div>
 
             <div class="form-group">
                 <label for="confirmPassword">Confirm Passowrd</label>
                 <input type="password" id="confirmPassword" placeholder="Confirm Password" class="form-control form-control-md" name="confirmpassword">
-                <div id="errorpassword2"></div> 
+                <div id="errorpassword2"></div>
             </div>
 
             <div class="form-group">
               <div class="form-check">
-                <input type="checkbox" id="accept-terms" class="form-check-input" name="check" required="required"> 
+                <input type="checkbox" id="accept-terms" class="form-check-input" name="check" required="required">
                 <label for="accept-terms" class="form-check-label">Accept Terms & Conditions</label>
               </div>
             </div>
@@ -156,12 +156,13 @@
             case 4:
                 strengthbar.value=100;
                 break
-            
+
           }
         }
 
 </script>
 <script>
+
         //getting values
       var firstname=document.forms['regform']['firstname'];
       var lastname=document.forms['regform']['lastname'];
@@ -188,7 +189,7 @@
           firstname.focus();
           return false;
         }
-        
+
         if(lastname.value==""){
           errorlname.textContent="Secondname is required";
           errorlname.style.color="red";

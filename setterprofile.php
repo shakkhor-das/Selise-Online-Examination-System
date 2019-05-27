@@ -59,7 +59,7 @@
                         <a href="setterprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="setterhome.php" class="nav-link m-2 menu-item nav-active">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link m-2 menu-item nav-active dropdown-toogle" data-toggle="dropdown" data-target="dropdown_target">Test
@@ -246,4 +246,3 @@
         document.getElementById("sidebar").classList.toggle("active");
     }
 </script>
-
