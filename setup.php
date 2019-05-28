@@ -185,4 +185,44 @@
           echo "failed";
         }
 
+
+
+        $sql="
+
+        CREATE TABLE opai_user_blog(
+
+          id int(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+          username VARCHAR(30) NOT NULL,
+          datetime VARCHAR(30) NOT NULL,
+          title VARCHAR(250) NOT NULL,
+          post MEDIUMTEXT NOT NULL
+        );
+
+      ";
+
+      if(mysqli_query($con,$sql)){
+        echo "opai_user_blog created";
+      }
+      else{
+        echo "failed";
+      }
+
+      $sql="
+
+        CREATE TABLE opai_user_registeredtable(
+
+          id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+          userid INT(30) NOT NULL,
+          testid INT(30) NOT NULL
+        );
+
+      ";
+
+      if(mysqli_query($con,$sql)){
+        echo "opai_user_registeredtable created";
+      }
+      else{
+        echo "failed";
+      }
+
 ?>

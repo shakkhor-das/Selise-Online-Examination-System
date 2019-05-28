@@ -249,7 +249,6 @@
             }
             var point=$("#point").val();
             var myjson=JSON.stringify(optionwithans);
-            console.log(myjson);
             $.post('insert.php',{questiontitle:title,questionpoint:point,option:myjson,tablename:table_name},function(response){
                 alert(response);
                 $("#question")[0].reset();
