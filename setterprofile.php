@@ -59,7 +59,7 @@
                         <a href="setterprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="setterhome.php" class="nav-link m-2 menu-item nav-active">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link m-2 menu-item nav-active dropdown-toogle" data-toggle="dropdown" data-target="dropdown_target">Test
@@ -194,27 +194,33 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">Facebook Url</label></div>
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook"><i class="fab fa-facebook"></i></label></div>
                                         <div class="col-sm-8" style="background-color:lavender;">
+                                                <a href="<?php echo $res1["setter_facebook_url"]; ?>">
                                                 <?php
                                                     echo $res1["setter_facebook_url"];
                                                 ?>
+                                                </a>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="linkedin">LinkedIn Url</label></div>
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="linkedin"><i class="fab fa-linkedin"></i></label></div>
                                         <div class="col-sm-8" style="background-color:lavender;">
+                                                <a href="<?php echo $res1["setter_linkedin_url"]; ?>">
                                                 <?php
                                                     echo $res1["setter_linkedin_url"];
                                                 ?>
+                                                </a>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">GitHub Url</label></div>
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook"><i class="fab fa-git"></i></label></div>
                                         <div class="col-sm-8" style="background-color:lavender;">
+                                                <a href="<?php echo $res1["setter_github_url"]; ?>">
                                                 <?php
                                                     echo $res1["setter_github_url"];
                                                 ?>
+                                                </a>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -235,7 +241,7 @@
 
     </div>
 
-
+    
 
   </body>
 </html>
@@ -246,4 +252,3 @@
         document.getElementById("sidebar").classList.toggle("active");
     }
 </script>
-

@@ -65,10 +65,17 @@
                         <a href="login.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="setterhome.php" class="nav-link m-2 menu-item nav-active">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link m-2 menu-item">Test</a>
+										<li class="nav-item dropdown">
+                        <a href="#" class="nav-link m-2 menu-item nav-active dropdown-toogle" data-toggle="dropdown" data-target="dropdown_target">Test
+                        <i class="fas fa-caret-down"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown_target">
+                            <a class="dropdown-item" href="settertestfundamentals.php">Create Test</a>
+                            <a class="dropdown-item" href="#">My Previous Test</a>
+                            <a class="dropdown-item" href="setterupcoming.php">My upcoming Test</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link m-2 menu-item">Tutorial</a>
@@ -129,7 +136,7 @@
 
 
 
-									<form action="setterprofilesubmit.php" method="post">
+									<form action="setterprofilesubmit.php" method="post" name="setterprofile">
                     <div class="container" style="margin-top:50px">
                             <h3>Contact Information</h3>
                                     <div class="jumbotron">
@@ -144,7 +151,7 @@
                     </div>
 
 
-                    <div class="container style="padding:20px">
+                    <div class="container" style="padding:20px">
                             <h3>General Information</h3>
                                 <div class="jumbotron">
                                         <div class="row">
@@ -190,19 +197,19 @@
                                     <div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">Facebook Url</label></div>
 																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="url" name="facebookurl" value="<?php echo $facebook; ?>">
+																						<input type="url" name="facebookurl" value="<?php echo $facebook; ?>" id="fb">
 																				</div>
 																		</div>
 																		<div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">LinkedIn Url</label></div>
 																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="url" name="linkedin" value="<?php echo $linkedin; ?>">
+																						<input type="url" name="linkedin" value="<?php echo $linkedin; ?>" id="linkedin">
 																				</div>
 																		</div>
 																		<div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">GitHub Url</label></div>
 																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="url" name="GitHub" value="<?php echo $github; ?>">
+																						<input type="url" name="GitHub" value="<?php echo $github; ?>" id="git">
 																				</div>
                                     </div>
                                     <div class="row">
@@ -214,7 +221,7 @@
                                 </div>
 										</div>
 
-										<input type="submit" class="btn btn-success" name="update" value="Save Changes">
+										<input type="submit" class="btn btn-success" name="update" value="Save Changes" onclick="return checkurl()">
 									</form>
                 </div>
 
@@ -229,17 +236,31 @@
 </html>
 
 
-<script>
+<script type="text/javascript">
     function togglesidemenu(){
         document.getElementById("sidebar").classList.toggle("active");
     }
+		function checkurl(){
+				var fb=document.forms['setterprofile']['facebookurl'].value;
+				console.log(fb);
+				if( /(ftp|http|https):\/\/?(?:www\.)?facebook.com(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(fb) ){
+					alert("Invalid facebook link");
+					return false;
+				}
+
+				var ln=document.forms['setterprofile']['linkedin'].value;
+				console.log(ln);
+				if( /(ftp|http|https):\/\/?(?:www\.)?linkedin.com/in/(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(ln) ){
+					alert("Invalid linkedin link");
+					return false;
+				}
+
+				var git=document.forms['setterprofile']['GitHub'].value;
+				console.log(git);
+				if( /(ftp|http|https):\/\/?(?:www\.)?github.com(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(git) ){
+					alert("Invalid github link");
+					return false;
+				}
+
+		}
 </script>
-
-
-
-<?php
-		//include('connection.php');
-
-
-
-?>
