@@ -19,7 +19,7 @@
             $des='img/';
             move_uploaded_file($tmp_name,$des.$name);
             $id=$res["userid"];
-            $sql="UPDATE opai_user_details SET user_image = '".$_FILES['file']['name']."' WHERE user_id = '$id'";
+            $sql="UPDATE `opai_user_details` SET user_image = '".$_FILES['file']['name']."' WHERE user_id = '$id'";
             if(mysqli_query($con,$sql)){
             //echo "successfulll";
                 header('Location:user_profile_edit.php');
