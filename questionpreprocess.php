@@ -31,7 +31,7 @@
                     '$testpassword')";
                 
                 $q=mysqli_query($con,$sql);
-
+                $regtable="rg".$test_name;
                 $sql1="CREATE TABLE `$test_name`(
 
                     question_id INT UNSIGNED  AUTO_INCREMENT PRIMARY KEY,
@@ -41,7 +41,21 @@
                     );
                 ";
                 $q1=mysqli_query($con,$sql1);
-                $_SESSION["testname"]=$test_name;  
+                $_SESSION["testname"]=$test_name;
+                $sql2="CREATE TABLE `$regtable`(
+                    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                    username VARCHAR(100) NOT NULL
+                    );
+                ";
+                $q2=mysqli_query($con,$sql2);
+                $test_name="ans".$test_name; 
+                $sql1="CREATE TABLE `$test_name`(
+                    id INT UNSIGNED  AUTO_INCREMENT PRIMARY KEY,
+                    question_id INT NOT NULL,
+                    question_ans JSON DEFAULT NULL
+                    );
+                ";
+                $q2=mysqli_query($con,$sql1);
                 header('Location:checkup.php');
         }
 

@@ -247,16 +247,17 @@
                                     <?php
 
                                     ?>
-                                    <td><a href="#" style="color:hsl(123, 87%, 49%)">Edit</a></td>
+                                    <td><a href="#" style="color:hsl(123, 87%, 49%)"><i class="fas fa-edit"></i>Edit</a></td>
                                     <?php
                                 }
                                 
                                 
 
                             ?>
-    
+                            
                         </tbody>
                         </table>
+                        <button type="submit" class="btn btn-primary" style="float:right" data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fas fa-plus"></i>Add More questions</button>
                 </div>
             </div>
             </div>   
@@ -264,8 +265,14 @@
 
 
     </div>
-
-
+                
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                
+            </div>
+        </div>
+    </div>
 
   </body>
 </html>
@@ -306,4 +313,6 @@
 
     countdown();
 </script>
+
+
 

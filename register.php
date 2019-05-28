@@ -31,7 +31,7 @@
           <div class="collapse navbar-collapse flex-grow-1" id="myNavbar">
               <ul class="navbar-nav ml-auto flex-nowrap">
                   <li class="nav-item">
-                      <a href="guesthome.html" class="nav-link m-2 menu-item nav-active">Home</a>
+                      <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>
                   </li>
                   <li class="nav-item">
                       <a href="#" class="nav-link m-2 menu-item">Test</a>
