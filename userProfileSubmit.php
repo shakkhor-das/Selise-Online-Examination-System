@@ -5,6 +5,7 @@
         header('Location:login.php');
     }
     else{
+        $msg = "";
         $username=$_SESSION['username'];
         $sql="SELECT * FROM `opai_user` WHERE userUsername='$username' LIMIT 1";
         $q=mysqli_query($con,$sql);
@@ -13,12 +14,7 @@
             $sql="SELECT * FROM `opai_user` WHERE userUsername='$username' LIMIT 1";
             $q=mysqli_query($con,$sql);
             $res=mysqli_fetch_assoc($q);
-            $name=$_FILES['file']['name'];
-            echo "$name";
-            $tmp_name=$_FILES['file']['tmp_name'];
-            $des='img/';
-            move_uploaded_file($tmp_name,$des.$name);
-            $id=$res["userid"];
+            
             $sql="UPDATE `opai_user_details` SET user_image = '".$_FILES['file']['name']."' WHERE user_id = '$id'";
             if(mysqli_query($con,$sql)){
             //echo "successfulll";

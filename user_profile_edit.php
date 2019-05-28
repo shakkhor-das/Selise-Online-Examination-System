@@ -61,7 +61,7 @@
                         ?>
                     </li>
                     <li class="nav-item">
-                        <a href="login.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
+                        <a href="userProfile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
                         <a href="userHome.php" class="nav-link m-2 menu-item nav-active">Home</a>
@@ -122,7 +122,7 @@
                     <img src="img/rdj.jpg" alt="Profile Image" class="profile-img">
                     <?php
                         $directory="img/";
-                        echo '<img class="profile-img" src = "'.$directory.$res["user_image"].'">';
+                        echo '<img class="profile-img" src = "'.$directory.$res['user_image'].'">';
                     ?>
                 </div>
                 <div id="imageupload">
