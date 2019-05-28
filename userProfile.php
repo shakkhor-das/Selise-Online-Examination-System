@@ -86,7 +86,7 @@
 			<nav id="sidebar">
 				<ul class="list-unstyled components">
 						<li class="active">
-							<a href="profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
+							<a href="user_profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
 						</li>
 
 						<li class="active">

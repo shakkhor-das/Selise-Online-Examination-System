@@ -54,7 +54,7 @@
                 }
                 else{
                     $_SESSION['username']=$tmp["userUsername"];
-                    header('Location:setterprofile.php');
+                    header('Location:userProfile.php');
                 }
             }
             else{
@@ -114,7 +114,6 @@
                         <a href="register.php" class="nav-link m-2 menu-item">Register</a>
                   </li>
                   <li class="nav-item">
-
                         <a href="login.php" class="nav-link m-2 menu-item" >Login</a>
                   </li>
               </ul>
