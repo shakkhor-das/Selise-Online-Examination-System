@@ -1,9 +1,35 @@
+<?php
+  session_start();
+  include('connection.php');
+  $output = '';
+  if (isset($_POST['search'])){
+    $searchq = $_POST['search'];
+    $searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
+    $sql = "SELECT * FROM `opai_user` JOIN `opai_setter` WHERE `setterfirstname` LIKE '%$searchq%' OR 
+    `setterlastname` LIKE '%$searchq%' OR userfirstname LIKE %$searchq% OR userlastname LIKE %$searchq%";
+    $q = mysqli_query($con,$sql);
+    $res = mysqli_fetch_assoc($q);
+    $rows = mysqli_num_rows($q);
+    if ($rows==0){
+      $output = "There was no search results!";
+    }
+    else{
+      while($res){
+        $fname = $res['userfirstname'];
+        $lname = $res['userlastname'];
+        $id = $res['userid'];
+        $output .= '<div> ' .$fname.' '.$lname. '</div>';
+      }
+    }
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,intial-scale=1.0">
-    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -14,8 +40,8 @@
   
   </head>
   <body>
-
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      
+      <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
           <div class="d-flex flex-grow-1">
               <a class="navbar-brand d-none d-lg-inline-block" href="#">
                   <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
@@ -31,6 +57,13 @@
                   </button>
               </div>
           </div>
+          <form action="guesthome.php" method="post">
+            <input type="text" name="search" placeholder="Search for members.." />
+            <input type="submit" value="search" />
+          </form>
+          <?php
+            print("$output"); 
+          ?>
           <div class="collapse navbar-collapse flex-grow-1" id="myNavbar">
               <ul class="navbar-nav ml-auto flex-nowrap">
                   <li class="nav-item">
@@ -46,32 +79,32 @@
                       <a href="register.php" class="nav-link m-2 menu-item">Register</a>
                   </li>
                   <li class="nav-item">
-                      <a href="login.php" class="nav-link m-2 menu-item">Login</a>
+                      <a href="#" class="nav-link m-2 menu-item">Login</a>
                   </li>
               </ul>
           </div>
       </nav>
-
-      <div class="view" style="background-color: #dae1ed; background-repeat: no-repeat; background-size:cover; background-position: center center;height:700px;">
-          <!-- Mask & flexbox options-->
+      
+      <div class="view" style=" background-repeat: no-repeat; background-size:cover; background-position: center center;height:700px;">
+          
           <div class="mask rgba-black-light align-items-center">
-            <!-- Content -->
+            
             <div class="container">
-              <!--Grid row-->
+            
               <div class="row">
-                <!--Grid column-->
+                
                 <div class="#" style="padding-top: 20px;">
-                      <h2  style="padding-left:350px;padding-top: 200px; "><b>WELCOME TO ONLINE EXAMINATION SYSTEM </b> </h2>
+                      <h2  style="padding-left:85px;padding-top: 200px;letter-spacing: .5rem; "><b>WELCOME TO ONLINE EXAMINATION SYSTEM </b> </h2>
                       <hr class="hr-light">
-                      <h6 class="mb-4" style="text-align:center;padding-left:230px;"><b>Evaluate yourself with our quality question and make yourself future leader .
+                      <h6 class="mb-4" style="text-align:center;padding-left:23px;"><b>EVALUATE YOURSELF AND MAKE YOURSELF FUTURE LEADER .
                       </b></h6>
-                <!--Grid column-->
+                
               </div>
-              <!--Grid row-->
+            
             </div>
-            <!-- Content -->
+            
           </div>
-          <!-- Mask & flexbox options-->
+          
         </div>
 
         </div>
@@ -84,9 +117,9 @@
                         <div class="card" id="card1" style="width:20rem;padding:5px; ">
                             <img src="img/tutorial.jpg" alt="tutorial" class="card-img-top">
                         <div class="card-body">
-                            <h5 class="card-title"> Start Tutorial </h5>
+                            <h5 class="card-title" style="text-align: center;"> Start Tutorial </h5>
                             <p class="card-text">
-                                    The Internal Revenue Service has expanded its “Fresh Start” car insurance companies not on comparison sites initiative to help struggling taxpayers who owe taxes. All too often, a taxpayer owes money to the IRS and they just accept the fate of drowniuide will show you how to change the battery in your car's remote key entry fob Repair  
+                                    The Internal Revenue Service has expanded its “Fresh Start” car insurance companies not on comparison sites initiative to help struggling taxpayers who owe taxes. All too often,show you how to change the battery in your car's remote key entry fob Repair  
                                 </p>
                                 <a href="#" class="btn btn-primary">Read More </a>
     
@@ -100,9 +133,9 @@
                             <div class="card" style="width:20rem;padding:5px ">
                                 <img src="img/test.jpg" alt="test" class="card-img-top">
                             <div class="card-body">
-                                <h5 class="card-title"> Take a test </h5>
+                                <h5 class="card-title" style="text-align: center;"> Take a test </h5>
                                 <p class="card-text">
-                                    .Top Ten Random Sentences. 1 I am so blue I'm greener than purple. 2 I stepped on a Corn Flake, now I'm a Cereal Killer. 3 On a scale from one to ten what is your favourite colour of the alphabet. 4 Everyday a grape licks a friendly cow. 5 Llamas eat sexy paper clips. 6 Banana error. 7 Don't touch my crayons, they can fdgfdfdb dfbdfb sdvsfdvb fvb...
+                                    This is the platform from where you can evaluate yourself . There are bunch of questions for Students from  differnt levels . After choosing the your level of education and background you can start taking test . So press the following button which will take you to the test page . 
                                     </p>
                                     <a href="#" class="btn btn-primary"> Read More </a>
         
@@ -116,9 +149,9 @@
                                 <div class="card" style="width:20rem;padding:5px  ">
                                     <img src="img/faq.jpg" alt="faq" class="card-img-top">
                                 <div class="card-body">
-                                    <h5 class="card-title"> Frequently Asked Question </h5>
+                                    <h5 class="card-title" style="text-align: center;"> Frequently Asked Question </h5>
                                     <p class="card-text">
-                                        . .The Internal Revenue Service has expanded its “Fresh Start” car insurance companies not on comparison sites initiative to help struggling taxpayers who owe taxes. All too often, a taxpayer owes money to the IRS and they just accept the fate ofdebt. This guide will show you how to change the battery in your car's remote key entry fob Repair  
+                                        Our students have so many queries about our test system . And we are very much respectful about those questions . From these some questions are frequently asked . That's why we are giving a full list of those asked questions so that you feel comfortable here .
                                         </p>
                                         <a href="#" class="btn btn-primary">Read More </a>
             
@@ -136,7 +169,7 @@
         <div class="col" id="mission" >
           <h1 style="text-align: center;">OUR MISSION</h1>
           
-          <div class="row" >
+          <div class="row" style="background:#fff">
                   
             <div class="col-4-lg"ml-3 style="padding-left:110px;padding-top: 30px;">
                       <div class="card" id="card1" style="width:20rem;padding:5px; ">
@@ -170,7 +203,7 @@
       
                       </div>
   
-                      <div class="col-4-lg" ml-3 style="padding-left:100px;padding-top: 30px;">
+                      <div class="col-4-lg" ml-3 style="padding-left:120px;padding-top: 30px;">
                               <div class="card" style="width:20rem;padding:5px  ">
                                   
                               <div class="card-body">
@@ -192,62 +225,62 @@
     
         <section class="mb-4" style="margin:100px;margin-top:150px;height:600px;padding-left: 50px;padding-right:30px; ">
 
-          <!--Section heading-->
+          
           <h2 class="h1-responsive font-weight-bold text-center my-4">CONTACT US</h2>
-          <!--Section description-->
+        
           <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
               a matter of hours to help you.</p>
       
           <div class="row" style="padding-top:50px;">
       
-              <!--Grid column-->
+              
               <div class="col-md-9 mb-md-0 mb-5">
                   <form id="contact-form" name="contact-form" action="contactform.php" method="POST">
       
-                      <!--Grid row-->
+                      
                       <div class="row">
       
-                          <!--Grid column-->
+                        
                           <div class="col-md-6">
                               <div class="md-form mb-0">
                                   <input type="text" id="name" name="name" placeholder="Full name"class="form-control">
-                                  <label for="name" class="">Your name</label>
+                                  <label for="name" class=""></label>
                               </div>
                           </div>
-                          <!--Grid column-->
+                        
       
-                          <!--Grid column-->
+                          
                           <div class="col-md-6">
                               <div class="md-form mb-0">
                                   <input type="text" id="email" name="email" placeholder="Your e-mail" class="form-control">
-                                  <label for="email" class="">Your email</label>
+                                  <label for="email" class=""></label>
                               </div>
                           </div>
-                          <!--Grid column-->
+                          
       
                       </div>
-                      <!--Grid row-->
+                    
       
-                      <!--Grid row-->
+                      
                       <div class="row">
                           
                       </div>
-                      <!--Grid row-->
+                      
       
-                      <!--Grid row-->
+                      
                       <div class="row">
       
-                          <!--Grid column-->
+                          
                           <div class="col-md-12">
       
                               <div class="md-form" >
                                   <textarea type="text" id="message" name="message" placeholder="Message"rows="2" class="form-control md-textarea" style="height:150px;"></textarea>
-                                  <label for="message">Your message</label>
+                                  <label for="message"></label>
                               </div>
       
                           </div>
                       </div>
-                      <!--Grid row-->
+                      
       
                   </form>
       
@@ -256,9 +289,9 @@
                   </div>
                   <div class="status"></div>
               </div>
-              <!--Grid column-->
+              
       
-              <!--Grid column-->
+            
               <div class="col-md-3 text-center">
                   <ul class="list-unstyled mb-0">
                       <li><i class="fas fa-map-marker-alt fa-2x"></i>
@@ -274,7 +307,7 @@
                       </li>
                   </ul>
               </div>
-              <!--Grid column-->
+            
       
           </div>
       
