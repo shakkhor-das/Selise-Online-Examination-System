@@ -1,12 +1,10 @@
 <?php
-  session_start();
   include('connection.php');
   $output = '';
   if (isset($_POST['search'])){
     $searchq = $_POST['search'];
     $searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
-    $sql = "SELECT * FROM `opai_user` JOIN `opai_setter` WHERE `setterfirstname` LIKE '%$searchq%' OR 
-    `setterlastname` LIKE '%$searchq%' OR userfirstname LIKE %$searchq% OR userlastname LIKE %$searchq%";
+    $sql = "SELECT * FROM `opai_user` WHERE `userfirstname` LIKE '%$searchq%' OR userlastname LIKE %$searchq%";
     $q = mysqli_query($con,$sql);
     $res = mysqli_fetch_assoc($q);
     $rows = mysqli_num_rows($q);
@@ -18,7 +16,7 @@
         $fname = $res['userfirstname'];
         $lname = $res['userlastname'];
         $id = $res['userid'];
-        $output .= '<div> ' .$fname.' '.$lname. '</div>';
+        $output .= '<div> '.$fname.' '.$lname.'</div>';
       }
     }
   }
