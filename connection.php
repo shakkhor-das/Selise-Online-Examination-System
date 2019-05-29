@@ -15,18 +15,16 @@
 
   if($con){
     echo "connected";
-  }*/
+  }
 
 
 
-  /*$hostname="localhost";
+  $hostname="localhost";
   $id="root";
   $pass="";
   $db="opai";
-<<<<<<< HEAD
-  $con=mysqli_connect($hostname,$id,$pass,$db);*/
-
-
-
+  
+  $con=mysqli_connect($hostname,$id,$pass,$db);
+*/
  
 ?>
