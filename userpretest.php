@@ -216,7 +216,6 @@
         if(d=="00" && h=="00" && m=="00" && s=="00"){
             $("#mybtn3").show();
             $("#mybtn2").hide();
-            console.log(10);
         }
         if(d>0 || h>0 || m>0 || s>0){
             document.getElementById("day").textContent=d+":";

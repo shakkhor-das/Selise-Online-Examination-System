@@ -31,11 +31,7 @@
                     '$testpassword')";
                 
                 $q=mysqli_query($con,$sql);
-<<<<<<< HEAD
-                $regtable="rg"+$testname;
-=======
                 $regtable="rg".$test_name;
->>>>>>> 0322c7ea5c54d9672ca9fcdffffa08320cbaf87b
                 $sql1="CREATE TABLE `$test_name`(
 
                     question_id INT UNSIGNED  AUTO_INCREMENT PRIMARY KEY,
@@ -47,27 +43,20 @@
                 $q1=mysqli_query($con,$sql1);
                 $_SESSION["testname"]=$test_name;
                 $sql2="CREATE TABLE `$regtable`(
-<<<<<<< HEAD
-                    userid INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                    username VARCHAR(100) NOT NULL
-                    );
-                ";
-                $q2=mysqli_query($con,$sql2);  
-=======
                     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                    username VARCHAR(100) NOT NULL
+                    username VARCHAR(100) NOT NULL,
+                    achieved_point INT NULL
                     );
                 ";
                 $q2=mysqli_query($con,$sql2);
                 $test_name="ans".$test_name; 
                 $sql1="CREATE TABLE `$test_name`(
                     id INT UNSIGNED  AUTO_INCREMENT PRIMARY KEY,
-                    question_id INT NOT NULL,
+                    userid INT NOT NULL,
                     question_ans JSON DEFAULT NULL
                     );
                 ";
                 $q2=mysqli_query($con,$sql1);
->>>>>>> 0322c7ea5c54d9672ca9fcdffffa08320cbaf87b
                 header('Location:checkup.php');
         }
 
