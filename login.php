@@ -42,10 +42,12 @@
             $res=mysqli_query($con,$sql);
             if(mysqli_num_rows($res)==1){
                 $tmp=mysqli_fetch_assoc($res);
+                
                 if($tmp["verificationstatus"]==NULL){
                     echo '<script language="javascript">';
                     echo 'alert("Please Verify your account first")';
                     echo '</script>';
+                    
                 }
                 else if($tmp["userpassword"]!=$password){
                     echo '<script language="javascript">';
@@ -54,7 +56,7 @@
                 }
                 else{
                     $_SESSION['username']=$tmp["userUsername"];
-                    header('Location:setterprofile.php');
+                    header('Location:userProfile.php');
                 }
             }
             else{

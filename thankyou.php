@@ -34,7 +34,11 @@
           <div class="collapse navbar-collapse flex-grow-1" id="myNavbar">
               <ul class="navbar-nav ml-auto flex-nowrap">
                   <li class="nav-item">
+<<<<<<< HEAD
+                      <a href="#" class="nav-link m-2 menu-item nav-active">Home</a>
+=======
                       <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+>>>>>>> 0322c7ea5c54d9672ca9fcdffffa08320cbaf87b
                   </li>
                   <li class="nav-item">
                       <a href="#" class="nav-link m-2 menu-item">Test</a>
@@ -46,7 +50,7 @@
                       <a href="register.php" class="nav-link m-2 menu-item">Register</a>
                   </li>
                   <li class="nav-item">
-                      <a href="login.php" class="nav-link m-2 menu-item">Login</a>
+                      <a href="#" class="nav-link m-2 menu-item">Login</a>
                   </li>
               </ul>
           </div>
@@ -57,4 +61,13 @@
         
         <div class="alert alert-success">
         <h4 style="text-align: center;">  <strong>SUCCESS! A VERIFICATION LINK HAS BEEN SENT . PLEASE CHECK YOUR E-MAIL.</strong> </h4> 
+<<<<<<< HEAD
         </div>
+
+
+</body>
+
+</html>
+=======
+        </div>
+>>>>>>> 0322c7ea5c54d9672ca9fcdffffa08320cbaf87b

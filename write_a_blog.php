@@ -5,32 +5,37 @@
     }
     else{
         include('connection.php');
-        $username=$_SESSION['username'];
-        $sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
-        $q=mysqli_query($con,$sql);
-        $res=mysqli_fetch_assoc($q);
-        $id = $res["setterid"];
-        $sql1="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
-        $q1=mysqli_query($con,$sql1);
-        $res1=mysqli_fetch_assoc($q1);
-        if(isset($_POST['post'])){
-          $title = mysqli_real_escape_string($con,$_POST['title']);
-          $post = mysqli_real_escape_string($con,$_POST['postt']);
-          date_default_timezone_set("Asia/Dhaka");
-          $datetime = date("F j, Y, g:i:s a");
-          //$datetime = strftime("%B-%d-%Y %H:%M:%S",$currenttime);
-          if(empty($title)){
-            echo "Title can't be empty";
-          }
-          else if(empty($post)){
-            echo "Post can't be empty";
-          }
-          else{
-            $sql = "INSERT into opai_setter_blog (username,datetime,title,post) VALUES ('$username','$datetime','$title','$post')";
-            $execute = mysqli_query($con,$sql);
-            header('Location:setter_myblogs.php');
+        
+         $username=$_SESSION['username'];
+          $sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
+          $q=mysqli_query($con,$sql);
+          $res=mysqli_fetch_assoc($q);
+          $id = $res["setterid"];
+          $sql1="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
+          $q1=mysqli_query($con,$sql1);
+          $res1=mysqli_fetch_assoc($q1);
+          if(isset($_POST['post'])){
+            $title = mysqli_real_escape_string($con,$_POST['title']);
+            $post = mysqli_real_escape_string($con,$_POST['postt']);
+            date_default_timezone_set("Asia/Dhaka");
+            $datetime = date("F j, Y, g:i:s a");
+            //$datetime = strftime("%B-%d-%Y %H:%M:%S",$currenttime);
+            if(empty($title)){
+              echo "Title can't be empty";
+            }
+            else if(empty($post)){
+              echo "Post can't be empty";
+            }
+            else{
+              $sql = "INSERT into opai_setter_blog (username,datetime,title,post) VALUES ('$username','$datetime','$title','$post')";
+              $execute = mysqli_query($con,$sql);
+              header('Location:setter_myblogs.php');
+            }
           }
         }
+       
+          
+        
     }
 
 ?>
