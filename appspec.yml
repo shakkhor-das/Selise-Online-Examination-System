@@ -1,0 +1,19 @@
+version: 0.0
+os: linux
+files:
+  - source: /*
+    destination: /var/www/html/du-app/
+  #- source: /nginx.conf
+  #  destination: /etc/nginx/sites-enabled/
+hooks:
+  BeforeInstall:
+    #- location: scripts/install_dependencies
+    #  timeout: 300
+    #  runas: root
+    #- location: scripts/restart_server
+    #  timeout: 300
+    #  runas: root
+  ApplicationStop:
+    - location: scripts/restart_server
+      timeout: 300
+      runas: root
