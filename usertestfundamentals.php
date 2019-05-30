@@ -8,11 +8,11 @@
     else{
         include('connection.php');
         $username=$_SESSION['username'];
-        $sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
+        $sql="SELECT * FROM `opai_user` WHERE userUsername='$username' LIMIT 1";
         $q=mysqli_query($con,$sql);
         $res=mysqli_fetch_assoc($q);
-        $id=$res["setterid"];
-        $sql1="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
+        $id=$res["userid"];
+        $sql1="SELECT * FROM `opai_user_details` WHERE user_id='$id'";
         $q1=mysqli_query($con,$sql1);
         $res1=mysqli_fetch_assoc($q1);
         
@@ -56,7 +56,7 @@
                     <li class="nav-item">
                         <?php
 								$directory="img/";
-								echo '<img class="profile-img" width:"50px" height="50px" alter="Image" src = "'.$directory.$res1["setter_image"].'">';
+								echo '<img class="profile-img" width:"50px" height="50px" alter="Image" src = "'.$directory.$res1["user_image"].'">';
 						?>
                     </li>
                     <li class="nav-item">
@@ -114,7 +114,7 @@
 
             </div>
             <div class="container">
-                <form action="questionpreprocess.php" name="fundamental" method="post" >
+                <form action="userlistofupcomingtest.php" name="fundamental" method="post" >
                     <div id="sf1">
                             <h1>Select level of education</h1>
                             <div class="checkbox">
@@ -217,63 +217,11 @@
                                 <label for=""><input type="checkbox" name="check_list[]" class="checklist7" id="checkbox21" value="Essay">Essay</label>
                             </div>
                             <div class="form-group"  style="margin-left:100px">
-                            <button type="button" class="btn btn-primary" id="btn-7" onclick="check6()">Proceed</button>
+                            <input type="submit" class="btn btn-success" id="btn-7" name="submit" onclick="check6()" value="Submit">
                             </div>
                     </div>
 
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog">
-
-                        <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header" style="padding:35px 50px;">
-                                <h4>Create Test</h4>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                                </div>
-                                <div class="modal-body" style="padding:40px 50px;">
-                                <div class="form-group" id="test_title">
-                                    <label for="testname">Title</label>
-                                    <input type="text" placeholder="Test Title" class="form-control form-control-md" id ="testname" name="testtitle" required >
-                                    
-                                </div>
-
-                                <div class="form-group" id="test_time">
-                                    <label for="testtime">Begin Time</label>
-                                    <input type="datetime-local"  placeholder="" class="form-control form-control-md" id ="testtime" name="testtime">
-
-                                </div>
-
-                                <div class="form-group" id="test_duration">
-                                    <label for="testduration">Duration</label>
-                                    <input type="text" placeholder="" value="5:0:0"class="form-control form-control-md" id ="testduration" name="testduration" >
-
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="visibility">Visibility</label>
-                                    <select id="visibility" name="visibility" class="form-control form-control-md" required="required" onclick="visible()">
-                                        <option value="public">Public-Anyone can see and submit</option>
-                                        <option value="private">Private-Only users knowing test password can see and submit</option>
-                                    </select>
-
-                                </div>
-
-                                <div class="form-group" id="test_password" style="display:none">
-                                    <label for="testpassword">Password</label>
-                                    <input type="password" id="password" placeholder=""  class="form-control form-control-md"  name="testpassword" >
                     
-                                </div>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-danger btn-default pull-left"      data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                                <input type="submit" class="btn btn-primary" name="submit" onclick="return timecheck()"><span class="glyphicon glyphicon-remove" ></span>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
                 </form>
             </div>
 
@@ -463,61 +411,8 @@
         }
     }
 
-    function visible(){
-        var f=document.getElementById("visibility").value;
-        if(f=="private"){
-            $("#test_password").show();
-        }
-        else{
-            $("#test_password").hide();
-        }
-    }
-
     
-
-    function timecheck(){
-        var givendate=document.getElementById("testtime").value;
-            givendate=new Date(givendate);
-            var today=new Date();
-            var y1=givendate.getFullYear();
-            var y2=today.getFullYear();
-            var mon1=givendate.getMonth();
-            var mon2=today.getMonth();
-            var d1=givendate.getDate();
-            var d2=today.getDate();
-            var h1=givendate.getHours();
-            var h2=today.getHours();
-            var m1=givendate.getMinutes();
-            var m2=today.getMinutes();
-            if(y1==y2){
-                if(mon1==mon2){
-                    if(d1==d2){
-                        if(h1==h2){
-                            if(m1<=m2){
-                                alert("Invalid Begining Time");
-                                return false;
-                            }
-                        }
-                        else if(h1<h2){
-                            alert("Invalid Begining Time");
-                            return false;
-                        }
-                    }
-                    else if(d1<d2){
-                        alert("Invalid Begining Time");
-                        return false;
-                    }
-                }
-                else if(mon1<mon2){
-                    alert("Invalid Begining Time");
-                    return false;
-                }
-            }
-            else if(y1<y2){
-                alert("Invalid Begining Time");
-                return false;
-            }
-    }
+    
 
 </script>
 
@@ -548,10 +443,3 @@
     });
 </script>
 
-<script>
-    $(document).ready(function(){
-    $("#btn-7").click(function(){
-        $("#myModal").modal();
-    });
-    });
-</script>

@@ -1,37 +1,36 @@
 <?php
+    include('connection.php');
     session_start();
     if(!isset($_SESSION['username'])){
         header('Location:login.php');
     }
-    else{
-        include('connection.php');
-        $username=$_SESSION['username'];
-        $sql="SELECT * FROM `opai_user` WHERE userUsername='$username' LIMIT 1";
-        $q=mysqli_query($con,$sql);
-        $res=mysqli_fetch_assoc($q);
-        $id = $res["userid"];
-        $sql1="SELECT * FROM `opai_user_details` WHERE user_id='$id'";
-        $q1=mysqli_query($con,$sql1);
-        $res1=mysqli_fetch_assoc($q1);
-
-    }
-//echo $_SESSION["username"];
-
-
+    $username=$_SESSION['username'];
+    $sql="SELECT * FROM `opai_user` WHERE userUsername='$username' LIMIT 1";
+    $q=mysqli_query($con,$sql);
+    $res=mysqli_fetch_assoc($q);
+    $id=$res["userid"];
+    $sql1="SELECT * FROM `opai_user_details` WHERE user_id='$id'";
+    $q1=mysqli_query($con,$sql1);
+    $res1=mysqli_fetch_assoc($q1);
+    $sql3="SELECT * FROM `opai_user_registeredtable` WHERE userid='$id'";
+    $q3=mysqli_query($con,$sql3);
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,intial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/profilestyle.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <title>Selise Online Exam System </title>
-
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light nav nav-pills">
@@ -41,7 +40,7 @@
                   Online Examination System
 
               </a>
-              <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="guesthome.php">
+              <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
                   <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
               </a>
               <div class="w-100 text-right">
@@ -59,19 +58,19 @@
 						?>
                     </li>
                     <li class="nav-item">
-                        <a href="setterprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
+                        <a href="userprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a href="setterhome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link m-2 menu-item nav-active dropdown-toogle" data-toggle="dropdown" data-target="dropdown_target">Test
                         <i class="fas fa-caret-down"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdown_target">
-                            <a class="dropdown-item" href="settertestfundamentals.php">Create Test</a>
-                            <a class="dropdown-item" href="#">My Previous Test</a>
-                            <a class="dropdown-item" href="setterupcoming.php">My upcoming Test</a>
+                            <a class="dropdown-item" href="usertestfundamentals.php">Take a Test</a>
+                            <a class="dropdown-item" href="#">My Previous Tests</a>
+                            <a class="dropdown-item" href="userregisteredtest.php">My Registered Tests</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -85,66 +84,71 @@
           </div>
     </nav>
 
-
-
 	<div class="wrapper">
 			<nav id="sidebar">
 				<ul class="list-unstyled components">
 						<li class="active">
-							<a href="profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
+							<a href="user_profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
 						</li>
 
 						<li class="active">
-							<a href="setter_myblogs.php" aria-exapnded="false" >My Blogs</a>
+							<a href="usermyblog.php" aria-exapnded="false" >My Blogs</a>
 						</li>
 
 						<li class="active">
-							<a href="write_a_blog.php" aria-exapnded="false" >Write a blog</a>
+							<a href="user_write_a_blog.php" aria-exapnded="false" >Write a blog</a>
 						</li>
 
 						<li class="active">
-							<a href="settings.php" aria-exapnded="false" >Settings</a>
+							<a href="user_settings.php" aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
 			</nav>
 
-      <div class="content">
-          <button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
-            <i class="fa fa-align-justify"></i>
-          </button>
-      </div>
+			<div class="content">
+					<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
+						<i class="fa fa-align-justify"></i>
+                    </button>
 
-      <div class="col-sm-8">
-        <div class="jumbotron">
-          <?php
-            $viewquery = "SELECT * FROM opai_setter_blog ORDER BY id desc";
-            $execute = mysqli_query($con,$viewquery);
-            while($datarows = mysqli_fetch_assoc($execute)){
-              $user = $datarows["username"];
-              $id = $datarows["id"];
-              $datetime = $datarows["datetime"];
-              $title = $datarows["title"];
-              $post = $datarows["post"];
-           ?>
+	        </div>
 
-          <div class="blogpost">
-           <div class="caption"><h1 style="color:blue"><?php echo htmlentities($title); ?></h1></div>
-             <p style="color:red">Published on <?php echo htmlentities($datetime); ?></p>
-             <p>By <b style="color:green"><?php echo $user; ?></b></p>
-             <p class="post"><?php
-             if(strlen($post)>400){$post = substr($post,0,400).'...';}
-             echo $post; ?>
-             <a href="setter_fullpost.php?id=<?php echo $id; ?>" style="color:blue"><span style="float:right">Read More</span></a>
-             </p>
+            <div class="container">
+            <table class="table table-hover">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Start Time</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <h1>My Registered Tests</h1>
+                        <?php
+                            $i=1;
+                            while($res3=mysqli_fetch_assoc($q3)){
+                                $testid=$res3["testid"];
+                                $sql4="SELECT * FROM `opai_setter_global` WHERE test_id='$testid'";
+                                $q4=mysqli_query($con,$sql4);
+                                $res4=mysqli_fetch_assoc($q4);
+                                ?>
+                                <tr>
+                                <th scope="row"><?php echo $i;$i++;?></th>
+                                <td><?php echo $res4["test_title"]; ?></td>
+                                <td><?php echo $res4["test_begin_time"]; ?></td>
+                                <td><?php echo $res4["test_duration"]; ?></td>
+                                <td style="color:green;cursor:pointer"><a href="userpretest.php?ID=<?php echo $res4["test_id"];?>">ENTER</a></td>
+                                </tr>
+                                <?php
+                            }
+                        ?>
+                        
+                    </tbody>
+                    </table>
+            </div>
 
-             <div style="height : 8px; background : lavender"></div>
-          </div>
-          <div style="height : 3px; background : #557788"></div>
-         <?php } ?>
-        </div>
-      </div>
-
-  </div>
+    </div>
 
 
 
@@ -157,3 +161,4 @@
         document.getElementById("sidebar").classList.toggle("active");
     }
 </script>
+

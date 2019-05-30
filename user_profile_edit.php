@@ -1,27 +1,30 @@
 <?php
-		include('connection.php');
+	include('connection.php');
     session_start();
     if(!isset($_SESSION['username'])){
-    header('Location:login.php');
-		}
-
-		$username=$_SESSION["username"];
-		$sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
-    $q=mysqli_query($con,$sql);
+        header('Location:login.php');
+    }
+    else{
+        $username=$_SESSION["username"];
+		$sql="SELECT * FROM `opai_user` WHERE userUsername='$username' LIMIT 1";
+        $q=mysqli_query($con,$sql);
 		$res=mysqli_fetch_assoc($q);
-		$id=$res["setterid"];
-		$sql="SELECT * FROM `opai_setter_details` WHERE setter_id='$id'";
+		$id=$res["userid"];
+		$sql="SELECT * FROM `opai_user_details` WHERE user_id='$id'";
 		$q=mysqli_query($con,$sql);
-		$res=mysqli_fetch_assoc($q);
-		$mobileno = $res["setter_mobile_no"];
-		$fullname = $res["setter_full_name"];
-		$birthdate = $res["setter_date_of_birth"];
-		$location = $res["setter_current_location"];
-		$institution = $res["setter_institution"];
-		$facebook = $res["setter_facebook_url"];
-		$linkedin = $res["setter_linkedin_url"];
-		$github = $res["setter_github_url"];
-		$bio = $res["setter_bio"];
+        $res=mysqli_fetch_assoc($q);
+		$mobileno = $res["user_mobile_no"];
+		$fullname = $res["user_full_name"];
+		$birthdate = $res["user_date_of_birth"];
+		$location = $res["user_current_location"];
+		$institution = $res["user_institution"];
+		$facebook = $res["user_facebook_url"];
+		$linkedin = $res["user_linkedin_url"];
+		$github = $res["user_github_url"];
+		$bio = $res["user_bio"];
+    }
+
+		
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -37,14 +40,14 @@
     <title>Selise Online Exam System </title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light nav nav-pills">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light nav nav-pills">
           <div class="d-flex flex-grow-1">
               <a class="navbar-brand d-none d-lg-inline-block" href="guesthome.php">
               <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
                   Online Examination System
 
               </a>
-              <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="guesthome.php">
+              <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
                   <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
               </a>
               <div class="w-100 text-right">
@@ -56,25 +59,25 @@
           <div class="collapse navbar-collapse flex-grow-1" id="myNavbar">
               <ul class="navbar-nav ml-auto flex-nowrap">
                     <li class="nav-item">
-												<?php
-													$directory="img/";
-													echo '<img class="profile-img" width:"50px" height="50px" alter="Image" src = "'.$directory.$res["setter_image"].'">';
-												?>
+                        <?php
+								$directory="img/";
+								echo '<img class="profile-img" width:"50px" height="50px" alter="Image" src = "'.$directory.$res["user_image"].'">';
+						?>
                     </li>
                     <li class="nav-item">
-                        <a href="login.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
+                        <a href="userProfile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a href="setterhome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="userHome.php" class="nav-link m-2 menu-item nav-active">Home</a>
                     </li>
-										<li class="nav-item dropdown">
+                    <li class="nav-item dropdown">
                         <a href="#" class="nav-link m-2 menu-item nav-active dropdown-toogle" data-toggle="dropdown" data-target="dropdown_target">Test
                         <i class="fas fa-caret-down"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdown_target">
-                            <a class="dropdown-item" href="settertestfundamentals.php">Create Test</a>
-                            <a class="dropdown-item" href="#">My Previous Test</a>
-                            <a class="dropdown-item" href="setterupcoming.php">My upcoming Test</a>
+                            <a class="dropdown-item" href="usertestfundamentals.php">Take a Test</a>
+                            <a class="dropdown-item" href="#">My Previous Tests</a>
+                            <a class="dropdown-item" href="userupcoming.php">My Registered Tests</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -94,40 +97,40 @@
 			<nav id="sidebar">
 				<ul class="list-unstyled components">
 						<li class="active">
-							<a href="setterprofile.php"  aria-exapnded="false" >My Profile</a>
+							<a href="userProfile.php"  aria-exapnded="false" >My Profile</a>
 						</li>
 
 						<li class="active">
-							<a href="setter_myblogs.php" aria-exapnded="false" >My Blogs</a>
+							<a href="usermyblog.php" aria-exapnded="false" >My Blogs</a>
 						</li>
 
 						<li class="active">
-							<a href="write_a_blog.php" aria-exapnded="false" >Write a blog</a>
+							<a href="user_write_a_blog.php" aria-exapnded="false" >Write a blog</a>
 						</li>
 
 						<li class="active">
-							<a href="settings.php"  aria-exapnded="false" >Settings</a>
+							<a href="user_settings.php"  aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
 			</nav>
 
 			<div class="content">
-					<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
-						<i class="fa fa-align-justify"></i>
-                    </button>
+				<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
+					<i class="fa fa-align-justify"></i>
+                     </button>
 
 	        </div>
 
             <div class="card" style="">
                 <div class="card-header">
-										<img src="img/rdj.jpg" alt="Profile Image" class="profile-img">
-										<?php
-													$directory="img/";
-													echo '<img class="profile-img" src = "'.$directory.$res["setter_image"].'">';
+					<img src="img/rdj.jpg" alt="Profile Image" class="profile-img">
+						<?php
+										$directory="img/";
+										echo '<img class="profile-img" src = "'.$directory.$res["user_image"].'">';
 										?>
-								</div>
+							</div>
 								<div id="imageupload">
-									<form action="setterprofilesubmit.php" method="post" enctype="multipart/form-data">
+									<form action="userprofilesubmit.php" method="post" enctype="multipart/form-data">
 											<input type="file" name="file" value="image">
 											<input type="submit" name="submit" value="Upload">
 									</form>
@@ -136,47 +139,47 @@
 
 
 
-									<form action="setterprofilesubmit.php" method="post" name="setterprofile">
+				<form action="userprofilesubmit.php" method="post">
                     <div class="container" style="margin-top:50px">
                             <h3>Contact Information</h3>
-                                    <div class="jumbotron">
+                                <div class="jumbotron">
 
-                                            <div class="row">
-                                                <div class="col-sm-4" style="background-color:lavender;"><label for="mobile">Mobile No.</label></div>
-																								<div class="col-sm-8" style="background-color:lavender;">
-																									<input type="text" name="mobile" value="<?php echo $mobileno; ?>">
-																								</div>
-                                            </div>
-                                    </div>
+                                        <div class="row">
+                                             <div class="col-sm-4" style="background-color:lavender;"><label for="mobile">Mobile No.</label></div>
+															<div class="col-sm-8" style="background-color:lavender;">
+																	<input type="text" name="mobile" value="<?php echo $mobileno; ?>">
+																				</div>
+                                        </div>
+                                </div>
                     </div>
 
 
-                    <div class="container" style="padding:20px">
+                    <div class="container style="padding:20px">
                             <h3>General Information</h3>
                                 <div class="jumbotron">
                                         <div class="row">
                                                 <div class="col-sm-4" style="background-color:lavender;"><label for="fullname">Full Name</label></div>
-																								<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="text" name="fullname" value="<?php echo $fullname; ?>">
-																								</div>
+																						<div class="col-sm-8" style="background-color:lavender;">
+																						<input type="text" name="fullname" value="<?php echo $fullname; ?>">
+																					</div>
                                         </div>
 
                                         <div class="row">
                                             <div class="col-sm-4" style="background-color:lavender;"><label for="dateofbirth">Date of Birth</label></div>
 																						<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="date" name="dateofbirth" value="<?php echo $birthdate; ?>">
+																						<input type="date" name="dateofbirth" value="<?php echo $birthdate; ?>">
 																						</div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-4" style="background-color:lavender;"><label for="currentlocaton">Current Location</label></div>
 																						<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="text" name="currentlocation" value="<?php echo $location; ?>">
+																						<input type="text" name="currentlocation" value="<?php echo $location; ?>">
 																						</div>
                                         </div>
                                         <div class="row">
                                             <div class="col-sm-4" style="background-color:lavender;"><label for="institution">Institution</label></div>
 																						<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="text" name="institution" value="<?php echo $institution; ?>">
+																						<input type="text" name="institution" value="<?php echo $institution; ?>">
 																						</div>
                                         </div>
                                 </div>
@@ -187,30 +190,30 @@
                                 <div class="jumbotron">
                                     <div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="gender">Gender</label></div>
-																				<div class="col-sm-8" style="background-color:lavender;">
-																					<select name="gender" id="">
-																							<option value="Male">Male</option>
-																							<option value="Female">Female</option>
-																					</select>
-																				</div>
+                                            <div class="col-sm-8" style="background-color:lavender;">
+                                                <select name="gender" id="">
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+                                                </select>
+                                            </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">Facebook Url</label></div>
-																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="url" name="facebookurl" value="<?php echo $facebook; ?>" id="fb">
-																				</div>
-																		</div>
+                                                <div class="col-sm-8" style="background-color:lavender;">
+                                                    <input type="url" name="facebookurl" value="<?php echo $facebook; ?>">
+                                                </div>
+                                        </div>
 																		<div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">LinkedIn Url</label></div>
 																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="url" name="linkedin" value="<?php echo $linkedin; ?>" id="linkedin">
+																				<input type="url" name="linkedin" value="<?php echo $linkedin; ?>">
 																				</div>
 																		</div>
 																		<div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">GitHub Url</label></div>
 																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="url" name="GitHub" value="<?php echo $github; ?>" id="git">
-																				</div>
+																				<input type="url" name="GitHub" value="<?php echo $github; ?>">
+																			</div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4" style="background-color:lavender;"><label for="Bio">Bio</label></div>
@@ -221,7 +224,7 @@
                                 </div>
 										</div>
 
-										<input type="submit" class="btn btn-success" name="update" value="Save Changes" onclick="return checkurl()">
+										<input type="submit" class="btn btn-success" name="update" value="Save Changes">
 									</form>
                 </div>
 
@@ -236,31 +239,17 @@
 </html>
 
 
-<script type="text/javascript">
+<script>
     function togglesidemenu(){
         document.getElementById("sidebar").classList.toggle("active");
     }
-		function checkurl(){
-				var fb=document.forms['setterprofile']['facebookurl'].value;
-				console.log(fb);
-				if( /(ftp|http|https):\/\/?(?:www\.)?facebook.com(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(fb) ){
-					alert("Invalid facebook link");
-					return false;
-				}
-
-				var ln=document.forms['setterprofile']['linkedin'].value;
-				console.log(ln);
-				if( /(ftp|http|https):\/\/?(?:www\.)?linkedin.com/in/(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(ln) ){
-					alert("Invalid linkedin link");
-					return false;
-				}
-
-				var git=document.forms['setterprofile']['GitHub'].value;
-				console.log(git);
-				if( /(ftp|http|https):\/\/?(?:www\.)?github.com(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(git) ){
-					alert("Invalid github link");
-					return false;
-				}
-
-		}
 </script>
+
+
+
+<?php
+		//include('connection.php');
+
+
+
+?>

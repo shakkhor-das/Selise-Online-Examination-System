@@ -59,12 +59,12 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light nav nav-pills">
           <div class="d-flex flex-grow-1">
               <a class="navbar-brand d-none d-lg-inline-block" href="guesthome.php">
-              <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+              <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
                   Online Examination System
 
               </a>
               <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="guesthome.php">
-                  <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+                  <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
               </a>
               <div class="w-100 text-right">
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
@@ -108,35 +108,6 @@
     </nav>
 
 
-
-	<!--<div class="wrapper">
-			<nav id="sidebar">
-				<ul class="list-unstyled components">
-						<li class="active">
-							<a href="profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
-						</li>
-
-						<li class="active">
-							<a href="setter_myblogs.php" aria-exapnded="false" >My Blogs</a>
-						</li>
-
-						<li class="active">
-							<a href="write_a_blog.php" data-toggle="collapse" aria-exapnded="false" >Write a blog</a>
-						</li>
-
-						<li class="active">
-							<a href="settings.php" aria-exapnded="false" >Settings</a>
-						</li>
-				</ul>
-			</nav>
-
-			<div class="content">
-					<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
-						<i class="fa fa-align-justify"></i>
-          </button>
-      </div>-->
-
-
       <div class="container">
         <div class="jumbotron">
 
@@ -169,9 +140,6 @@
         <?php } ?>
         </div>
       </div>
-
-    <!--  </div>
- </div>-->
 
 
 

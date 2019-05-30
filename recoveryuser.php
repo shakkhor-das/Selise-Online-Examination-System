@@ -3,18 +3,18 @@
     
     if(isset($_POST['submit']) and isset($_GET['username'])){
         $username=$_GET['username'];
-        $sql="SELECT * FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
+        $sql="SELECT * FROM `opai_user` WHERE userUsername='$username' LIMIT 1";
         $q=mysqli_query($con,$sql);
         $res=mysqli_fetch_assoc($q);
-        $id=$res["setterid"];
-        $serverpassword = $res["setterpassword"];
+        $id=$res["userid"];
+        $serverpassword = $res["userpassword"];
         $newpassword = mysqli_real_escape_string($con,$_POST['newpassword']);
         $confirmnewpassword = mysqli_real_escape_string($con,$_POST['confirmnewpassword']);
         $recoverycode=mysqli_real_escape_string($con,$_POST['recoverycode']);
           //$sq="SELECT setterpassword FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
         if($recoverycode == $res["forgotkey"] and $newpassword == $confirmnewpassword){
               $newpassword = md5($newpassword);
-              $sql = "UPDATE `opai_setter` SET setterpassword = '$newpassword' WHERE setterid = '$id'";
+              $sql = "UPDATE `opai_user` SET userpassword = '$newpassword' WHERE userid = '$id'";
               $q = mysqli_query($con,$sql);
               header('Location:login.php');
         }

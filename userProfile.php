@@ -34,12 +34,12 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light nav nav-pills">
           <div class="d-flex flex-grow-1">
               <a class="navbar-brand d-none d-lg-inline-block" href="guesthome.php">
-              <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+              <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
                   Online Examination System
 
               </a>
               <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
-                  <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+                  <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
               </a>
               <div class="w-100 text-right">
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
@@ -56,10 +56,10 @@
 						?>
                     </li>
                     <li class="nav-item">
-                        <a href="userprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
+                        <a href="userProfile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="userHome.php" class="nav-link m-2 menu-item nav-active">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link m-2 menu-item nav-active dropdown-toogle" data-toggle="dropdown" data-target="dropdown_target">Test
@@ -86,19 +86,19 @@
 			<nav id="sidebar">
 				<ul class="list-unstyled components">
 						<li class="active">
-							<a href="profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
+							<a href="user_profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
 						</li>
 
 						<li class="active">
-							<a href="user_myblogs.php" aria-exapnded="false" >My Blogs</a>
+							<a href="usermyblog.php" aria-exapnded="false" >My Blogs</a>
 						</li>
 
 						<li class="active">
-							<a href="write_a_blog.php" aria-exapnded="false" >Write a blog</a>
+							<a href="user_write_a_blog.php" aria-exapnded="false" >Write a blog</a>
 						</li>
 
 						<li class="active">
-							<a href="settings.php" aria-exapnded="false" >Settings</a>
+							<a href="user_settings.php" aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
 			</nav>
@@ -194,27 +194,33 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">Facebook Url</label></div>
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook"><i class="fab fa-facebook"></i></label></div>
                                         <div class="col-sm-8" style="background-color:lavender;">
+                                                <a href="<?php echo $res1["user_facebook_url"]; ?>">
                                                 <?php
                                                     echo $res1["user_facebook_url"];
                                                 ?>
+                                                </a>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="linkedin">LinkedIn Url</label></div>
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="linkedin"><i class="fab fa-linkedin"></i></label></div>
                                         <div class="col-sm-8" style="background-color:lavender;">
+                                                <a href="<?php echo $res1["user_linkedin_url"]; ?>">
                                                 <?php
                                                     echo $res1["user_linkedin_url"];
                                                 ?>
+                                                </a>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">GitHub Url</label></div>
+                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook"><i class="fab fa-git"></i></label></div>
                                         <div class="col-sm-8" style="background-color:lavender;">
+                                                <a href="<?php echo $res1["user_github_url"]; ?>">
                                                 <?php
                                                     echo $res1["user_github_url"];
                                                 ?>
+                                                </a>
                                         </div>
                                     </div>
                                     <div class="row">

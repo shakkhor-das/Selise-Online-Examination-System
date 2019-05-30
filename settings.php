@@ -20,16 +20,17 @@
           $newpassword = mysqli_real_escape_string($con,$_POST['newpassword']);
           $confirmnewpassword = mysqli_real_escape_string($con,$_POST['confirmnewpassword']);
           //$sq="SELECT setterpassword FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
-          if($serverpassword == $currentpassword and $newpassword == $confirmnewpassword){
+          if($serverpassword == $currentpassword && $newpassword == $confirmnewpassword){
               $newpassword = md5($newpassword);
               $sql = "UPDATE `opai_setter` SET setterpassword = '$newpassword' WHERE setterid = '$id'";
               $q = mysqli_query($con,$sql);
-              header('Location:profile_edit.php');
+              $message = "Password changed successfully";
+              echo "<script type='text/javascript'>alert('$message');</script>";
+              header('Location:setterprofile.php');
           }
           else{
-              echo '<script type="javascript">';
-              echo 'alert("Something went wrong")';
-              echo  '</script>';
+                $message = "Something went wrong!!!";
+                echo "<script type='text/javascript'>alert('$message');</script>";
           }
         }
     }
@@ -54,12 +55,12 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light nav nav-pills">
           <div class="d-flex flex-grow-1">
               <a class="navbar-brand d-none d-lg-inline-block" href="guesthome.php">
-              <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+              <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
                   Online Examination System
 
               </a>
               <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="guesthome.php">
-                  <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+                  <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
               </a>
               <div class="w-100 text-right">
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
@@ -132,7 +133,7 @@
       </div>
       <div class="card">
           <div class="card-body">
-            <form action="settings.php" method="post">
+            <form action="" method="post">
               <div class="container" style="margin-top:50px">
                   <h3>Change Settings</h3>
                   <div class="jumbotron">

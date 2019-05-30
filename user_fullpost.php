@@ -62,17 +62,10 @@
                         <a href="setterprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a href="setterhome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="#" class="nav-link m-2 menu-item nav-active">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link m-2 menu-item nav-active dropdown-toogle" data-toggle="dropdown" data-target="dropdown_target">Test
-                        <i class="fas fa-caret-down"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown_target">
-                            <a class="dropdown-item" href="settertestfundamentals.php">Create Test</a>
-                            <a class="dropdown-item" href="#">My Previous Test</a>
-                            <a class="dropdown-item" href="setterupcoming.php">My upcoming Test</a>
-                        </div>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link m-2 menu-item">Test</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link m-2 menu-item">Tutorial</a>
@@ -95,15 +88,15 @@
 						</li>
 
 						<li class="active">
-							<a href="setter_myblogs.php" aria-exapnded="false" >My Blogs</a>
+							<a href="usermyblog.php" aria-exapnded="false" >My Blogs</a>
 						</li>
 
 						<li class="active">
-							<a href="write_a_blog.php" aria-exapnded="false" >Write a blog</a>
+							<a href="user_write_a_blog.php" aria-exapnded="false" >Write a blog</a>
 						</li>
 
 						<li class="active">
-							<a href="settings.php" aria-exapnded="false" >Settings</a>
+							<a href="settings.php" data-toggle="collapse" aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
 			</nav>
@@ -116,11 +109,12 @@
 
       <div class="col-sm-8">
         <div class="jumbotron">
+
           <?php
-            $viewquery = "SELECT * FROM opai_setter_blog ORDER BY id desc";
+            $postidfromurl = $_GET["id"];
+            $viewquery = "SELECT * FROM opai_user_blog WHERE id = '$postidfromurl' ORDER BY id desc";
             $execute = mysqli_query($con,$viewquery);
             while($datarows = mysqli_fetch_assoc($execute)){
-              $user = $datarows["username"];
               $id = $datarows["id"];
               $datetime = $datarows["datetime"];
               $title = $datarows["title"];
@@ -130,18 +124,15 @@
           <div class="blogpost">
            <div class="caption"><h1 style="color:blue"><?php echo htmlentities($title); ?></h1></div>
              <p style="color:red">Published on <?php echo htmlentities($datetime); ?></p>
-             <p>By <b style="color:green"><?php echo $user; ?></b></p>
-             <p class="post"><?php
-             if(strlen($post)>400){$post = substr($post,0,400).'...';}
-             echo $post; ?>
-             <a href="setter_fullpost.php?id=<?php echo $id; ?>" style="color:blue"><span style="float:right">Read More</span></a>
+             <div style="height : 3px; background : #557788"></div>
+             <p class="post"><?php echo $post; ?>
              </p>
 
-             <div style="height : 8px; background : lavender"></div>
           </div>
-          <div style="height : 3px; background : #557788"></div>
          <?php } ?>
         </div>
+
+
       </div>
 
   </div>

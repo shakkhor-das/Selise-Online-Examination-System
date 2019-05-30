@@ -13,7 +13,28 @@
         $sql1="SELECT * FROM `opai_user_details` WHERE user_id='$id'";
         $q1=mysqli_query($con,$sql1);
         $res1=mysqli_fetch_assoc($q1);
-
+        if(isset($_POST['submit'])){
+          $currentpassword = mysqli_real_escape_string($con,$_POST['currentpassword']);
+          $currentpassword = md5($currentpassword);
+          $serverpassword = $res["userpassword"];
+          $newpassword = mysqli_real_escape_string($con,$_POST['newpassword']);
+          $confirmnewpassword = mysqli_real_escape_string($con,$_POST['confirmnewpassword']);
+          //$sq="SELECT setterpassword FROM `opai_setter` WHERE setterUsername='$username' LIMIT 1";
+          if($serverpassword == $currentpassword and $newpassword == $confirmnewpassword){
+              $newpassword = md5($newpassword);
+              $sql = "UPDATE `opai_user` SET userpassword = '$newpassword' WHERE userid = '$id'";
+              $q = mysqli_query($con,$sql);
+              echo '<script type="javascript">';
+              echo 'alert("Password changes successfully")';
+              echo  '</script>';
+              header('Location:userProfile.php');
+          }
+          else{
+              echo '<script type="javascript">';
+              echo 'alert("Something went wrong")';
+              echo  '</script>';
+          }
+        }
     }
 //echo $_SESSION["username"];
 
@@ -31,17 +52,16 @@
     <link rel="stylesheet" href="css/profilestyle.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <title>Selise Online Exam System </title>
-
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light nav nav-pills">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light nav nav-pills">
           <div class="d-flex flex-grow-1">
               <a class="navbar-brand d-none d-lg-inline-block" href="guesthome.php">
               <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
                   Online Examination System
 
               </a>
-              <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="guesthome.php">
+              <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
                   <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
               </a>
               <div class="w-100 text-right">
@@ -59,19 +79,19 @@
 						?>
                     </li>
                     <li class="nav-item">
-                        <a href="setterprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
+                        <a href="userProfile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a href="setterhome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="userHome.php" class="nav-link m-2 menu-item nav-active">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link m-2 menu-item nav-active dropdown-toogle" data-toggle="dropdown" data-target="dropdown_target">Test
                         <i class="fas fa-caret-down"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdown_target">
-                            <a class="dropdown-item" href="settertestfundamentals.php">Create Test</a>
-                            <a class="dropdown-item" href="#">My Previous Test</a>
-                            <a class="dropdown-item" href="setterupcoming.php">My upcoming Test</a>
+                            <a class="dropdown-item" href="usertestfundamentals.php">Take a Test</a>
+                            <a class="dropdown-item" href="#">My Previous Tests</a>
+                            <a class="dropdown-item" href="userupcoming.php">My Registered Tests</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -103,47 +123,55 @@
 						</li>
 
 						<li class="active">
-							<a href="settings.php" aria-exapnded="false" >Settings</a>
+							<a href="user_settings.php" data-toggle="collapse" aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
 			</nav>
 
-      <div class="content">
-          <button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
-            <i class="fa fa-align-justify"></i>
+			<div class="content">
+					<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
+						<i class="fa fa-align-justify"></i>
           </button>
       </div>
+      <div class="card">
+          <div class="card-body">
+            <form action="" method="post">
+              <div class="container" style="margin-top:50px">
+                  <h3>Change Settings</h3>
+                  <div class="jumbotron">
 
-      <div class="col-sm-8">
-        <div class="jumbotron">
-          <?php
-            $viewquery = "SELECT * FROM opai_setter_blog ORDER BY id desc";
-            $execute = mysqli_query($con,$viewquery);
-            while($datarows = mysqli_fetch_assoc($execute)){
-              $user = $datarows["username"];
-              $id = $datarows["id"];
-              $datetime = $datarows["datetime"];
-              $title = $datarows["title"];
-              $post = $datarows["post"];
-           ?>
+                    <div class="row">
+                      <div class="col-sm-4" style="background-color:lavender;"><label for="current_password">Current Password</label></div>
+                      <div class="col-sm-8" style="background-color:lavender;">
+                          <input type="password" name="currentpassword">
+                      </div>
+                    </div>
 
-          <div class="blogpost">
-           <div class="caption"><h1 style="color:blue"><?php echo htmlentities($title); ?></h1></div>
-             <p style="color:red">Published on <?php echo htmlentities($datetime); ?></p>
-             <p>By <b style="color:green"><?php echo $user; ?></b></p>
-             <p class="post"><?php
-             if(strlen($post)>400){$post = substr($post,0,400).'...';}
-             echo $post; ?>
-             <a href="setter_fullpost.php?id=<?php echo $id; ?>" style="color:blue"><span style="float:right">Read More</span></a>
-             </p>
+                    <div class="row">
+                      <div class="col-sm-4" style="background-color:lavender;"><label for="new_password">New Password</label></div>
+                      <div class="col-sm-8" style="background-color:lavender;">
+                          <input type="password" name="newpassword">
+                      </div>
+                    </div>
 
-             <div style="height : 8px; background : lavender"></div>
+                    <div class="row">
+                      <div class="col-sm-4" style="background-color:lavender;"><label for="confirm_new_password">Confirm New Password</label></div>
+                      <div class="col-sm-8" style="background-color:lavender;">
+                          <input type="password" name="confirmnewpassword">
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-sm-4" style="background-color:lavender;"></div>
+                      <div class="col-sm-8" style="background-color:lavender;"><input type="submit" style="margin-top:30px" class="btn btn-success" name="submit" value="Submit">
+                      </div>
+                    </div>
+
+                  </div>
+              </div>
+            </form>
           </div>
-          <div style="height : 3px; background : #557788"></div>
-         <?php } ?>
-        </div>
       </div>
-
   </div>
 
 

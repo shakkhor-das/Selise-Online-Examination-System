@@ -5,12 +5,36 @@
         $email=mysqli_real_escape_string($con,$email);
         $type=$_POST['selectype'];
         if($type=="user"){
-            $sql="SELECT userpassword FROM `opai_user` WHERE useremail='$email' LIMIT 1";
+            $sql="SELECT * FROM `opai_user` WHERE useremail='$email' LIMIT 1";
             $res=mysqli_query($con,$sql);
             if($res){
                 if(mysqli_num_rows($res)==1){
-                    $tmp=mysqli_fetch_assoc($res);
-                    $pass=$tmp["userpassword"];
+                    $ans=mysqli_fetch_assoc($res);
+                    $username=$ans["userUsername"];
+                    $firstname=$ans["userfirstname"];
+                    $lastname=$ans["userlastname"];
+                    $forgotkey=rand();
+                    $id=$ans["userid"];
+                    $sql="UPDATE `opai_user` SET `forgotkey`='$forgotkey' WHERE userid='$id'";
+                    $q=mysqli_query($con,$sql);
+                    $to=$ans["useremail"];
+                    $subject="Password recovery";
+                    $message=" hi $firstname $lastname,"."\n 
+
+                                Greetings from Online examination System.\n
+
+                                                        We received password recovery for your account
+                                                            
+                                                        Please enter the code  $forgotkey
+
+                                                
+                    ";
+
+                    $headers = "fayedbinshowkatanik@gmail.com \r\n";
+                    $headers .= "MIME-Version: 1.0\r\n";
+                    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+                    mail($to,$subject,$message);
+                    header('location:recoveryuser.php?username='.$username);
                 }
                 else{
                     echo '<script language="javascript">';
@@ -26,6 +50,8 @@
                 if(mysqli_num_rows($res)==1){
                     $ans=mysqli_fetch_assoc($res);
                     $username=$ans["setterUsername"];
+                    $firstname=$ans["setterfirstname"];
+                    $lastname=$ans["setterlastname"];
                     $forgotkey=rand();
                     $id=$ans["setterid"];
                     $sql="UPDATE `opai_setter` SET `forgotkey`='$forgotkey' WHERE setterid='$id'";
@@ -75,12 +101,12 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="d-flex flex-grow-1">
               <a class="navbar-brand d-none d-lg-inline-block" href="guesthome.php">
-              <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+              <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
                   Online Examination System
 
               </a>
               <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="guesthome.php">
-                  <img src="img1/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+                  <img src="img1/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
               </a>
               <div class="w-100 text-right">
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
@@ -109,7 +135,7 @@
           </div>
       </nav>
 
-    <div class="container" style="background-color:#686c72;height:350px;padding:30px">
+    <div class="container" style="height:400px;padding:30px">
 
         <form  action="" class="form-container justify-content-center" style="height:257px" method="POST" name="forgotform">
             <div class="form-group">

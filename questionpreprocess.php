@@ -44,14 +44,15 @@
                 $_SESSION["testname"]=$test_name;
                 $sql2="CREATE TABLE `$regtable`(
                     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                    username VARCHAR(100) NOT NULL
+                    username VARCHAR(100) NOT NULL,
+                    achieved_point INT NULL
                     );
                 ";
                 $q2=mysqli_query($con,$sql2);
                 $test_name="ans".$test_name; 
                 $sql1="CREATE TABLE `$test_name`(
                     id INT UNSIGNED  AUTO_INCREMENT PRIMARY KEY,
-                    question_id INT NOT NULL,
+                    userid INT NOT NULL,
                     question_ans JSON DEFAULT NULL
                     );
                 ";

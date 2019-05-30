@@ -18,12 +18,12 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
           <div class="d-flex flex-grow-1">
               <a class="navbar-brand d-none d-lg-inline-block" href="#">
-                  <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+                  <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
                   Online Examination System
 
               </a>
               <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
-                  <img src="img/logo1.jpg" alt="logo" class="navbar-brand img-rounded" style="height:60px;width:60px">
+                  <img src="img/logo1.png" alt="logo" class="navbar-brand img-rounded" style="height:80px;width:80px">
               </a>
               <div class="w-100 text-right">
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
@@ -46,7 +46,7 @@
                       <a href="register.php" class="nav-link m-2 menu-item">Register</a>
                   </li>
                   <li class="nav-item">
-                      <a href="#" class="nav-link m-2 menu-item">Login</a>
+                      <a href="login.php" class="nav-link m-2 menu-item">Login</a>
                   </li>
               </ul>
           </div>
@@ -282,21 +282,7 @@
 
      
 
-        <div class="col" class="wrapper" style="border:1px solid black ;text-align: center;background-color:  #dae1ed;">
-            <h2 style="text-align:center;padding-bottom: 50px">CONNECT WITH US</h2>
-            <div class="row">
-            <div class="col-sm-3"><i class="fab fa-facebook-f" id="facebook" style="font-size:50px;padding-right: 250px;padding-bottom: 150px;cursor:pointer;"></i>
-            </div>   
-            <div class="col-sm-3">
-            <i class="fab fa-twitter"  id="twitter" style="font-size:50px;padding-right: 250px;cursor:pointer;"></i>
-            </div>
-            <div class="col-sm-3"><i class="fab fa-google-plus-g" id="googleplus" style="font-size:50px;padding-right: 250px;cursor:pointer;"></i></div>
-            <div class="col-sm-3">
-            <i class="fab fa-linkedin-in" id="linkedin" style="font-size:50px;padding-right: 50px;cursor:pointer;"></i>
-              </div>
-              </div>
-             
-          </div>
+        
     
     
     
