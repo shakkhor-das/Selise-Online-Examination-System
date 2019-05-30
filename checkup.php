@@ -63,15 +63,15 @@
                 <ul class="navbar-nav ml-auto flex-nowrap">
                         <li class="nav-item">
                             <?php
-                                    $directory="img/";
-                                    echo '<img class="profile-img" width:"50px" height="50px" alter="Image" src = "'.$directory.$res1["setter_image"].'">';
+                                $directory="img/";
+                                echo '<img class="profile-img" width:"50px" height="50px" alter="Image" src = "'.$directory.$res1["setter_image"].'">';
                             ?>
                         </li>
                         <li class="nav-item">
                             <a href="setterprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                         </li>
                         <li class="nav-item">
-                            <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+                            <a href="setterprofile.php" class="nav-link m-2 menu-item nav-active">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link m-2 menu-item nav-active dropdown-toogle" data-toggle="dropdown" data-target="dropdown_target">Test
@@ -102,11 +102,11 @@
 						</li>
 
 						<li class="active">
-							<a href="#" data-toggle="collapse" aria-exapnded="false" >My Blogs</a>
+							<a href="setter_myblogs.php" data-toggle="collapse" aria-exapnded="false" >My Blogs</a>
 						</li>
 
 						<li class="active">
-							<a href="#" data-toggle="collapse" aria-exapnded="false" >Write a blog</a>
+							<a href="write_a_blog.php" data-toggle="collapse" aria-exapnded="false" >Write a blog</a>
 						</li>
 
 						<li class="active">
