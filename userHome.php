@@ -59,19 +59,19 @@
 						?>
                     </li>
                     <li class="nav-item">
-                        <a href="setterprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
+                        <a href="userProfile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a href="setterhome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="userHome.php" class="nav-link m-2 menu-item nav-active">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link m-2 menu-item nav-active dropdown-toogle" data-toggle="dropdown" data-target="dropdown_target">Test
                         <i class="fas fa-caret-down"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdown_target">
-                            <a class="dropdown-item" href="settertestfundamentals.php">Create Test</a>
+                            <a class="dropdown-item" href="usertestfundamentals.php">Create Test</a>
                             <a class="dropdown-item" href="#">My Previous Test</a>
-                            <a class="dropdown-item" href="setterupcoming.php">My upcoming Test</a>
+                            <a class="dropdown-item" href="userregisteredtest.php">My upcoming Test</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -117,7 +117,7 @@
       <div class="col-sm-8">
         <div class="jumbotron">
           <?php
-            $viewquery = "SELECT * FROM opai_setter_blog ORDER BY id desc";
+            $viewquery = "SELECT * FROM opai_user_blog ORDER BY id desc";
             $execute = mysqli_query($con,$viewquery);
             while($datarows = mysqli_fetch_assoc($execute)){
               $user = $datarows["username"];

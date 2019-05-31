@@ -91,7 +91,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdown_target">
                             <a class="dropdown-item" href="usertestfundamentals.php">Take a Test</a>
                             <a class="dropdown-item" href="#">My Previous Tests</a>
-                            <a class="dropdown-item" href="userupcoming.php">My Registered Tests</a>
+                            <a class="dropdown-item" href="userregisteredtest.php">My Registered Tests</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -108,22 +108,22 @@
 
 
 	<div class="wrapper">
-			<nav id="sidebar">
+        <nav id="sidebar">
 				<ul class="list-unstyled components">
 						<li class="active">
-							<a href="profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
+							<a href="user_profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
 						</li>
 
 						<li class="active">
-							<a href="setter_myblogs.php" aria-exapnded="false" >My Blogs</a>
+							<a href="usermyblog.php" aria-exapnded="false" >My Blogs</a>
 						</li>
 
 						<li class="active">
-							<a href="write_a_blog.php" aria-exapnded="false" >Write a blog</a>
+							<a href="user_write_a_blog.php" aria-exapnded="false" >Write a blog</a>
 						</li>
 
 						<li class="active">
-							<a href="user_settings.php" data-toggle="collapse" aria-exapnded="false" >Settings</a>
+							<a href="user_settings.php" aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
 			</nav>
