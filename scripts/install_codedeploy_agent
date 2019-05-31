@@ -1,0 +1,7 @@
+#!/bin/bash
+sudo apt-get update
+sudo apt-get install ruby python-minimal awscli -y
+aws configure
+aws s3 cp s3://aws-codedeploy-ap-southeast-2/latest/install . --region ap-southeast-2
+chmod +x install
+sudo ./install auto 
