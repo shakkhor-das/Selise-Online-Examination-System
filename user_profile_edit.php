@@ -77,7 +77,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdown_target">
                             <a class="dropdown-item" href="usertestfundamentals.php">Take a Test</a>
                             <a class="dropdown-item" href="#">My Previous Tests</a>
-                            <a class="dropdown-item" href="userupcoming.php">My Registered Tests</a>
+                            <a class="dropdown-item" href="userregisteredtest.php">My Registered Tests</a>
                         </div>
                     </li>
                     <li class="nav-item">
