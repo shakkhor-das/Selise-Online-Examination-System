@@ -51,9 +51,9 @@
                                                 http://localhost/projectselise1/verify.php?vk=$virtualkey&type=$t
 
                                 ";
-                                $headers = "fayedbinshowkatanik@gmail.com \r\n";
-                                $headers .= "MIME-Version: 1.0\r\n";
-                                $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+                                $headers = 'From: fayedbinshowkatanik@gmail.com' . "\r\n" .
+                                'Reply-To: webmaster@example.com' . "\r\n" .
+                                'X-Mailer: PHP/' . phpversion();
                                 if(mail($to,$subject,$message,$headers)){
                                         header('location:thankyou.php');
                                 }
