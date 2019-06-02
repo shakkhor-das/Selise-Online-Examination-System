@@ -126,6 +126,9 @@
         function checkpassword(password){
           var strengthbar=document.getElementById("strength")
           var strength=0
+          if(password.length<4){
+            return strength.value=0;
+          }
           if(password.match(/[a-zA-Z0-9][a-zA-Z0-9]+/)){
             strength += 1
           }

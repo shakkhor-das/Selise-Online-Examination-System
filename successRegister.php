@@ -54,8 +54,13 @@
                                 $headers = "fayedbinshowkatanik@gmail.com \r\n";
                                 $headers .= "MIME-Version: 1.0\r\n";
                                 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-                                mail($to,$subject,$message);
-                                header('location:thankyou.php');
+                                if(mail($to,$subject,$message,$headers)){
+                                        header('location:thankyou.php');
+                                }
+                                else{
+                                        header('location:error.php');
+                                }
+                                
                         }
                         else{
                                 echo "failed";
@@ -107,7 +112,7 @@
                                         $headers = "fayedbinshowkatanik@gmail.com \r\n";
                                         $headers .= "MIME-Version: 1.0\r\n";
                                         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-                                        mail($to,$subject,$message);
+                                        mail($to,$subject,$message,$headers);
                                         header('location:thankyou.php');
                                 }
                                 else{

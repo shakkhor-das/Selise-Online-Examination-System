@@ -75,7 +75,7 @@
 						?>
                     </li>
                     <li class="nav-item">
-                        <a href="login.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
+                        <a href="setterprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
                         <a href="setterhome.php" class="nav-link m-2 menu-item nav-active">Home</a>
@@ -96,6 +96,7 @@
 
 
       <div class="container">
+      
         <div class="jumbotron">
           <form action="write_a_blog.php" method ="post">
 
@@ -107,7 +108,7 @@
             <div class="form-group">
               <label for="">Content:</label>
               <textarea name="postt" id="summernote" cols="30" rows="30"class="form-control"></textarea>
-            </div></br>
+            </div><br>
 
 
               <input type="submit" name="post" class="btn btn-success" value="Add Post">
