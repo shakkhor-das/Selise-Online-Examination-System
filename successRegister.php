@@ -11,7 +11,7 @@
         $confirmpassword=$_POST['confirmpassword'];
         $type=$_POST['selectype'];
 
-        require 'PHPMailer/PHPMailerAutoload.php';
+        require 'PHPMailer/class.phpmailer.php';
         $mail = new PHPMailer;
         $mail->isSMTP();                                   // Set mailer to use SMTP
         $mail->Host = 'smtp.gmail.com';                    // Specify main and backup SMTP servers
@@ -56,10 +56,10 @@
                 
 
                         if(mysqli_query($con,$sql)){
-                                $bodyContent = "hi $firstname $lastname,<br><br>
-                                Greetings from TestMakerBd. It's our pleasure that you have registered in this site. You are highly welcome!
-                                Click the link below to complete your registration.
-                                <a href='http:http://testmakerbd.selisestaging.com/verfify.php?vk=$virtualkey&type=$t'>Click to verify.</a>
+                                $bodyContent = "Hi $firstname $lastname,<br><br>
+                                Greetings from TestMakerBd. It's our pleasure that you have registered in this site. You are highly welcome!<br>
+                                Click the link below to complete your registration.<br>
+                                <a href='http:testmakerbd.selisestaging.com/verfify.php?vk=$virtualkey&type=$t'>Click to verify.</a>
                                 <br><br>
                                 Thank You
                                 <br>
