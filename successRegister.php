@@ -59,7 +59,7 @@
                                 $bodyContent = "Hi $firstname $lastname,<br><br>
                                 Greetings from TestMakerBd. It's our pleasure that you have registered in this site. You are highly welcome!<br>
                                 Click the link below to complete your registration.<br>
-                                <a href='https://testmakerbd.selisestaging.com/verify.php?vk=$virtualkey&type=$t'>Click to verify.</a>
+                                <a href='testmakerbd.selisestaging.com/verify.php?vk=$virtualkey&type=$t'>Click to verify.</a>
                                 <br><br>
                                 Thank You
                                 <br>
