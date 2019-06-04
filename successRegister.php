@@ -1,4 +1,6 @@
 <?php
+
+        require("PHPmailer/class.phpmailer.php");
         include('connection.php');
 
         $firstname=$_POST['firstname'];
@@ -8,7 +10,22 @@
         $password=$_POST['password'];
         $confirmpassword=$_POST['confirmpassword'];
         $type=$_POST['selectype'];
+
+
+        $mail = new PHPMailer;
+        $mail->isSMTP();                                   // Set mailer to use SMTP
+        $mail->Host = 'smtp.gmail.com';                    // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                            // Enable SMTP authentication
+        $mail->Username = 'anikfayed@gmail.com';          // SMTP username
+        $mail->Password = '2879AniK'; // SMTP password
+        $mail->SMTPSecure = 'tls';                         // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587;  
         
+        $mail->setFrom('anikfayed@gmail.com', 'TestMakerBd');
+        $mail->addReplyTo('anikfayed@gmail.com', 'TestMakerBd');
+        $mail->addAddress($email); 
+        $mail->isHTML(true);
+
         if(isset($_POST['submit'])){
              if($type=="setter"){
                 $firstname=mysqli_real_escape_string($con,$firstname);
@@ -39,31 +56,27 @@
                 
 
                         if(mysqli_query($con,$sql)){
-                                $to=$email;
-                                $subject="Email Verification";
-                                //$message= "<a href='http://localhost/successregistration/verify.php?vk=$virtualkey&type=$t'>Click here to verify</a>";
-                                $message=" hi $firstname $lastname,"."\n 
-
-                                Greetings from Online examination. It's our pleasure that you have registered in this site. You are highly welcome!\n
-
-                                                        Click the link below to complete your registration.\n
-
-                                                http://localhost/projectselise1/verify.php?vk=$virtualkey&type=$t
-
+                                $bodyContent = "hi $firstname $lastname,<br><br>
+                                Greetings from TestMakerBd. It's our pleasure that you have registered in this site. You are highly welcome!
+                                Click the link below to complete your registration.
+                                <a href='http:http://testmakerbd.selisestaging.com/verfify.php?vk=$virtualkey&type=$t'>Click to verify.</a>
+                                <br><br>
+                                Thank You
+                                <br>
+                                Regards by Testmakerbd Team
                                 ";
-                                $headers = 'From: fayedbinshowkatanik@gmail.com' . "\r\n" .
-                                'Reply-To: webmaster@example.com' . "\r\n" .
-                                'X-Mailer: PHP/' . phpversion();
-                                if(mail($to,$subject,$message,$headers)){
-                                        header('location:thankyou.php');
+
+                                $mail->Subject = 'Email Verification';
+                                $mail->Body    = $bodyContent;
+                                if(!$mail->send()) {
+                                        header('Location:error.php');
                                 }
-                                else{
-                                        header('location:error.php');
-                                }
+
+                                header('Location:thankyou.php');
                                 
                         }
                         else{
-                                echo "failed";
+                                header('Location:error.php');
                         }
                 }
              } 
@@ -102,7 +115,7 @@
                                         //$message= "<a href='http://localhost/successregistration/verify.php?vk=$virtualkey&type=$t'>Click here to verify</a>";
                                         $message=" hi $firstname $lastname,"."\n 
 
-                                        Greetings from Online examination. It's our pleasure that you have registered in this site. You are highly welcome!\n
+                                        Greetings from TestMakerBd. It's our pleasure that you have registered in this site. You are highly welcome!\n
 
                                                                 Click the link below to complete your registration.\n
 
