@@ -52,7 +52,7 @@
           </div>
       </nav>
       
-      <div class="view" style=" background-repeat: no-repeat; background-size:cover; background-position: center center;height:700px;">
+      <div class="view" style=" background-repeat: no-repeat; background-size:cover; background-position: center center;height:400px;">
           
           <div class="mask rgba-black-light align-items-center">
             
@@ -60,8 +60,8 @@
             
               <div class="row">
                 
-                  <div class="#" style="margin:auto">
-                        <h2 style="letter-spacing: .5rem;margin-top:200px;"><b>WELCOME TO ONLINE EXAMINATION SYSTEM </b> </h2>
+                  <div class="col sm-12" style="margin:auto">
+                        <h2 style="letter-spacing: .5rem;margin-top:100px;"><b>WELCOME TO ONLINE EXAMINATION SYSTEM </b> </h2>
                         <hr class="hr-light">
                         <h6 class="mb-4" style="text-align:center;"><b>EVALUATE YOURSELF AND MAKE YOURSELF FUTURE LEADER .
                         </b></h6>
@@ -76,16 +76,19 @@
 
       </div>
 
-      <div class="container">
+      <div class="container" style="width:100%;background:blue">
           <div class="row">
-
+              <div class="col sm-6">
+                
+              </div>
+              <div class="col sm-6">
+                
+              </div>
           </div>
       </div>
           
-      
-    <footer class="app-footer">
-          @Opai Team
-    </footer>
+      <div>
+      </div>
   
 </body>
 </html>

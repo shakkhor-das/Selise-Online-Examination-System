@@ -199,7 +199,7 @@
                                
 
                                ?>
-                               <input type="submit" class="btn btn-success" value="FINISH TEST" name="submit" style="margin-left:80px;padding:20px" id="mybtn">
+                               <input type="submit" class="btn btn-success" value="FINISH TEST" name="submit" style="margin-left:80px;padding:10px" id="mybtn">
                             </form>
                         </div>
                     </div>
@@ -208,13 +208,13 @@
                         <h1>TIME LEFT</h1>
                         <table id="clockcontainer">
                             <tr>
-                                <td id="day" style="font-size:70px">00:</td>
-                                <td id="hour" style="font-size:70px">00:</td>
-                                <td id="minute" style="font-size:70px">00:</td>
-                                <td id="second" style="font-size:70px">00</td>
+                                <td id="day" style="font-size:50px">00:</td>
+                                <td id="hour" style="font-size:50px">00:</td>
+                                <td id="minute" style="font-size:50px">00:</td>
+                                <td id="second" style="font-size:50px">00</td>
                             </tr>
                             <tr>
-                                <td style="font-size:20px">Days</td>
+                                <td style="font-size:px">Days</td>
                                 <td style="font-size:20px">Hours</td>
                                 <td style="font-size:20px">Minutes</td>
                                 <td style="font-size:20px">Seconds</td>
