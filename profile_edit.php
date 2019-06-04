@@ -164,7 +164,7 @@
 																	<div class="row">
 																			<div class="col-sm-4" style="background-color:lavender;"><label for="dateofbirth">Date of Birth</label></div>
 																			<div class="col-sm-8" style="background-color:lavender;">
-																					<input type="date" name="dateofbirth" value="<?php echo $birthdate; ?>">
+																					<input type="date" name="dateofbirth" value="<?php echo $birthdate; ?>" style="width:200px">
 																			</div>
 																	</div>
 																	<div class="row">

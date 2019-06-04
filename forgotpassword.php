@@ -46,7 +46,7 @@
                         header('Location:error.php');
                     }
 
-                    header('Location:thankyou.php');
+                    header('Location:recovery.php');
 
                     
                 }
@@ -87,7 +87,7 @@
                         header('Location:error.php');
                     }
 
-                    header('Location:thankyou.php');
+                    header('Location:recovery.php');
                     
                 }
                 else{
