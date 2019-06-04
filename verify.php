@@ -17,7 +17,7 @@
                     if($execute){
                         echo "yep";
                     }
-                    header('Location:login.php');
+                    header('Location:newlogin.php');
                 }
                 else{
                     header('Location:error.php');
@@ -38,7 +38,7 @@
                     $id=$res["setterid"];
                     $sql1="INSERT INTO `opai_setter_details` (`setter_id`) VALUES ('$id')";
                     $execute=mysqli_query($con,$sql1);
-                    header('Location:login.php');
+                    header('Location:newlogin.php');
                 }
                 else{
                     header('Location:error.php');

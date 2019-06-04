@@ -34,7 +34,7 @@
           <div class="collapse navbar-collapse flex-grow-1" id="myNavbar">
               <ul class="navbar-nav ml-auto flex-nowrap">
                   <li class="nav-item">
-                      <a href="#" class="nav-link m-2 menu-item nav-active">Home</a>
+                      <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>
                   </li>
                   <li class="nav-item">
                       <a href="#" class="nav-link m-2 menu-item">Test</a>
@@ -46,15 +46,16 @@
                       <a href="register.php" class="nav-link m-2 menu-item">Register</a>
                   </li>
                   <li class="nav-item">
-                      <a href="#" class="nav-link m-2 menu-item">Login</a>
+                      <a href="login.php" class="nav-link m-2 menu-item">Login</a>
                   </li>
               </ul>
           </div>
       </nav>
 
 
-      <div class="container" style="margin-top: 220px;">
+    <div class="container" style="margin-top: 220px;">
         
-        <div class="alert alert-success">
-        <h4 style="text-align: center;">  <strong>Sorry!Something Went Wrong</strong> </h4> 
-        </div>
+        <div class="alert alert-danger">
+        <h4 style="text-align: center;">  <strong>Sorry!Something Went Wrong</strong> </h4>
+        </div> 
+    </div>
