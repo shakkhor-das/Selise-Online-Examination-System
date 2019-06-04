@@ -1,6 +1,6 @@
 <?php
 
-        require("PHPmailer/class.phpmailer.php");
+        
         include('connection.php');
 
         $firstname=$_POST['firstname'];
@@ -11,7 +11,7 @@
         $confirmpassword=$_POST['confirmpassword'];
         $type=$_POST['selectype'];
 
-
+        require("PHPmailer/class.phpmailer.php");
         $mail = new PHPMailer;
         $mail->isSMTP();                                   // Set mailer to use SMTP
         $mail->Host = 'smtp.gmail.com';                    // Specify main and backup SMTP servers
