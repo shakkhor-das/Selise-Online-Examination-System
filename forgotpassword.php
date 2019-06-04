@@ -1,5 +1,18 @@
 <?php
     include('connection.php');
+    require 'PHPMailer/class.phpmailer.php';
+    $mail = new PHPMailer;
+    $mail->isSMTP();                                   // Set mailer to use SMTP
+    $mail->Host = 'smtp.gmail.com';                    // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                            // Enable SMTP authentication
+    $mail->Username = 'anikfayed@gmail.com';          // SMTP username
+    $mail->Password = '2879AniK'; // SMTP password
+    $mail->SMTPSecure = 'tls';                         // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 587;  
+    
+    $mail->setFrom('anikfayed@gmail.com', 'TestMakerBd');
+    $mail->addReplyTo('anikfayed@gmail.com', 'TestMakerBd'); 
+    $mail->isHTML(true);
     if(isset($_POST['submit'])){
         $email=$_POST['email'];
         $email=mysqli_real_escape_string($con,$email);
@@ -18,23 +31,24 @@
                     $sql="UPDATE `opai_user` SET `forgotkey`='$forgotkey' WHERE userid='$id'";
                     $q=mysqli_query($con,$sql);
                     $to=$ans["useremail"];
-                    $subject="Password recovery";
-                    $message=" hi $firstname $lastname,"."\n 
+                    $mail->addAddress($to);
+                    $mail->Subject = 'Password Recovery';
+                    $bodyContent = "Hi $firstname $lastname,<br><br>
+                                Greetings from TestMakerBd. We received password recovery for your account!<br>
+                                Please enter the code  $forgotkey
+                                <br><br>
+                                Thank You
+                                <br>
+                                Regards by Testmakerbd Team
+                                ";
+                    $mail->Body    = $bodyContent;
+                    if(!$mail->send()) {
+                        header('Location:error.php');
+                    }
 
-                                Greetings from Online examination System.\n
+                    header('Location:thankyou.php');
 
-                                                        We received password recovery for your account
-                                                            
-                                                        Please enter the code  $forgotkey
-
-                                                
-                    ";
-
-                    $headers = "fayedbinshowkatanik@gmail.com \r\n";
-                    $headers .= "MIME-Version: 1.0\r\n";
-                    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-                    mail($to,$subject,$message);
-                    header('location:recoveryuser.php?username='.$username);
+                    
                 }
                 else{
                     echo '<script language="javascript">';
@@ -57,23 +71,24 @@
                     $sql="UPDATE `opai_setter` SET `forgotkey`='$forgotkey' WHERE setterid='$id'";
                     $q=mysqli_query($con,$sql);
                     $to=$ans["setteremail"];
-                    $subject="Password recovery";
-                    $message=" hi $firstname $lastname,"."\n 
+                    $mail->addAddress($to);
+                    $mail->Subject = 'Password Recovery';
+                    $bodyContent = "Hi $firstname $lastname,<br><br>
+                                Greetings from TestMakerBd. We received password recovery for your account!<br>
+                                Please enter the code  $forgotkey
+                                <br><br>
+                                Thank You
+                                <br>
+                                Regards by Testmakerbd Team
+                                ";
 
-                                Greetings from Online examination System.\n
+                    $mail->Body    = $bodyContent;
+                    if(!$mail->send()) {
+                        header('Location:error.php');
+                    }
 
-                                                        We received password recovery for your account
-                                                            
-                                                        Please enter the code  $forgotkey
-
-                                                
-                    ";
-
-                    $headers = "fayedbinshowkatanik@gmail.com \r\n";
-                    $headers .= "MIME-Version: 1.0\r\n";
-                    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-                    mail($to,$subject,$message);
-                    header('location:recovery.php?username='.$username);
+                    header('Location:thankyou.php');
+                    
                 }
                 else{
                     echo '<script language="javascript">';

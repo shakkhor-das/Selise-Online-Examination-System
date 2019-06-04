@@ -114,118 +114,118 @@
 			<div class="content">
 					<button type="button" class="btn btn-info" id="sidebarCollapse" onclick="togglesidemenu()">
 						<i class="fa fa-align-justify"></i>
-                    </button>
+          </button>
 
-	        </div>
+	    </div>
 
-            <div class="card" style="">
-                <div class="card-header">
-										<img src="img/rdj.jpg" alt="Profile Image" class="profile-img">
-										<?php
-													$directory="img/";
-													echo '<img class="profile-img" src = "'.$directory.$res["setter_image"].'">';
-										?>
-								</div>
-								<div id="imageupload">
-									<form action="setterprofilesubmit.php" method="post" enctype="multipart/form-data">
-											<input type="file" name="file" value="image">
-											<input type="submit" name="submit" value="Upload">
-									</form>
-								</div>
-                <div class="card-body">
-
-
-
-									<form action="setterprofilesubmit.php" method="post" name="setterprofile">
-                    <div class="container" style="margin-top:50px">
-                            <h3>Contact Information</h3>
-                                    <div class="jumbotron">
-
-                                            <div class="row">
-                                                <div class="col-sm-4" style="background-color:lavender;"><label for="mobile">Mobile No.</label></div>
-																								<div class="col-sm-8" style="background-color:lavender;">
-																									<input type="text" name="mobile" value="<?php echo $mobileno; ?>">
-																								</div>
-                                            </div>
-                                    </div>
-                    </div>
+			<div class="card" style="">
+					<div class="card-header">
+							<img src="img/rdj.jpg" alt="Profile Image" class="profile-img">
+							<?php
+										$directory="img/";
+										echo '<img class="profile-img" src = "'.$directory.$res["setter_image"].'">';
+							?>
+					</div>
+					<div id="imageupload">
+						<form action="setterprofilesubmit.php" method="post" enctype="multipart/form-data">
+								<input type="file" name="file" value="image">
+								<input type="submit" name="submit" value="Upload">
+						</form>
+					</div>
+					<div class="card-body">
 
 
-                    <div class="container" style="padding:20px">
-                            <h3>General Information</h3>
-                                <div class="jumbotron">
-                                        <div class="row">
-                                                <div class="col-sm-4" style="background-color:lavender;"><label for="fullname">Full Name</label></div>
-																								<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="text" name="fullname" value="<?php echo $fullname; ?>">
-																								</div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div class="col-sm-4" style="background-color:lavender;"><label for="dateofbirth">Date of Birth</label></div>
-																						<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="date" name="dateofbirth" value="<?php echo $birthdate; ?>">
-																						</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4" style="background-color:lavender;"><label for="currentlocaton">Current Location</label></div>
-																						<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="text" name="currentlocation" value="<?php echo $location; ?>">
-																						</div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-4" style="background-color:lavender;"><label for="institution">Institution</label></div>
-																						<div class="col-sm-8" style="background-color:lavender;">
-																								<input type="text" name="institution" value="<?php echo $institution; ?>">
-																						</div>
-                                        </div>
-                                </div>
-                    </div>
+						<form action="setterprofilesubmit.php" method="post" name="setterprofile">
+							<div class="container" style="margin-top:50px">
+											<h3>Contact Information</h3>
+															<div class="jumbotron">
 
-                    <div class="container">
-                            <h3>Additional Information</h3>
-                                <div class="jumbotron">
-                                    <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="gender">Gender</label></div>
-																				<div class="col-sm-8" style="background-color:lavender;">
-																					<select name="gender" id="">
-																							<option value="Male">Male</option>
-																							<option value="Female">Female</option>
-																					</select>
-																				</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">Facebook Url</label></div>
-																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="url" name="facebookurl" value="<?php echo $facebook; ?>" id="fb">
-																				</div>
-																		</div>
-																		<div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">LinkedIn Url</label></div>
-																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="url" name="linkedin" value="<?php echo $linkedin; ?>" id="linkedin">
-																				</div>
-																		</div>
-																		<div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="facebook">GitHub Url</label></div>
-																				<div class="col-sm-8" style="background-color:lavender;">
-																						<input type="url" name="GitHub" value="<?php echo $github; ?>" id="git">
-																				</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4" style="background-color:lavender;"><label for="Bio">Bio</label></div>
-                                        <div class="col-sm-8" style="background-color:lavender;">
-                                            <textarea name="bio" id="" cols="30" rows="4"> <?php echo $bio; ?></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-										</div>
+																			<div class="row">
+																					<div class="col-sm-4" style="background-color:lavender;"><label for="mobile">Mobile No.</label></div>
+																					<div class="col-sm-8" style="background-color:lavender;">
+																						<input type="text" name="mobile" value="<?php echo $mobileno; ?>">
+																					</div>
+																			</div>
+															</div>
+							</div>
 
-										<input type="submit" class="btn btn-success" name="update" value="Save Changes" onclick="return checkurl()">
-									</form>
-                </div>
 
-            </div>
+							<div class="container" style="padding:20px">
+											<h3>General Information</h3>
+													<div class="jumbotron">
+																	<div class="row">
+																					<div class="col-sm-4" style="background-color:lavender;"><label for="fullname">Full Name</label></div>
+																					<div class="col-sm-8" style="background-color:lavender;">
+																					<input type="text" name="fullname" value="<?php echo $fullname; ?>">
+																					</div>
+																	</div>
+
+																	<div class="row">
+																			<div class="col-sm-4" style="background-color:lavender;"><label for="dateofbirth">Date of Birth</label></div>
+																			<div class="col-sm-8" style="background-color:lavender;">
+																					<input type="date" name="dateofbirth" value="<?php echo $birthdate; ?>">
+																			</div>
+																	</div>
+																	<div class="row">
+																			<div class="col-sm-4" style="background-color:lavender;"><label for="currentlocaton">Current Location</label></div>
+																			<div class="col-sm-8" style="background-color:lavender;">
+																					<input type="text" name="currentlocation" value="<?php echo $location; ?>">
+																			</div>
+																	</div>
+																	<div class="row">
+																			<div class="col-sm-4" style="background-color:lavender;"><label for="institution">Institution</label></div>
+																			<div class="col-sm-8" style="background-color:lavender;">
+																					<input type="text" name="institution" value="<?php echo $institution; ?>">
+																			</div>
+																	</div>
+													</div>
+							</div>
+
+							<div class="container">
+											<h3>Additional Information</h3>
+													<div class="jumbotron">
+															<div class="row">
+																	<div class="col-sm-4" style="background-color:lavender;"><label for="gender">Gender</label></div>
+																	<div class="col-sm-8" style="background-color:lavender;">
+																		<select name="gender" id="">
+																				<option value="Male">Male</option>
+																				<option value="Female">Female</option>
+																		</select>
+																	</div>
+															</div>
+															<div class="row">
+																	<div class="col-sm-4" style="background-color:lavender;"><label for="facebook">Facebook Url</label></div>
+																	<div class="col-sm-8" style="background-color:lavender;">
+																			<input type="url" name="facebookurl" value="<?php echo $facebook; ?>" id="fb">
+																	</div>
+															</div>
+															<div class="row">
+																	<div class="col-sm-4" style="background-color:lavender;"><label for="facebook">LinkedIn Url</label></div>
+																	<div class="col-sm-8" style="background-color:lavender;">
+																			<input type="url" name="linkedin" value="<?php echo $linkedin; ?>" id="linkedin">
+																	</div>
+															</div>
+															<div class="row">
+																	<div class="col-sm-4" style="background-color:lavender;"><label for="facebook">GitHub Url</label></div>
+																	<div class="col-sm-8" style="background-color:lavender;">
+																			<input type="url" name="GitHub" value="<?php echo $github; ?>" id="git">
+																	</div>
+															</div>
+															<div class="row">
+																	<div class="col-sm-4" style="background-color:lavender;"><label for="Bio">Bio</label></div>
+																	<div class="col-sm-8" style="background-color:lavender;">
+																			<textarea name="bio" id="" cols="30" rows="4"> <?php echo $bio; ?></textarea>
+																	</div>
+															</div>
+													</div>
+							</div>
+
+							<input type="submit" class="btn btn-success" name="update" value="Save Changes" onclick="return checkurl()">
+						</form>
+					</div>
+
+			</div>
 
 
     </div>
@@ -236,31 +236,11 @@
 </html>
 
 
-<script type="text/javascript">
-    function togglesidemenu(){
+<script>
+    
+		function togglesidemenu(){
+				//console.log(10);
         document.getElementById("sidebar").classList.toggle("active");
-    }
-		function checkurl(){
-				var fb=document.forms['setterprofile']['facebookurl'].value;
-				console.log(fb);
-				if( /(ftp|http|https):\/\/?(?:www\.)?facebook.com(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(fb) ){
-					alert("Invalid facebook link");
-					return false;
-				}
-
-				var ln=document.forms['setterprofile']['linkedin'].value;
-				console.log(ln);
-				if( /(ftp|http|https):\/\/?(?:www\.)?linkedin.com/in/(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(ln) ){
-					alert("Invalid linkedin link");
-					return false;
-				}
-
-				var git=document.forms['setterprofile']['GitHub'].value;
-				console.log(git);
-				if( /(ftp|http|https):\/\/?(?:www\.)?github.com(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/.test(git) ){
-					alert("Invalid github link");
-					return false;
-				}
-
 		}
+		
 </script>

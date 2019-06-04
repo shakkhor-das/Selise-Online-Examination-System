@@ -110,26 +110,26 @@
                         
 
                                 if(mysqli_query($con,$sql)){
-                                        $to=$email;
-                                        $subject="Email Verification";
-                                        //$message= "<a href='http://localhost/successregistration/verify.php?vk=$virtualkey&type=$t'>Click here to verify</a>";
-                                        $message=" hi $firstname $lastname,"."\n 
-
-                                        Greetings from TestMakerBd. It's our pleasure that you have registered in this site. You are highly welcome!\n
-
-                                                                Click the link below to complete your registration.\n
-
-                                                        http://localhost/projectselise1/verify.php?vk=$virtualkey&type=$t
-
+                                        $bodyContent = "Hi $firstname $lastname,<br><br>
+                                        Greetings from TestMakerBd. It's our pleasure that you have registered in this site. You are highly welcome!<br>
+                                        Click the link below to complete your registration.<br>
+                                        <a href='testmakerbd.selisestaging.com/verify.php?vk=$virtualkey&type=$t'>Click to verify.</a>
+                                        <br><br>
+                                        Thank You
+                                        <br>
+                                        Regards by Testmakerbd Team
                                         ";
-                                        $headers = "fayedbinshowkatanik@gmail.com \r\n";
-                                        $headers .= "MIME-Version: 1.0\r\n";
-                                        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-                                        mail($to,$subject,$message,$headers);
-                                        header('location:thankyou.php');
-                                }
+
+                                        $mail->Subject = 'Email Verification';
+                                        $mail->Body    = $bodyContent;
+                                        if(!$mail->send()) {
+                                                header('Location:error.php');
+                                        }
+
+                                        header('Location:thankyou.php');
+                                        }
                                 else{
-                                        echo "failed";
+                                        header('Location:error.php');
                                 }
                         }
                 }
