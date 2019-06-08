@@ -91,19 +91,19 @@
 			<nav id="sidebar">
 				<ul class="list-unstyled components">
 						<li class="active">
-							<a href="profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
+							<a href="user_profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
 						</li>
 
 						<li class="active">
-							<a href="setter_myblogs.php" aria-exapnded="false" >My Blogs</a>
+							<a href="usermyblogs.php" aria-exapnded="false" >My Blogs</a>
 						</li>
 
 						<li class="active">
-							<a href="write_a_blog.php" aria-exapnded="false" >Write a blog</a>
+							<a href="user_write_a_blog.php" aria-exapnded="false" >Write a blog</a>
 						</li>
 
 						<li class="active">
-							<a href="settings.php" aria-exapnded="false" >Settings</a>
+							<a href="user_settings.php" aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
 			</nav>
