@@ -58,7 +58,7 @@
 						?>
                     </li>
                     <li class="nav-item">
-                        <a href="userprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
+                        <a href="userProfile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
                         <a href="userHome.php" class="nav-link m-2 menu-item nav-active">Home</a>
