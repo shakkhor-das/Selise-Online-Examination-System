@@ -70,9 +70,9 @@
                         <i class="fas fa-caret-down"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdown_target">
-                            <a class="dropdown-item" href="usertestfundatmentals.php">Create Test</a>
+                            <a class="dropdown-item" href="usertestfundatmentals.php">Take a test</a>
                             <a class="dropdown-item" href="#">My Previous Test</a>
-                            <a class="dropdown-item" href="userregisteredtest.php">My upcoming Test</a>
+                            <a class="dropdown-item" href="userregisteredtest.php">My Registered Test</a>
                         </div>
                     </li>
                     <li class="nav-item">
