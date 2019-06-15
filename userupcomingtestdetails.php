@@ -18,7 +18,7 @@
     $ans2=mysqli_fetch_assoc($q2);
     $tbl_name=$ans2["test_name"];
     $testerid=$ans2["setter_id"];
-    $sql3="SELECT * FROM `opai_setter_details` WHERE setter_id='$testerid'";
+    $sql3="SELECT * FROM `opai_setter` WHERE setterid='$testerid'";
     $q3=mysqli_query($con,$sql3);
     $res3=mysqli_fetch_assoc($q3);
 //echo $_SESSION["username"];
@@ -131,7 +131,7 @@
                                 </tr>
                                 <tr>
                                 <th scope="row">Test setter</th>
-                                <td><h5><?php echo $res3["setter_full_name"];?></h5></td>
+                                <td><h5><?php echo $res3["setterUsername"];?></h5></td>
                                 </tr>
                                 <th scope="row">Subject</th>
                                 <td><h5><?php echo $ans2["subject"];?></h5></td>
