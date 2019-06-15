@@ -18,7 +18,7 @@
         $q2=mysqli_query($con,$sql2);
         $res2=mysqli_fetch_assoc($q2);
         $id3 = $res2["setter_id"];
-        $sql3="SELECT * FROM `opai_setter_details` WHERE `setter_id`='$id3'";
+        $sql3="SELECT * FROM `opai_setter` WHERE `setterid`='$id3'";
         $q3=mysqli_query($con,$sql3);
         $res3=mysqli_fetch_assoc($q3);
         $tablename = $res2["test_name"];
@@ -139,7 +139,7 @@
                                 </tr>
                                 <tr>
                                     <td>Setter</td>
-                                    <td><h5><?php echo $res3["setter_full_name"]; ?></h5></td>   
+                                    <td><h5><?php echo $res3["setterUsername"]; ?></h5></td>   
                                 </tr>
                                 <tr>
                                     <td>Subject</td>
