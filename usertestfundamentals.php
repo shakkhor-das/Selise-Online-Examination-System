@@ -60,19 +60,19 @@
 						?>
                     </li>
                     <li class="nav-item">
-                        <a href="setterprofile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
+                        <a href="userProfile.php" class="nav-link m-2 menu-item"><?php echo $_SESSION["username"]; ?></a>
                     </li>
                     <li class="nav-item">
-                        <a href="guesthome.php" class="nav-link m-2 menu-item nav-active">Home</a>
+                        <a href="userHome.php" class="nav-link m-2 menu-item nav-active">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link m-2 menu-item nav-active dropdown-toogle" data-toggle="dropdown" data-target="dropdown_target">Test
                         <i class="fas fa-caret-down"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdown_target">
-                            <a class="dropdown-item" href="settertestfundamentals.php">Create Test</a>
+                            <a class="dropdown-item" href="usertestfundatmentals.php">Create Test</a>
                             <a class="dropdown-item" href="#">My Previous Test</a>
-                            <a class="dropdown-item" href="setterupcoming.php">My upcoming Test</a>
+                            <a class="dropdown-item" href="userregisteredtest.php">My upcoming Test</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -90,19 +90,19 @@
 			<nav id="sidebar">
 				<ul class="list-unstyled components">
 						<li class="active">
-							<a href="profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
+							<a href="user_profile_edit.php"  aria-exapnded="false" >Edit Profile</a>
 						</li>
 
 						<li class="active">
-							<a href="#" data-toggle="collapse" aria-exapnded="false" >My Blogs</a>
+							<a href="usermyblog" data-toggle="collapse" aria-exapnded="false" >My Blogs</a>
 						</li>
 
 						<li class="active">
-							<a href="#" data-toggle="collapse" aria-exapnded="false" >Write a blog</a>
+							<a href="user_write_a_blog" data-toggle="collapse" aria-exapnded="false" >Write a blog</a>
 						</li>
 
 						<li class="active">
-							<a href="settings.php" aria-exapnded="false" >Settings</a>
+							<a href="user_settings.php" aria-exapnded="false" >Settings</a>
 						</li>
 				</ul>
 			</nav>
