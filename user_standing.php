@@ -21,7 +21,7 @@
         $testansname = "rg".$testname;
         $sql3="SELECT * FROM `$testansname` ORDER BY achieved_point DESC";
         $q3=mysqli_query($con,$sql3);
-        $sql4="SELECT * FROM $testansname";
+        $sql4="SELECT * FROM `opai_user_registered` WHERE testid='$id'";
         $q4=mysqli_query($con,$sql4);
         $total = mysqli_num_rows($q4);
         $setterid = $res2["setter_id"];
