@@ -16,8 +16,8 @@
         $sql1="INSERT INTO `$testname` (`username`) VALUES('$username')";
         $q1=mysqli_query($con,$sql);
         $sql2="INSERT INTO `opai_user_registeredtable` (`userid`,`testid`) VALUES ('$userid','$testid')";
-        $q2=mysqli_query($con,$sql1);
-        if($q and $q1){
+        $q2=mysqli_query($con,$sql2);
+        if($q1 and $q2){
             echo "You have been successfully Registered";
         }
         else{
