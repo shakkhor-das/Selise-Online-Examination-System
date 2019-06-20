@@ -185,4 +185,29 @@
           echo "failed";
         }
 
+        $sql= "
+
+            CREATE TABLE opai_setter_previoustest(
+              test_id  INT,
+              setter_id INT ,
+              test_name VARCHAR(50),
+              education_level VARCHAR(30),
+              education_background VARCHAR(30),
+              subject VARCHAR(50),
+              test_type VARCHAR(30),
+              test_title VARCHAR (100),
+              test_begin_time timestamp(6),
+              test_duration time(6),
+              test_visibility VARCHAR (20),
+              test_password VARCHAR(30)
+            );
+        ";
+
+        if(mysqli_query($con,$sql)){
+          echo "opai_setter_previoustest created";
+        }
+        else{
+          echo "failed";
+        }
+
 ?>

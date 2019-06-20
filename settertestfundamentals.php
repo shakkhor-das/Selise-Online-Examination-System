@@ -94,11 +94,11 @@
 						</li>
 
 						<li class="active">
-							<a href="#" data-toggle="collapse" aria-exapnded="false" >My Blogs</a>
+							<a href="setter_myblogs" data-toggle="collapse" aria-exapnded="false" >My Blogs</a>
 						</li>
 
 						<li class="active">
-							<a href="#" data-toggle="collapse" aria-exapnded="false" >Write a blog</a>
+							<a href="write_a_blog" data-toggle="collapse" aria-exapnded="false" >Write a blog</a>
 						</li>
 
 						<li class="active">

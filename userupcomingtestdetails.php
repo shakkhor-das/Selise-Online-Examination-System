@@ -341,6 +341,20 @@
             setTimeout(countdown,1000);   
         }
         else{
+            var testid="<?php echo $ans2["test_id"];?>";
+            var testname="<?php echo $ans2["test_name"];?>";
+            var username="<?php echo $res["userUsername"];?>";
+            var userid="<?php echo $res["userid"];?>";
+            $.ajax({
+                url:"movetest.php",
+                method:"POST",
+                async:"false",
+                data:{testid:testid,testname:testname,username:username,userid:userid},
+                success:function(data){
+                    
+                }
+
+            });
             $("#mybtn1").hide();
         }
     }

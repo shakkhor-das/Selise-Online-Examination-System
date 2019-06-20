@@ -402,6 +402,27 @@
             document.getElementById("hour").textContent="00:";
             document.getElementById("minute").textContent="00:";
             document.getElementById("second").textContent="00";
+
+            var testid="<?php echo $ans2["test_id"];?>";
+            var testname="<?php echo $ans2["test_name"];?>";
+            var username="<?php echo $username;?>";
+            var userid="<?php echo $id;?>";
+
+            console.log(testid);
+            console.log(testname);
+            console.log(username);
+            console.log(userid);
+
+            $.ajax({
+                url:"movetest.php",
+                method:"POST",
+                async:"false",
+                data:{testid:testid,testname:testname,username:username,userid:userid},
+                success:function(data){
+                    //alert("Success");
+                }
+
+            });
         }
     }
 
