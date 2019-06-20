@@ -21,6 +21,9 @@
     $sql3="SELECT * FROM `opai_setter` WHERE setterid='$testerid'";
     $q3=mysqli_query($con,$sql3);
     $res3=mysqli_fetch_assoc($q3);
+    $sql4="SELECT * FROM `opai_user_registeredtable` WHERE testid='$testid'";
+    $q4=mysqli_query($con,$sql4);
+    $res4=mysqli_num_rows($q4);
 //echo $_SESSION["username"];
 
 ?>
@@ -152,12 +155,18 @@
                                 <th scope="row">Visibility</th>
                                 <td><h5><?php echo $ans2["test_visibility"];?></h5></td>
                                 </tr>
+                                <th scope="row">Total Registered</th>
+                                <td><h5 style="color:red;font-weight:bold"><?php echo $res4;?></h5></td>
+                                </tr>
                             </tbody>
                     </table>
                     </div>
                 </div>
                 
                 <div class="col-sm-4" id="col2">
+                        <div>
+                            <h1>Before Test</h1>
+                        </div>
                         <div class="clock">
                         <table id="clockcontainer">
                             <tr>
@@ -167,13 +176,14 @@
                                 <td id="second" style="font-size:70px">00</td>
                             </tr>
                             <tr>
-                                <td style="font-size:20px">Days</td>
-                                <td style="font-size:20px">Hours</td>
-                                <td style="font-size:20px">Minutes</td>
-                                <td style="font-size:20px">Seconds</td>
+                                <td style="font-size:18px">Days</td>
+                                <td style="font-size:18px">Hours</td>
+                                <td style="font-size:18px">Minutes</td>
+                                <td style="font-size:18px">Seconds</td>
                             </tr>
                         </table>
                         </div>
+
                         <button class="btn btn-success" id="mybtn1" style="margin-top:150px;margin-left:50px">Register</i></button>
                         <button class="btn btn-success" id="mybtn2" style="margin-top:150px;margin-left:50px" style=""><i class="fas fa-lock"> Registered</i></button>
                 </div>
@@ -317,7 +327,7 @@
         h %= 24;
         m %= 60;
         s %= 60;
-
+        d= d < 10 ? "0"+d : d;
         h= h < 10 ? "0"+h : h;
         m= m < 10 ? "0"+m : m;
         s= s < 10 ? "0"+s : s;

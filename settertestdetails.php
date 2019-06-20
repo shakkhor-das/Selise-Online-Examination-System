@@ -17,6 +17,9 @@
         $sql2="SELECT * FROM `opai_setter_global` WHERE setter_id='$id' and test_id='$testid'";
         $res2=mysqli_query($con,$sql2);
         $ans2=mysqli_fetch_assoc($res2);
+        $sql3="SELECT * FROM `opai_user_registeredtable` WHERE testid='$testid'";
+        $q3=mysqli_query($con,$sql3);
+        $res3=mysqli_num_rows($q3);
     }
 //echo $_SESSION["username"];
 
@@ -150,6 +153,9 @@
                                 </tr>
                                 <th scope="row">Password</th>
                                 <td><h5><?php echo $ans2["test_password"];?></h5></td>
+                                </tr>
+                                <th scope="row">Total Registered</th>
+                                <td><h5 style="color:red;font-weight:bold"><?php echo $res3;?></h5></td>
                                 </tr>
                             </tbody>
                     </table>

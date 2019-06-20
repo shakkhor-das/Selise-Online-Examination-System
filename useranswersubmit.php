@@ -14,6 +14,7 @@
         $newsql="SELECT * FROM `$testansname` WHERE userid='$id'";
         $newq=mysqli_query($con,$newsql);
         if(mysqli_num_rows($newq)>=1){
+            echo "Found";
             $message = "U have already submitted once";
             echo "<script type='text/javascript'>alert('$message');</script>";
             header('Location:userregisteredtest.php');

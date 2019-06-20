@@ -21,7 +21,7 @@
         $testansname = "rg".$testname;
         $sql3="SELECT * FROM `$testansname` ORDER BY achieved_point DESC";
         $q3=mysqli_query($con,$sql3);
-        $sql4="SELECT * FROM `opai_user_registered` WHERE testid='$id'";
+        $sql4="SELECT * FROM `opai_user_registeredtable` WHERE testid='$id'";
         $q4=mysqli_query($con,$sql4);
         $total = mysqli_num_rows($q4);
         $setterid = $res2["setter_id"];
@@ -153,7 +153,7 @@
              </tr>
              <tr style="text-align:left">
                <td style="text-align: left">Total Registered Participants :</td>
-               <td style="text-align: center"><?php echo $total; ?></td>
+               <td style="text-align:left;color:red;font-weight:bold"><?php echo $total; ?></td>
              </tr>
            </tbody>
          </table>
@@ -171,8 +171,12 @@
     <tbody>
       <?php
       $count = 1;
-      while($datarows = mysqli_fetch_assoc($q3)){
-        $username = $datarows["username"];
+      while($datarows = mysqli_fetch_assoc($q4)){
+        $userid = $datarows["userid"];
+        $sqlnew="SELECT * FROM `opai_user` WHERE userid='$userid'";
+        $querynew=mysqli_query($con,$sqlnew);
+        $data=mysqli_fetch_assoc($querynew);
+        $username=$data["userUsername"];
         $marks = $datarows["achieved_point"];
       ?>
       <tr style="border:1px solid black;text-align:center">
